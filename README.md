@@ -17,9 +17,7 @@
 | [react-native-echarts](https://github.com/somonus/react-native-echarts) | echarts 图表                               |
 | [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) | Icons                                    |
 | [react-native-orientation](https://github.com/yamill/react-native-orientation) | device orientation helper                |
-| [react-native-scrollable-tab-view](https://github.com/skv-headless/react-native-scrollable-tab-view) | scrollable tab view                      |
-| [react-native-permissions](https://github.com/yonahforst/react-native-permissions) | permissions  related                     |
-| [react-native-animatable](https://github.com/oblador/react-native-animatable) | animation related                        |
+| [react-native-scrollable-tab-view](https://github.com/skv-headless/react-native-scrollable-tab-view) | scrollable tab view|
 | 样式                                       |                                          |
 | [react-native-extended-stylesheet](https://github.com/vitalets/react-native-extended-stylesheet) | Extended StyleSheets for React Native    |
 | 消息推送                                     |                                          |
