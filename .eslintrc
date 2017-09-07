@@ -1,0 +1,34 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["prettier","airbnb"],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-console": 0,
+    "no-mixed-operators": 0,
+    "no-underscore-dangle": 0,
+    "no-plusplus": ["error", {
+      "allowForLoopAfterthoughts": true
+    }],
+    "no-unused-expressions": [1, {
+      "allowShortCircuit": true
+    }],
+    "semi": [1],
+    "quotes": 0,
+    "arrow-parens": 0,
+    "arrow-body-style": 0,
+    "no-use-before-define": 1,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prefer-stateless-function": 0,
+    "react/require-default-props": 0,
+    "react/prop-types": 0,
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
+    "import/no-extraneous-dependencies": 0,
+    "jsx-a11y/href-no-hash": 0
+  },
+  "globals": {
+    "fetch": true,
+    "__DEV__": true,
+    "alert": true,
+  }
+}
