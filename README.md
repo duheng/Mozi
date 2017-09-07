@@ -28,3 +28,6 @@ yarn # npm run ios(android)
 ### 消息推送
     1. jpush-react-native: 极光推送官方支持的 React Native 插件（Android & iOS）
     2. react-native-code-push: 微软的热更新开源库
+
+### 编程规范
+    编程规范我们使用的是airbnb，但是这还不够，我希望大部分的代码格式类的工作都能自动化帮我做，开发人员只需要注重业务代码就好。为此我们用prettier+eslint+sublimelinter+airbnb，在保存代码的时候就对我们的代码进行格式化，提交代码之前再做一次严格的airbnb校验。基本就能保证团队代码的可维护性。
