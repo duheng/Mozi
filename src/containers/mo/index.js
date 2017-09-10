@@ -1,53 +1,45 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import HomeSelector from 'selectors/home';
-import * as HomeActions from 'actions/home';
-import connect from 'store/connect';
+import { StyleSheet } from 'react-native';
+import ScrollableTabView, {
+  DefaultTabBar,
+} from 'react-native-scrollable-tab-view';
 
-@connect(HomeSelector, HomeActions)
+const activeTabColor = '#42c02e';
+const defaultTabColor = '#949494';
+
+const styles = StyleSheet.create({
+  underline: {
+    height: 3,
+    backgroundColor: '#42c02e',
+    alignItems: 'center',
+  },
+  border: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#fcfcfc',
+    backgroundColor: 'white',
+    marginBottom: -0.5,
+  },
+});
+
+import Plug from './plug';
+import Moui from './moui';
+import Rule from './rule';
+
 export default class Mo extends Component {
-  static navigationOptions = {
-      headerTitle: '墨组件'
-  }
-
-  componentWillMount() {
-    console.log('Mo componentWillMount')
-    this.props.actions.fetchLibrary();
-      this.props.navigation.setParams({ sharPage: this.sharPage });
-  }
-
-  sharPage() {
-    console.log('get share Mo dom')
-  }
-
   render() {
-    const { home } = this.props;
+    const { navigation } = this.props;
     return (
-      <View  style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Mozi!
-        </Text>
-        {home &&
-          home.map(item => {
-            return (
-              <Text key={item.data.list[0].id}>{item.data.list[0].name}</Text>
-            );
-          })}
-      </View>
+      <ScrollableTabView
+        scrollWithoutAnimation={false}
+        locked={false}
+        tabBarUnderlineStyle={styles.underline}
+        tabBarInactiveTextColor={defaultTabColor}
+        tabBarActiveTextColor={activeTabColor}
+        renderTabBar={() => <DefaultTabBar style={styles.border} />}>
+        <Plug tabLabel={'墨依赖'} navigation={navigation} />
+        <Moui tabLabel={'墨组件'} navigation={navigation} />
+        <Rule tabLabel={'墨规范'} navigation={navigation} />
+      </ScrollableTabView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-});

@@ -1,31 +1,18 @@
 import { StackNavigator, TabNavigator } from 'react-navigation';
-import * as modules from 'containers/index';
-import { headerOptions, TabOptions, TabNavigatorConfig } from 'config';
+import { Mo, Zi, Gong, Cheng, Web } from 'containers/index';
 
-const { Mo, Zi, Gong, Cheng } = modules;
+import {
+  headerOptions,
+  RouteConfigs,
+  TabNavigatorConfig,
+  StackNavigatorConfig,
+} from 'config';
+
 const TabBarText = {
   mo: '墨',
   zi: '子',
   gong: '攻',
   cheng: '城',
-};
-
-const combineOptions = options => {
-  const { type = 'tab', ico = null, prop } = options;
-  const { routeName } = prop.navigation.state;
-  const routeNameLow = routeName.toLowerCase();
-  const navigationOptions =
-    type === 'tab'
-      ? {
-          ...TabOptions(ico, TabBarText[routeNameLow]),
-          ...headerOptions(prop),
-          ...modules[routeName].navigationOptions,
-        }
-      : {
-          ...headerOptions(prop),
-          ...modules[routeName].navigationOptions,
-        };
-  return navigationOptions;
 };
 
 const Nav = TabNavigator(
@@ -34,10 +21,10 @@ const Nav = TabNavigator(
       screen: Mo,
       path: 'Mo',
       navigationOptions: props => {
-        return combineOptions({
-          type: 'tab',
-          ico: 'ios-home',
-          prop: props,
+        return RouteConfigs({
+          iconame: 'ios-home',
+          label: TabBarText['mo'],
+          props,
         });
       },
     },
@@ -45,10 +32,10 @@ const Nav = TabNavigator(
       screen: Zi,
       path: 'Zi',
       navigationOptions: props => {
-        return combineOptions({
-          type: 'tab',
-          ico: 'ios-planet',
-          prop: props,
+        return RouteConfigs({
+          iconame: 'ios-planet',
+          label: TabBarText['zi'],
+          props,
         });
       },
     },
@@ -56,10 +43,10 @@ const Nav = TabNavigator(
       screen: Gong,
       path: 'Gong',
       navigationOptions: props => {
-        return combineOptions({
-          type: 'tab',
-          ico: 'ios-analytics',
-          prop: props,
+        return RouteConfigs({
+          iconame: 'ios-analytics',
+          label: TabBarText['gong'],
+          props,
         });
       },
     },
@@ -67,10 +54,10 @@ const Nav = TabNavigator(
       screen: Cheng,
       path: 'Cheng',
       navigationOptions: props => {
-        return combineOptions({
-          type: 'tab',
-          ico: 'ios-contacts',
-          prop: props,
+        return RouteConfigs({
+          iconame: 'ios-contacts',
+          label: TabBarText['cheng'],
+          props,
         });
       },
     },
@@ -85,9 +72,15 @@ const AppNavigator = StackNavigator(
     Nav: {
       screen: Nav,
     },
+    Web: {
+      screen: Web,
+      navigationOptions: props => {
+        return headerOptions({ ...props, ...{ back: true } });
+      },
+    },
   },
-  {
-    headerMode: 'screen',
-  },
+  StackNavigatorConfig({
+    initialRouteName: 'Nav',
+  }),
 );
 export default AppNavigator;

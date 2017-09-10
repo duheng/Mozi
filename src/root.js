@@ -9,9 +9,7 @@ const store = configureStore();
 store.runSaga(rootSaga);
 
 export default class Root extends Component {
-	componentDidMount() {
-		console.log('root...', this.rootNav);
-	}
+	componentDidMount() {}
 
 	render() {
 		return (

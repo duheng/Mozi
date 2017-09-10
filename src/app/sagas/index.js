@@ -10,7 +10,6 @@ const makeRestartable = saga => {
       while (loop) {
         try {
           yield call(saga);
-
           const errMsg =
             'unexpected root saga termination. The root sagas are supposed to be sagas that live during the whole app lifetime!';
 
@@ -18,7 +17,6 @@ const makeRestartable = saga => {
         } catch (e) {
           console.error('Saga error, the saga will be restarted', e);
         }
-
         // Avoid infinite failures blocking app TODO use backoff retry policy...
         yield delay(1000);
       }

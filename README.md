@@ -17,6 +17,12 @@ yarn # npm run ios(android)
 
     1. react-navigation: 是官方主推的导航库，支持ios和安卓，如果你想很好的支持安卓用户最好用这个，
     [导航器性能对比](http://reactnative.cn/docs/0.43/navigation.html)
+    2. redux:   a predictable state container
+    3. react-redux:  offical react binding for redux
+    4. redux-saga:  An alternative side effect model for Redux apps
+    5. redux-logger:    日志
+
+
 
    
     

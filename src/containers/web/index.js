@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class Gong extends Component {
+export default class Web extends Component {
   static navigationOptions = {
-    headerTitle: '攻',
+    headerTitle: 'Web',
   };
+
   render() {
-    const { home } = this.props;
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to gong!</Text>
+        <Text style={styles.welcome}>这是一个webview封装页面!</Text>
       </View>
     );
   }
@@ -17,6 +17,7 @@ export default class Gong extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
