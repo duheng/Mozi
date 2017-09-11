@@ -9,17 +9,17 @@ const store = configureStore();
 store.runSaga(rootSaga);
 
 export default class Root extends Component {
-	componentDidMount() {}
+  componentDidMount() {}
 
-	render() {
-		return (
-			<Provider store={store}>
-				<App
-					ref={ref => {
-						this.rootNav = ref;
-					}}
-				/>
-			</Provider>
-		);
-	}
+  render() {
+    return (
+      <Provider store={store}>
+        <App
+          ref={ref => {
+            this.rootNav = ref;
+          }}
+        />
+      </Provider>
+    );
+  }
 }

@@ -1,20 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class Web extends Component {
-  static navigationOptions = {
-    headerTitle: 'Web',
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>这是一个webview封装页面!</Text>
-      </View>
-    );
-  }
-}
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -28,3 +14,17 @@ const styles = StyleSheet.create({
     margin: 10,
   },
 });
+
+export default class Web extends Component {
+  static navigationOptions = {
+    headerTitle: 'Web',
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>这是一个webview封装页面!</Text>
+      </View>
+    );
+  }
+}

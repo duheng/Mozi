@@ -23,7 +23,7 @@ const Nav = TabNavigator(
       navigationOptions: props => {
         return RouteConfigs({
           iconame: 'ios-home',
-          label: TabBarText['mo'],
+          label: TabBarText.mo,
           props,
         });
       },
@@ -34,7 +34,7 @@ const Nav = TabNavigator(
       navigationOptions: props => {
         return RouteConfigs({
           iconame: 'ios-planet',
-          label: TabBarText['zi'],
+          label: TabBarText.zi,
           props,
         });
       },
@@ -45,7 +45,7 @@ const Nav = TabNavigator(
       navigationOptions: props => {
         return RouteConfigs({
           iconame: 'ios-analytics',
-          label: TabBarText['gong'],
+          label: TabBarText.gong,
           props,
         });
       },
@@ -56,7 +56,7 @@ const Nav = TabNavigator(
       navigationOptions: props => {
         return RouteConfigs({
           iconame: 'ios-contacts',
-          label: TabBarText['cheng'],
+          label: TabBarText.cheng,
           props,
         });
       },

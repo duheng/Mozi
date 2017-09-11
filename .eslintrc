@@ -1,12 +1,16 @@
 {
   "parser": "babel-eslint",
-  "extends": ["prettier","airbnb"],
+  "extends": "airbnb",
+  "installedESLint": true,
   "plugins": [
-    "prettier"
+      "react",
+      "jsx-a11y",
+      "import"
   ],
   "rules": {
-    "prettier/prettier": "error",
     "no-console": 0,
+    "no-tabs": "off",
+    'indent': "off",
     "no-mixed-operators": 0,
     "no-underscore-dangle": 0,
     "no-plusplus": ["error", {
@@ -20,7 +24,9 @@
     "arrow-parens": 0,
     "arrow-body-style": 0,
     "no-use-before-define": 1,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent-props": ["error", 4],
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "react/prefer-stateless-function": 0,
     "react/require-default-props": 0,
     "react/prop-types": 0,

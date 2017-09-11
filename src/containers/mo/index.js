@@ -4,6 +4,10 @@ import ScrollableTabView, {
   DefaultTabBar,
 } from 'react-native-scrollable-tab-view';
 
+import Plug from './plug';
+import Moui from './moui';
+import Rule from './rule';
+
 const activeTabColor = '#42c02e';
 const defaultTabColor = '#949494';
 
@@ -21,10 +25,6 @@ const styles = StyleSheet.create({
   },
 });
 
-import Plug from './plug';
-import Moui from './moui';
-import Rule from './rule';
-
 export default class Mo extends Component {
   render() {
     const { navigation } = this.props;
@@ -35,7 +35,8 @@ export default class Mo extends Component {
         tabBarUnderlineStyle={styles.underline}
         tabBarInactiveTextColor={defaultTabColor}
         tabBarActiveTextColor={activeTabColor}
-        renderTabBar={() => <DefaultTabBar style={styles.border} />}>
+        renderTabBar={() => <DefaultTabBar style={styles.border} />}
+      >
         <Plug tabLabel={'墨依赖'} navigation={navigation} />
         <Moui tabLabel={'墨组件'} navigation={navigation} />
         <Rule tabLabel={'墨规范'} navigation={navigation} />

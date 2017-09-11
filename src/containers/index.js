@@ -5,9 +5,9 @@ import Cheng from 'containers/cheng';
 import Web from 'containers/web';
 
 module.exports = {
-	Mo,
-	Zi,
-	Gong,
-	Cheng,
-	Web,
+  Mo,
+  Zi,
+  Gong,
+  Cheng,
+  Web,
 };

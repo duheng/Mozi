@@ -11,18 +11,17 @@ const headerOptions = props => {
   const {
     navigation,
     navigationOptions,
-    screenProps,
     visible = true,
     back = false,
     right = false,
-    setTitle = false,
   } = props;
   const { state, goBack } = navigation;
   const headerLeft = back ? (
     <TouchableOpacity
       onPress={() => {
         goBack(null);
-      }}>
+      }}
+    >
       <Icon name="ios-arrow-back" size={30} color="white" />
     </TouchableOpacity>
   ) : (
@@ -33,15 +32,16 @@ const headerOptions = props => {
     <TouchableOpacity
       onPress={() => {
         state.params.sharPage && state.params.sharPage();
-      }}>
+      }}
+    >
       <Icon name="md-share-alt" size={30} color="white" />
     </TouchableOpacity>
   ) : (
     <View />
   );
 
-  let header = visible === false ? null : undefined;
-  let headerTitle = '墨子攻城';
+  const header = visible === false ? null : undefined;
+  const headerTitle = '墨子攻城';
 
   return {
     headerTitle,
@@ -68,20 +68,20 @@ const RouteConfigs = options => {
 
 const TabNavigatorConfig = options => {
   const {
-    initialRouteName = '',
-    tabBarPosition = 'bottom',
-    swipeEnabled = false,
-    scrollEnabled = false,
-    animationEnabled = false,
-    showIcon = true,
+    initialRouteName: InitialRouteName = '',
+    tabBarPosition: TabBarPosition = 'bottom',
+    swipeEnabled: SwipeEnabled = false,
+    scrollEnabled: ScrollEnabled = false,
+    animationEnabled: AnimationEnabled = false,
+    showIcon: ShowIcon = true,
   } = options;
 
   return {
-    initialRouteName: initialRouteName,
-    tabBarPosition: tabBarPosition,
-    swipeEnabled: swipeEnabled,
-    scrollEnabled: scrollEnabled,
-    animationEnabled: animationEnabled,
+    initialRouteName: InitialRouteName,
+    tabBarPosition: TabBarPosition,
+    swipeEnabled: SwipeEnabled,
+    scrollEnabled: ScrollEnabled,
+    animationEnabled: AnimationEnabled,
     backBehavior: 'none',
     lazy: true,
     tabBarOptions: {
@@ -106,22 +106,23 @@ const TabNavigatorConfig = options => {
       inactiveTintColor: defaultTabColor,
       activeTintColor: activeTabColor,
       showLabel: true,
-      showIcon: showIcon,
+      showIcon: ShowIcon,
       upperCaseLabel: false,
     },
   };
 };
 const StackNavigatorConfig = options => {
-  const { initialRouteName = '' } = options;
+  const { initialRouteName: InitialRouteName = '' } = options;
   return {
-    initialRouteName: initialRouteName,
+    initialRouteName: InitialRouteName,
     navigationOptions: {
+      // 路由页面的配置选项，它会被 RouteConfigs 参数中的 navigationOptions 的对应属性覆盖。
       headerTitleStyle: { fontSize: 18, color: '#9c9c9c' },
       headerStyle: { height: 64, backgroundColor: '#262a37' },
-    }, //路由页面的配置选项，它会被 RouteConfigs 参数中的 navigationOptions 的对应属性覆盖。
-    mode: 'card', //页面跳转方式 card - 原生系统默认的的跳转;modal - 只针对iOS平台，模态跳转
-    headerMode: 'screen', //float - 渐变，类似iOS的原生效果;screen - 标题与屏幕一起淡入淡出;none - 没有动画
-    cardStyle: { backgroundColor: '#F5FCFF' }, //为各个页面设置统一的样式，比如背景色，字体大小等
+    },
+    mode: 'card', // 页面跳转方式 card - 原生系统默认的的跳转;modal - 只针对iOS平台，模态跳转
+    headerMode: 'screen', // float - 渐变，类似iOS的原生效果;screen - 标题与屏幕一起淡入淡出;none - 没有动画
+    cardStyle: { backgroundColor: '#F5FCFF' }, // 为各个页面设置统一的样式，比如背景色，字体大小等
     transitionConfig: () => ({
       // 配置页面跳转的动画，覆盖默认的动画效果
       screenInterpolator: CardStackStyleInterpolator.forHorizontal,
