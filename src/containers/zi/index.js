@@ -1,68 +1,100 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, SectionList } from 'react-native';
+import React, { PureComponent } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  RefreshControl,
+  SectionList,
+} from 'react-native';
+import SectionItem from './SectionItem';
 import HomeSelector from 'selectors/home';
 import * as HomeActions from 'actions/home';
 import connect from 'store/connect';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    paddingLeft: 10,
+    overflow: 'hidden',
+    backgroundColor: '#FFFFFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  sectionHead: {
+    height: 30,
+    paddingTop: 6,
+    paddingLeft: 10,
+    backgroundColor: '#F7F7F7',
+    shadowColor: '#666666',
+    shadowOffset: { height: 2, width: 0 },
+    shadowRadius: 3,
+    shadowOpacity: 0.3,
+  },
+  sectionHeadText: {
+    fontSize: 12,
+    color: '#666666',
   },
 });
-const dataSource = [
-  {
-    data: [{ name: 'nader' }, { name: 'chris' }],
-    key: 'A',
-  },
-  { data: [{ name: 'nick' }, { name: 'amanda' }], key: 'B' },
-];
 
 @connect(HomeSelector, HomeActions)
-export default class Zi extends Component {
+export default class Zi extends PureComponent {
   static navigationOptions = {
-    headerTitle: '子',
+    headerTitle: 'SectionList Demo',
   };
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      isRefreshing: false,
+    };
+  }
 
   componentWillMount() {
     this.props.actions.fetchLibrary();
   }
 
+  onRefresh = () => {
+    this.setState({ isRefreshing: true });
+    this.props.actions.fetchLibrary();
+    setTimeout(() => {
+      this.setState({ isRefreshing: false });
+    }, 1500);
+  };
+
   renderItem = item => {
-    return <Text style={styles.text}>{item.item.name}</Text>;
+    return <SectionItem data={item.item} />;
   };
 
   renderHeader = headerItem => {
-    return <Text style={styles.header}>{headerItem.section.key}</Text>;
+    return (
+      <View style={styles.sectionHead}>
+        <Text style={styles.sectionHeadText}>{headerItem.section.key}</Text>
+      </View>
+    );
   };
 
   render() {
-    // const { home } = this.props;
-    console.log('zi---', this.props);
-
-    // {home &&
-    //   home.map(item => {
-    //     return (
-    //       <Text key={item.data.list[0].id}>{item.data.list[0].name}</Text>
-    //     );
-    //   })}
+    const { home } = this.props;
+    if (!home) {
+      return null;
+    }
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to zi!</Text>
-        <SectionList
-          renderItem={this.renderItem}
-          renderSectionHeader={this.renderHeader}
-          sections={dataSource}
-          keyExtractor={item => item.name}
-        />
-      </View>
+      <SectionList
+        style={styles.container}
+        initialNumToRender={5}
+        sections={home}
+        renderItem={this.renderItem}
+        renderSectionHeader={this.renderHeader}
+        keyExtractor={item => {
+          return item.id;
+        }}
+        refreshControl={
+          <RefreshControl
+            onRefresh={this.onRefresh}
+            refreshing={this.state.isRefreshing}
+            title="努力加载中..."
+            tintColor="#FF5200"
+            titleColor="#FF5200"
+            progressBackgroundColor="#FF5200"
+          />
+        }
+      />
     );
   }
 }
