@@ -32,6 +32,7 @@ export default class Mo extends Component {
       <ScrollableTabView
         scrollWithoutAnimation={false}
         locked={false}
+        initialPage={1}
         tabBarUnderlineStyle={styles.underline}
         tabBarInactiveTextColor={defaultTabColor}
         tabBarActiveTextColor={activeTabColor}

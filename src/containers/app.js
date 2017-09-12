@@ -1,5 +1,12 @@
 import { StackNavigator, TabNavigator } from 'react-navigation';
-import { Mo, Zi, Gong, Cheng, Web } from 'containers/index';
+import {
+  Mo,
+  Zi,
+  Gong,
+  Cheng,
+  Web,
+  HeaderImageScrollView,
+} from 'containers/index';
 
 import {
   headerOptions,
@@ -74,6 +81,12 @@ const AppNavigator = StackNavigator(
     },
     Web: {
       screen: Web,
+      navigationOptions: props => {
+        return headerOptions({ ...props, ...{ back: true } });
+      },
+    },
+    HeaderImageScrollView: {
+      screen: HeaderImageScrollView,
       navigationOptions: props => {
         return headerOptions({ ...props, ...{ back: true } });
       },

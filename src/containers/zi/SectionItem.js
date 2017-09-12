@@ -75,7 +75,7 @@ export default class MovieItem extends PureComponent {
     } = this.props.data;
 
     return (
-      <TouchableOpacity style={styles.item}>
+      <TouchableOpacity style={styles.item} onPress={this.props.gopage}>
         <Image source={{ uri: poster }} style={styles.image} />
         <View style={styles.right}>
           <View style={styles.rightTop}>

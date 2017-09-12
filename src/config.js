@@ -91,6 +91,8 @@ const TabNavigatorConfig = options => {
         fontSize: 12,
       },
       style: {
+        margin: 0,
+        padding: 0,
         height: 50,
         borderTopColor: '#e5e5e5',
         borderTopWidth: 0.5,

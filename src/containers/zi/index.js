@@ -48,17 +48,21 @@ export default class Zi extends PureComponent {
   componentWillMount() {
     this.props.actions.fetchLibrary();
   }
+  goPage = () => {
+    this.props.navigation.navigate('Web', { onGoBack: () => this.onRefresh() });
+  };
 
   onRefresh = () => {
     this.setState({ isRefreshing: true });
     this.props.actions.fetchLibrary();
+
     setTimeout(() => {
       this.setState({ isRefreshing: false });
-    }, 1500);
+    }, 3000);
   };
 
   renderItem = item => {
-    return <SectionItem data={item.item} />;
+    return <SectionItem data={item.item} gopage={this.goPage} />;
   };
 
   renderHeader = headerItem => {
