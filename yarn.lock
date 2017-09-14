@@ -2953,10 +2953,6 @@ klaw@^1.0.0:
   optionalDependencies:
     graceful-fs "^4.1.9"
 
-last@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/last/-/last-1.1.0.tgz#066ea42287ed9f9ab68effaa647427d591f26525"
-
 lazy-cache@^1.0.3:
   version "1.0.4"
   resolved "https://registry.npmjs.org/lazy-cache/-/lazy-cache-1.0.4.tgz#a1d78fc3a50474cb80845d3b3b6e1da49a446e8e"
@@ -4242,6 +4238,12 @@ rimraf@2, rimraf@^2.2.8, rimraf@^2.5.1, rimraf@^2.5.4, rimraf@^2.6.1:
 rimraf@~2.2.6:
   version "2.2.8"
   resolved "https://registry.npmjs.org/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
+
+rn-placeholder@^1.0.1:
+  version "1.0.1"
+  resolved "http://registry.npm.taobao.org/rn-placeholder/download/rn-placeholder-1.0.1.tgz#83271f4fedc687e512f8706bde35edf4e5908171"
+  dependencies:
+    prop-types "^15.5.10"
 
 rndm@1.2.0:
   version "1.2.0"

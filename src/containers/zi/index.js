@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,7 +6,7 @@ import {
   RefreshControl,
   SectionList,
 } from 'react-native';
-import SectionItem from './SectionItem';
+import ListItem from 'components/ListItem';
 import HomeSelector from 'selectors/home';
 import * as HomeActions from 'actions/home';
 import connect from 'store/connect';
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 });
 
 @connect(HomeSelector, HomeActions)
-export default class Zi extends PureComponent {
+export default class Zi extends Component {
   static navigationOptions = {
     headerTitle: 'SectionList Demo',
   };
@@ -62,7 +62,7 @@ export default class Zi extends PureComponent {
   };
 
   renderItem = item => {
-    return <SectionItem data={item.item} gopage={this.goPage} />;
+    return <ListItem data={item.item} gopage={this.goPage} />;
   };
 
   renderHeader = headerItem => {
