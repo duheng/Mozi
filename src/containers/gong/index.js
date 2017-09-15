@@ -30,6 +30,13 @@ export default class Gong extends Component {
     headerTitle: 'FlatList and Placeholder',
   };
 
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      done: true,
+    };
+  }
+
   componentWillMount() {
     this.props.actions.fetchLibrary();
   }
