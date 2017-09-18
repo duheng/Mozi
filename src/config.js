@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import CardStackStyleInterpolator from 'react-navigation/src/views/CardStackStyleInterpolator';
-
-import Icon from 'components/Icon';
+import NavigationButton from 'components/NavigationButton';
 
 const activeTabColor = '#42c02e';
 const defaultTabColor = '#949494';
@@ -15,27 +14,33 @@ const headerOptions = props => {
     back = false,
     right = false,
   } = props;
-  const { state, goBack } = navigation;
+  const { goBack } = navigation;
   const headerLeft = back ? (
-    <TouchableOpacity
-      onPress={() => {
+    <NavigationButton
+      name="back"
+      callback={() => {
         goBack(null);
       }}
-    >
-      <Icon name="ios-arrow-back" size={30} color="white" />
-    </TouchableOpacity>
+    />
   ) : (
     <View />
   );
 
   const headerRight = right ? (
-    <TouchableOpacity
-      onPress={() => {
-        state.params.sharPage && state.params.sharPage();
-      }}
-    >
-      <Icon name="md-share-alt" size={30} color="white" />
-    </TouchableOpacity>
+    NavigationButton([
+      {
+        name: 'share',
+        callback: () => {
+          console.log('this is my share button');
+        },
+      },
+      {
+        name: 'search',
+        callback: () => {
+          console.log('this is my search button');
+        },
+      },
+    ])
   ) : (
     <View />
   );
@@ -61,7 +66,9 @@ const RouteConfigs = options => {
       if (!iconame) return null;
       const IcoName = focused ? iconame : `${iconame}-outline`;
       const IcoColor = focused ? activeTabColor : defaultTabColor;
-      return <Icon name={IcoName} size={20} color={IcoColor} />;
+      return (
+        <NavigationButton name={IcoName} size={20} color={IcoColor} usename />
+      );
     },
   };
 };

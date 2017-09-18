@@ -82,7 +82,7 @@ const AppNavigator = StackNavigator(
     Web: {
       screen: Web,
       navigationOptions: props => {
-        return headerOptions({ ...props, ...{ back: true } });
+        return headerOptions({ ...props, ...{ back: true, right: true } });
       },
     },
     HeaderImageScrollView: {
