@@ -2,10 +2,9 @@
   "name": "Mozi",
   "version": "0.0.1",
   "private": true,
-  "license": "duheng",
   "scripts": {
     "start":
-      "yarn run precommit && node node_modules/react-native/local-cli/cli.js start",
+      "npm run precommit && node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "android": "react-native run-android",
     "ios": "react-native run-ios --simulator 'iPhone 6'",

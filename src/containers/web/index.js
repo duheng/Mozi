@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { WebView, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
+  webview: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
   },
 });
 
@@ -19,19 +11,24 @@ export default class Web extends Component {
   static navigationOptions = {
     headerTitle: 'Web',
   };
-  reLoad = () => {
-    const { navigation } = this.props;
-    navigation.state.params.onGoBack();
-    navigation.goBack();
-  };
+  // reLoad = () => {
+  //   const { navigation } = this.props;
+  //   console.log('navigation____', navigation);
+  //   navigation.state.params.onGoBack();
+  //   navigation.goBack();
+  // };
   render() {
+    const { navigation } = this.props;
+    const { url } = navigation.state.params;
+    console.log('web props___', url);
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>这是一个webview封装页面!</Text>
-        <Text style={styles.welcome} onPress={this.reLoad}>
-          点击返回刷新页面数据!
-        </Text>
-      </View>
+      <WebView
+        ref={ref => {
+          this.webview = ref;
+        }}
+        style={styles.webview}
+        source={{ uri: url }}
+      />
     );
   }
 }

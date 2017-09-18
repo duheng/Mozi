@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
-import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
+import ScrollableTabView, {
+  DefaultTabBar,
+} from 'react-native-scrollable-tab-view';
 
 import Plug from './plug';
 import Moui from './moui';
@@ -30,7 +32,7 @@ export default class Mo extends Component {
       <ScrollableTabView
         scrollWithoutAnimation={false}
         locked={false}
-        initialPage={1}
+        initialPage={0}
         tabBarUnderlineStyle={styles.underline}
         tabBarInactiveTextColor={defaultTabColor}
         tabBarActiveTextColor={activeTabColor}

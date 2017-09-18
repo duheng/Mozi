@@ -64,13 +64,11 @@ const directorStyle = (date = false) => {
 export default class MovieItem extends PureComponent {
   render() {
     const {
-      id,
       director,
       actor,
       name,
       poster,
       wantCount,
-      boxOffice,
       date = false,
     } = this.props.data;
 
