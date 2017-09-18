@@ -2,12 +2,13 @@
   "name": "Mozi",
   "version": "0.0.1",
   "private": true,
-  "license": "MIT",
+  "license": "duheng",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "android": "react-native run-android",
-    "ios": "react-native run-ios --simulator 'iPhone 6'"
+    "ios": "react-native run-ios --simulator 'iPhone 6'",
+    "precommit": "cp pre-commit .git/hooks/"
   },
   "dependencies": {
     "react": "16.0.0-alpha.12",
@@ -39,6 +40,7 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.3.0",
     "jest": "20.0.4",
+    "pre-commit": "^1.2.2",
     "react-test-renderer": "16.0.0-alpha.12"
   },
   "jest": {

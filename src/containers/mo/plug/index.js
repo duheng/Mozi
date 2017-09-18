@@ -40,4 +40,3 @@ export default class Plug extends Component {
     );
   }
 }
-

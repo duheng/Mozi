@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
@@ -13,12 +13,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
-});
+})
 
 export default class Moui extends Component {
   static navigationOptions = {
     headerTitle: '墨组件',
-  };
+  }
 
   render() {
     return (
@@ -28,6 +28,6 @@ export default class Moui extends Component {
         <Text style={styles.welcome}>Loading!</Text>
         <Text style={styles.welcome}>Tips!</Text>
       </View>
-    );
+    )
   }
 }

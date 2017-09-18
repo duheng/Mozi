@@ -14,6 +14,14 @@ yarn # npm install
 yarn # npm run ios(android)
 
 ```
+**工程化代码约束**
+  1. 如果您是项目的管理者或者团队的管理者，并且您希望团队的工程师提交上来的代码具有一个统一的标准，您需要执行一次 yarn run precommit 让它生效。
+
+  2. 我们配置的是airbnb的代码规范标准，当然您也可以加入自己的规则
+
+  3. 您可以修改跟目录下的pre-commit文件增加您的todo，比如您在提交之前还需要做自动化测试
+
+
 
 **特别注意**   目前npm5存在安装新库时会删除其他库的问题，导致项目无法正常运行。请尽量使用yarn代替npm操作；
 
@@ -28,8 +36,8 @@ yarn # npm run ios(android)
 
 
 
-   
-    
+
+
 ### 组件库
      1.  MOUI: 是一套轻量的适用于react-native的ui组件库，待开发..
      2.  react-native-vector-icons: 是可以直接使用图片名就能加载图标的第三方库,类似于web的iconfont矢量图，使用很方便, 你不需要在工程文件夹里塞各种图片, 节省很多空间

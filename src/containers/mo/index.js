@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
-import ScrollableTabView, {
-  DefaultTabBar,
-} from 'react-native-scrollable-tab-view';
+import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
 
 import Plug from './plug';
 import Moui from './moui';
