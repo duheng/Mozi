@@ -1683,13 +1683,6 @@ eslint-plugin-jsx-a11y@^5.1.1:
     emoji-regex "^6.1.0"
     jsx-ast-utils "^1.4.0"
 
-eslint-plugin-prettier@^2.2.0:
-  version "2.2.0"
-  resolved "http://registry.npm.taobao.org/eslint-plugin-prettier/download/eslint-plugin-prettier-2.2.0.tgz#f2837ad063903d73c621e7188fb3d41486434088"
-  dependencies:
-    fast-diff "^1.1.1"
-    jest-docblock "^20.0.1"
-
 eslint-plugin-react@^7.3.0:
   version "7.3.0"
   resolved "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.3.0.tgz#ca9368da36f733fbdc05718ae4e91f778f38e344"
@@ -1876,10 +1869,6 @@ fancy-log@^1.1.0:
 fast-deep-equal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-1.0.0.tgz#96256a3bc975595eb36d82e9929d060d893439ff"
-
-fast-diff@^1.1.1:
-  version "1.1.2"
-  resolved "http://registry.npm.taobao.org/fast-diff/download/fast-diff-1.1.2.tgz#4b62c42b8e03de3f848460b639079920695d0154"
 
 fast-levenshtein@~2.0.4:
   version "2.0.6"
@@ -2677,7 +2666,7 @@ jest-diff@^20.0.3:
     jest-matcher-utils "^20.0.3"
     pretty-format "^20.0.3"
 
-jest-docblock@^20.0.1, jest-docblock@^20.0.3:
+jest-docblock@^20.0.3:
   version "20.0.3"
   resolved "https://registry.npmjs.org/jest-docblock/-/jest-docblock-20.0.3.tgz#17bea984342cc33d83c50fbe1545ea0efaa44712"
 
@@ -3709,10 +3698,6 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@^1.7.0:
-  version "1.7.0"
-  resolved "http://registry.npm.taobao.org/prettier/download/prettier-1.7.0.tgz#47481588f41f7c90f63938feb202ac82554e7150"
-
 pretty-format@^20.0.3:
   version "20.0.3"
   resolved "https://registry.npmjs.org/pretty-format/-/pretty-format-20.0.3.tgz#020e350a560a1fe1a98dc3beb6ccffb386de8b14"
@@ -3854,6 +3839,10 @@ react-native-scrollable-tab-view@^0.7.4:
   dependencies:
     react-static-container "^1.0.1"
     react-timer-mixin "^0.13.3"
+
+react-native-splash-screen@^3.0.1:
+  version "3.0.1"
+  resolved "http://registry.npm.taobao.org/react-native-splash-screen/download/react-native-splash-screen-3.0.1.tgz#178b29b7d848e6ee5a41fbb9c1299eb2b5aaa600"
 
 react-native-tab-view@^0.0.65:
   version "0.0.65"
