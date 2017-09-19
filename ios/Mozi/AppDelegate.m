@@ -11,6 +11,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import "SplashScreen.h"  // 1. 导入启动屏包
 
 @implementation AppDelegate
 
@@ -31,6 +32,7 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  [SplashScreen show];  // 2. 显示启动屏幕
   return YES;
 }
 
