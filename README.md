@@ -11,13 +11,12 @@
 **项目演示**
 ------
 <p align="center">
-<img height="400" src="http://upload-images.jianshu.io/upload_images/7004772-b1e7fc39d9a25bea.gif?imageMogr2/auto-orient/strip" />
-<img height="400" src="http://owk8z0e2s.bkt.clouddn.com/slslist.gif" />
+<img height="400" src="https://github.com/duheng/Mozi/blob/master/splash.gif" />
+<img height="400" src="https://github.com/duheng/Mozi/blob/master/SectionList.gif" />
 
 </p>
 <p align="center">
-<img height="400" src="http://owk8z0e2s.bkt.clouddn.com/HeaderImageScrollView.gif" />
-
+<img height="400" src="https://github.com/duheng/Mozi/blob/master/HeaderImageScrollView.gif" />
 
 </p>
 ------
