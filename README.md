@@ -32,6 +32,39 @@
 
 ------
 
+**项目结构**
+
+```
+├── README.md                   // help
+├── src                         // Ract Native
+│   ├── app
+│   ├── commons                 // 共享基础模块
+│   ├── components              // Ract Native 通用组件
+│   ├── containers
+│   │    ├── page               // 具体业务模块
+│   │    ├── app.js             // 导航注册
+│   │    └── index.js           // page模块聚合页
+│   ├── config.js               // 导航通用配置
+│   └── root.js                 // Ract Native 入口页
+│
+├── index.ios.js                // ios入口文件
+├── ios                         // ios原生部分
+├── index.android.js            // android入口文件
+├── android                     // android原生部分
+├── node_modules                // 项目依赖包
+├── __test__                    // 自动化测试
+├── package.json                // 项目配置信息
+├── pre-commit                  // 提交代码时按照.eslint的配置进行校验
+├── .editorconfig               // 统一不同编辑器配置
+├── .babelrc                    // 设置转码的规则和插件
+├── .eslintrc                   // 代码校验规则配置
+└── yarn.lock                   // 依赖的版本信息管理
+```
+
+
+
+
+
 
 **项目初始化**
 
