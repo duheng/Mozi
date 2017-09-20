@@ -7,6 +7,7 @@
 知乎：https://www.zhihu.com/people/duheng2011/activities
 
 简书：http://www.jianshu.com/u/c971c7ffa27e
+
 **项目演示**
 ------
 <p align="center">
@@ -20,7 +21,10 @@
 
 </p>
 ------
+
 **项目初始化**
+
+
 ```
 git clone https://github.com/duheng/Mozi.git
 
