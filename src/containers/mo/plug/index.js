@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
 const apiurls = {
   mozi: 'https://github.com/duheng/Mozi',
   icons: 'https://zhuanlan.zhihu.com/p/29447462',
+  splash: 'https://zhuanlan.zhihu.com/p/29495955',
 };
 
 export default class Plug extends Component {
@@ -38,7 +39,7 @@ export default class Plug extends Component {
         <Text
           style={styles.welcome}
           onPress={() => {
-            this.goWeb();
+            this.goWeb(apiurls.splash);
           }}
         >
           启动屏!

@@ -35,7 +35,7 @@ const headerOptions = props => {
         },
       },
       {
-        name: 'search',
+        name: 'reload',
         callback: () => {
           console.log('this is my search button');
         },
