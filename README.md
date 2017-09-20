@@ -9,17 +9,20 @@
 简书：http://www.jianshu.com/u/c971c7ffa27e
 
 **项目演示**
+
+
 ------
 <p align="center">
-<img height="400" src="https://github.com/duheng/Mozi/blob/master/splash.gif" />
-<img height="400" src="https://github.com/duheng/Mozi/blob/master/SectionList.gif" />
+<img height="270" src="https://github.com/duheng/Mozi/blob/master/splash.gif" />
+<img height="270" src="https://github.com/duheng/Mozi/blob/master/SectionList.gif" />
 
 </p>
 <p align="center">
-<img height="400" src="https://github.com/duheng/Mozi/blob/master/HeaderImageScrollView.gif" />
+<img height="270" src="https://github.com/duheng/Mozi/blob/master/HeaderImageScrollView.gif" />
 
 </p>
 ------
+
 
 **项目初始化**
 
