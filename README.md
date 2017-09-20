@@ -56,7 +56,7 @@
 ├── package.json                // 项目配置信息
 ├── pre-commit                  // 提交代码时按照.eslint的配置进行校验
 ├── .editorconfig               // 统一不同编辑器配置
-├── .babelrc                    // 设置转码的规则和插件
+├── .babelrc                    // 设置转码的规则,插件,文件地址映射
 ├── .eslintrc                   // 代码校验规则配置
 └── yarn.lock                   // 依赖的版本信息管理
 ```
