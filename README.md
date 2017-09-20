@@ -37,7 +37,13 @@
 ```
 ├── README.md                   // help
 ├── src                         // Ract Native
-│   ├── app
+│   ├── app                     // redux部分
+│   │    ├── actions            // creat action
+│   │    ├── constants          // constants
+│   │    ├── reducers           // reducer
+│   │    ├── sagas              // redux saga
+│   │    ├── selectors          // 过滤以及准备view层需要的数据
+│   │    └── store              // store
 │   ├── commons                 // 共享基础模块
 │   ├── components              // Ract Native 通用组件
 │   ├── containers
