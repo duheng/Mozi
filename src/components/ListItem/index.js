@@ -1,57 +1,6 @@
 import React, { PureComponent } from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
-
-const styles = StyleSheet.create({
-  item: {
-    flexDirection: 'row',
-    borderBottomColor: '#e5e5e5',
-    borderBottomWidth: 0.5,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingRight: 10,
-    alignItems: 'center',
-  },
-  image: {
-    width: 66,
-    height: 93,
-  },
-  right: {
-    flex: 1,
-    marginLeft: 10,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-  },
-  rightTop: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  rightInfo: {
-    marginTop: 10,
-  },
-  colorGray: {
-    color: '#666',
-    width: '60%',
-    fontSize: 12,
-  },
-  fontSize15: {
-    fontSize: 15,
-  },
-  fontSize13: {
-    fontSize: 13,
-  },
-  fontSize11: {
-    fontSize: 11,
-  },
-  red: {
-    color: '#FF5200',
-  },
-  black: {
-    color: '#333',
-  },
-  width50: {
-    width: '50%',
-  },
-});
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+import styles from './style';
 
 const directorStyle = (date = false) => {
   const style = [styles.colorGray];
