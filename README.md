@@ -1,8 +1,25 @@
 # Mozi
 此项目致力于构建一套最基础，最精简，可维护的react-native项目，会提供群里关注度高的问题的解决方案以及demo，此项目虽然还不够完善，但是以此为基础足可以搭建一个大型项目：
 
-有问题或者需求欢迎进群探讨 群号:397885169
 
+群号:397885169（有问题或者需求欢迎进群探讨 ）
+
+知乎：https://www.zhihu.com/people/duheng2011/activities
+
+简书：http://www.jianshu.com/u/c971c7ffa27e
+**项目演示**
+------
+<p align="center">
+<img height="400" src="http://upload-images.jianshu.io/upload_images/7004772-b1e7fc39d9a25bea.gif?imageMogr2/auto-orient/strip" />
+<img height="400" src="http://owk8z0e2s.bkt.clouddn.com/slslist.gif" />
+
+</p>
+<p align="center">
+<img height="400" src="http://owk8z0e2s.bkt.clouddn.com/HeaderImageScrollView.gif" />
+
+
+</p>
+------
 **项目初始化**
 ```
 git clone https://github.com/duheng/Mozi.git
