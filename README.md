@@ -17,9 +17,9 @@
 
 <p align="center">
 
-<img height="350" src="https://github.com/duheng/Mozi/blob/master/splash.gif" />
-<img height="350" src="https://github.com/duheng/Mozi/blob/master/SectionList.gif" />
-<img height="350" src="https://github.com/duheng/Mozi/blob/master/HeaderImageScrollView.gif" />
+<img height="470" src="https://github.com/duheng/Mozi/blob/master/splash.gif" />
+<img height="470" src="https://github.com/duheng/Mozi/blob/master/SectionList.gif" />
+<img height="470" src="https://github.com/duheng/Mozi/blob/master/HeaderImageScrollView.gif" />
 
 </p>
 
