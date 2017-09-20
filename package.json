@@ -1,6 +1,6 @@
 {
   "name": "Mozi",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "npm run precommit && node node_modules/react-native/local-cli/cli.js start",
