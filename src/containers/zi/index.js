@@ -1,9 +1,15 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text, View, RefreshControl, SectionList } from 'react-native'
-import ListItem from 'components/ListItem'
-import HomeSelector from 'selectors/home'
-import * as HomeActions from 'actions/home'
-import connect from 'store/connect'
+import React, { Component } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  RefreshControl,
+  SectionList,
+} from 'react-native';
+import ListItem from 'components/ListItem';
+import HomeSelector from 'selectors/home';
+import * as HomeActions from 'actions/home';
+import connect from 'store/connect';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,63 +31,65 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#666666',
   },
-})
+});
 
 @connect(HomeSelector, HomeActions)
 export default class Zi extends Component {
   static navigationOptions = {
     headerTitle: 'SectionList Demo',
-  }
+  };
   constructor(...args) {
-    super(...args)
+    super(...args);
     this.state = {
       isRefreshing: false,
-    }
+    };
   }
 
   componentWillMount() {
-    this.props.actions.fetchLibrary()
+    this.props.actions.fetchLibrary();
   }
 
   onRefresh = () => {
-    this.setState({ isRefreshing: true })
-    this.props.actions.fetchLibrary()
+    this.setState({ isRefreshing: true });
+    this.props.actions.fetchLibrary();
 
     setTimeout(() => {
-      this.setState({ isRefreshing: false })
-    }, 3000)
-  }
+      this.setState({ isRefreshing: false });
+    }, 3000);
+  };
 
   goPage = () => {
-    this.props.navigation.navigate('Web', { onGoBack: () => this.onRefresh() })
-  }
+    this.props.navigation.navigate('Web', { onGoBack: () => this.onRefresh() });
+  };
 
   renderItem = item => {
-    return <ListItem data={item.item} gopage={this.goPage} />
-  }
+    return <ListItem data={item.item} gopage={this.goPage} />;
+  };
 
   renderHeader = headerItem => {
     return (
       <View style={styles.sectionHead}>
         <Text style={styles.sectionHeadText}>{headerItem.section.key}</Text>
       </View>
-    )
-  }
+    );
+  };
 
   render() {
-    const { home } = this.props
+    const { home } = this.props;
     if (!home) {
-      return null
+      return null;
     }
     return (
       <SectionList
         style={styles.container}
+        ListEmptyComponent
+        stickySectionHeadersEnabled // 安卓粘性头部需要开启这个，ios默认开启
         initialNumToRender={5}
         sections={home}
         renderItem={this.renderItem}
         renderSectionHeader={this.renderHeader}
         keyExtractor={item => {
-          return item.id
+          return item.id;
         }}
         refreshControl={
           <RefreshControl
@@ -94,6 +102,6 @@ export default class Zi extends Component {
           />
         }
       />
-    )
+    );
   }
 }

@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
 
 export default class HeaderImageScrollViews extends Component {
   static navigationOptions = {
-    headerBackTitle: <View />,
     headerTintColor: 'white',
     headerStyle: {
       position: 'absolute',
