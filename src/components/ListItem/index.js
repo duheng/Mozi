@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import styles from './style';
+import styles from './item.style';
 
 const directorStyle = (date = false) => {
   const style = [styles.colorGray];

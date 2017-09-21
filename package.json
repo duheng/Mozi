@@ -23,7 +23,8 @@
     "redux-actions": "^2.2.1",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.15.6",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "rn-placeholder": "^1.0.1"
   },
   "devDependencies": {
     "babel": "^6.23.0",
