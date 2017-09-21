@@ -22,7 +22,7 @@
   editorconfig
 ```
 
-#### 已经完善文档
+#### 已经完善文档 & 已完善效果
 
   一：
   [添加启动屏API](http://www.jianshu.com/p/4540ac17dfd4)
@@ -30,8 +30,11 @@
   二：
   [添加icons](http://www.jianshu.com/p/4540ac17dfd4)
 
+  三：SectionList Demo
 
+  四：FlatList Demo
 
+  五：react-navigation自定义可缩放头部
 
 群号:397885169（有问题或者需求欢迎进群探讨 ）
 
