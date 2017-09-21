@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Placeholder from 'rn-placeholder';
+import CustomPlaceholder from './CustomPlaceholder';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,6 +20,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
 });
+
 export default class Cheng extends Component {
   static navigationOptions = {
     headerTitle: '城',
@@ -47,7 +49,7 @@ export default class Cheng extends Component {
             lastLineWidth="70%"
             onReady={this.state.isReady}
           >
-            <Text>Placeholder has finished :D</Text>
+            <Text>左边图右内容布局</Text>
           </Placeholder.ImageContent>
         </View>
         <View style={styles.box}>
@@ -59,7 +61,7 @@ export default class Cheng extends Component {
             lastLineWidth="30%"
             onReady={this.state.isReady}
           >
-            <Text>Placeholder has finished :D</Text>
+            <Text>一行直线的布局</Text>
           </Placeholder.Line>
         </View>
         <View style={styles.box}>
@@ -71,7 +73,7 @@ export default class Cheng extends Component {
             lastLineWidth="30%"
             onReady={this.state.isReady}
           >
-            <Text>Placeholder has finished :D</Text>
+            <Text>只有图片的布局</Text>
           </Placeholder.Media>
         </View>
         <View style={styles.box}>
@@ -83,9 +85,10 @@ export default class Cheng extends Component {
             lastLineWidth="30%"
             onReady={this.state.isReady}
           >
-            <Text>Placeholder has finished :D</Text>
+            <Text>段落布局</Text>
           </Placeholder.Paragraph>
         </View>
+        <CustomPlaceholder animate="fade" bgColor="blue" />
       </View>
     );
   }
