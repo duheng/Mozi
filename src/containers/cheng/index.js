@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   box: {
-    width: 300,
+    width: '90%',
     margin: 10,
   },
 });
@@ -27,20 +27,22 @@ export default class Cheng extends Component {
   };
   constructor(...args) {
     super(...args);
-    console.log('Placeholder....', Placeholder);
+
     this.state = {
       isReady: false,
     };
-    // setTimeout(() => {
-    //   this.setState({
-    //     isReady: true,
-    //   });
-    // }, 8000);
+
+    setTimeout(() => {
+      this.setState({
+        isReady: true,
+      });
+    }, 5000);
   }
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.box}>
+          <Text style={styles.box}>左边图右内容布局</Text>
           <Placeholder.ImageContent
             size={60}
             animate="fade"
@@ -53,6 +55,7 @@ export default class Cheng extends Component {
           </Placeholder.ImageContent>
         </View>
         <View style={styles.box}>
+          <Text style={styles.box}>一行直线的布局</Text>
           <Placeholder.Line
             size={60}
             animate="fade"
@@ -65,6 +68,7 @@ export default class Cheng extends Component {
           </Placeholder.Line>
         </View>
         <View style={styles.box}>
+          <Text style={styles.box}>只有图片的布局</Text>
           <Placeholder.Media
             size={60}
             animate="fade"
@@ -77,6 +81,7 @@ export default class Cheng extends Component {
           </Placeholder.Media>
         </View>
         <View style={styles.box}>
+          <Text style={styles.box}>段落布局</Text>
           <Placeholder.Paragraph
             size={60}
             animate="fade"
@@ -88,7 +93,10 @@ export default class Cheng extends Component {
             <Text>段落布局</Text>
           </Placeholder.Paragraph>
         </View>
-        <CustomPlaceholder animate="fade" bgColor="blue" />
+        <View style={styles.box}>
+          <Text style={styles.box}>这是自定义demo</Text>
+          <CustomPlaceholder animate="fade" bgColor="yellow" />
+        </View>
       </View>
     );
   }

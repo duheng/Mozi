@@ -4,7 +4,33 @@
 [![Codecov branch](https://img.shields.io/codecov/c/github/codecov/example-python/master.svg)](https://github.com/duheng/Mozi)
 
 
-此项目致力于构建一套最基础，最精简，可维护的react-native项目，会提供群里关注度高的问题的解决方案以及demo，此项目虽然还不够完善，但是以此为基础足可以搭建一个大型项目：
+此项目致力于构建一套可最基础，最精简，可维护的react-native项目，会提供群里关注度高的问题的解决方案以及demo，此项目虽然还不够完善，但是以此为基础足可以搭建一个大型项目：
+
+#### 涉及主要技术
+```
+1.项目主架构:
+
+  react-native,
+  react-navigation,
+  redux,
+  redux-saga,
+
+2.自动化工程部分
+
+  eslint,
+  prettier,
+  editorconfig
+```
+
+#### 已经完善文档
+
+  一：
+  [添加启动屏API](http://www.jianshu.com/p/4540ac17dfd4)
+
+  二：
+  [添加icons](http://www.jianshu.com/p/4540ac17dfd4)
+
+
 
 
 群号:397885169（有问题或者需求欢迎进群探讨 ）
@@ -68,9 +94,9 @@
 ```
 
 
+**项目架构说明**
 
-
-
+  待完善...
 
 **项目初始化**
 
@@ -80,9 +106,11 @@ git clone https://github.com/duheng/Mozi.git
 
 cd Mozi
 
-yarn # npm install
+yarn install 或者 npm install
 
-yarn # npm run ios(android)
+yarn start
+
+yarn run ios (android)
 
 ```
 
