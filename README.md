@@ -30,7 +30,7 @@
   二：
   [添加icons](http://www.jianshu.com/p/4540ac17dfd4)
 
-  三：SectionList Demo
+  三：SectionList Demo & 下拉刷新
 
   四：FlatList Demo
 
