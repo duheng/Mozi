@@ -105,9 +105,22 @@
   export default class Zi extends Component {
 
   }
+
   ```
+
   2. 采用了redux-saga来做扁平（描述性语言）化的数据组织方式，（优势是用同步的方式写异步码方便自动化测试，随意组织多个action，代理mock数据，自由控制loading）
-  3. 待完善...
+
+  3. 在导航（react-navigation）的配置方面我封装了config.js的通用配置，默认会用通用配置，当你在业务页面配置了相应的字段会用你自己配置的覆盖默认的。实现了自由耦合。比如下面demo是 墨规范 页面我配置了headerTitle会用当前配置的：
+
+  ```
+    export default class Rule extends Component {
+      static navigationOptions = {
+        headerTitle: '墨规范',
+      };
+    }
+
+  ```
+  4. 待更新...
 
 
 **项目初始化**
