@@ -99,7 +99,16 @@
 
 **项目架构说明**
 
-  待完善...
+  1. 在redux的集成方面采用了es7的Decorator的写法，这样写的优势是在不污染现有代码逻辑的前提下实现了链接store（非侵入式编程思想）
+  ```
+  @connect(Selector筛选后符合渲染标准的数据, 当前页面需要的Actions)
+  export default class Zi extends Component {
+
+  }
+  ```
+  2. 采用了redux-saga来做扁平（描述性语言）化的数据组织方式，（优势是用同步的方式写异步码方便自动化测试，随意组织多个action，代理mock数据，自由控制loading）
+  3. 待完善...
+
 
 **项目初始化**
 
@@ -143,8 +152,10 @@ yarn run ios (android)
     2. react-native-code-push: 微软的热更新开源库
 
 ### 编程规范
-    编程规范我们使用的是airbnb，但是这还不够，我希望大部分的代码格式类的工作都能自动化帮我做，开发人员只需要注重业务代码就好。为此我们用prettier+eslint+sublimelinter+airbnb，在保存代码的时候就对我们的代码进行格式化，提交代码之前再做一次严格的airbnb校验。基本就能保证团队代码的可维护性。
+    编程规范我们使用的是airbnb，但是这还不够，我希望大部分的代码格式类的工作都能自动化帮我做，开发人员只需要注重业务代码就好。
+    为此我们用prettier+eslint+sublimelinter+airbnb，在保存代码的时候就对我们的代码进行格式化，提交代码之前再做一次严格的airbnb校验。基本就能保证团队代码的可维护性。
 
-###数据统计和错误分析
-  1. 项目基础数据由talkingdata收集并分析，7日内错误率达到0.5%时发相关报警短信邮件给开发人员处理。
-  2. 细粒度的数据收集用react-native-google-analytics-bridge来收集，主要用于产品部门，大数据，项目运营人员对用户行为以及数据的分析
+### 数据统计和错误分析
+
+    1. 项目基础数据由talkingdata收集并分析，7日内错误率达到0.5%时发相关报警短信邮件给开发人员处理。
+    2. 细粒度的数据收集用react-native-google-analytics-bridge来收集，主要用于产品部门，大数据，项目运营人员对用户行为以及数据的分析

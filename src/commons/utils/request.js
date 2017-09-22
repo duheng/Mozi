@@ -7,6 +7,13 @@ function GUID() {
   return `${s4()}${s4()}-${s4()}-${s4()}-${s4()}-${s4()}${s4()}${s4()}`;
 }
 
+function throwError(json) {
+  const error = new Error(json.code);
+  error.message = json.msg;
+  error.code = json.code;
+  throw error;
+}
+
 function checkStatus({ resp, json }) {
   // 如果 返回结果中包含 code 和 message, 则认为出错了
   if (resp.status >= 200 && resp.status < 300) {
@@ -21,12 +28,17 @@ function checkStatus({ resp, json }) {
 }
 
 function FETCH(url, options, noHeaders = false) {
-  let { headers, ...others } = options;
+  const { headers, ...others } = options;
+  let combineHeaders = { ...headers };
   if (!noHeaders) {
-    headers = { 'X-Request-Id': GUID(), ...headers };
+    combineHeaders = { 'X-Request-Id': GUID(), ...headers };
   }
 
-  return fetch(url, { credentials: 'include', ...others, headers })
+  return fetch(url, {
+    credentials: 'include',
+    ...others,
+    headers: combineHeaders,
+  })
     .then(resp =>
       resp
         .json()
@@ -51,7 +63,6 @@ export function POST(url, data = {}, options = {}) {
       return resp;
     })
     .catch(error => {
-      throw error;
       return error;
     });
 }
