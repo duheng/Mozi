@@ -2,16 +2,16 @@ import { handleActions } from 'redux-actions';
 import * as types from 'constants/action-types';
 
 const initialState = {
-  library: {},
+  loading: true,
 };
 
 const handler = {};
 
-handler[types.RECEIVE_BOX_LIBRARY] = (state, action) => {
-  const { library } = action;
+handler[types.BASE_LOADING] = (state, action) => {
+  const { loading } = action;
   return {
     ...state,
-    library,
+    loading,
   };
 };
 

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Text } from 'react-native';
 import Placeholder from 'rn-placeholder';
 
@@ -10,13 +10,4 @@ const customPlaceholder = props => {
     </Text>
   );
 };
-
-customPlaceholder.propTypes = {
-  bgColor: PropTypes.string,
-};
-
-customPlaceholder.defaultProps = {
-  bgColor: '',
-};
-
 export default Placeholder.connect(customPlaceholder);

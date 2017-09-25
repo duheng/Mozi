@@ -31,12 +31,6 @@ export default class Cheng extends Component {
     this.state = {
       isReady: false,
     };
-
-    setTimeout(() => {
-      this.setState({
-        isReady: true,
-      });
-    }, 5000);
   }
   render() {
     return (

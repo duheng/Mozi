@@ -1,12 +1,16 @@
 import { createSelector } from 'reselect';
 
-const getHome = state => {
-  const { library, loading } = { ...state.home };
+const getLoading = state => {
+  const { loading } = { ...state.base };
+  return loading;
+};
 
-  if (!loading) {
-    let newSectionList = [];
-    let cpSectionList = JSON.parse(JSON.stringify(library.movies));
-    cpSectionList.map((item, index) => {
+const getHome = state => {
+  const { library } = { ...state.home };
+  const newSectionList = [];
+  if (library.movies) {
+    const cpSectionList = JSON.parse(JSON.stringify(library.movies));
+    cpSectionList.map(item => {
       const { year, month, day, week, list } = item.data;
       month >= 0 &&
         day >= 0 &&
@@ -14,14 +18,16 @@ const getHome = state => {
           key: `${year}年${month}月${day}日 ${week}`,
           data: list,
         });
+      return null;
     });
-
-    return newSectionList;
   }
+
+  return newSectionList;
 };
 
-export default createSelector([getHome], home => {
+export default createSelector(getLoading, getHome, (loading, home) => {
   return {
+    loading,
     home,
   };
 });

@@ -6,7 +6,7 @@ import {
   RefreshControl,
   SectionList,
 } from 'react-native';
-import ListItem from 'components/ListItem';
+import { ListItem, ListParagraph } from 'components';
 import HomeSelector from 'selectors/home';
 import * as HomeActions from 'actions/home';
 import connect from 'store/connect';
@@ -62,32 +62,20 @@ export default class Zi extends Component {
     this.props.navigation.navigate('Web', { onGoBack: () => this.onRefresh() });
   };
 
-  renderItem = item => {
-    return <ListItem data={item.item} gopage={this.goPage} />;
-  };
-
-  renderHeader = headerItem => {
-    return (
-      <View style={styles.sectionHead}>
-        <Text style={styles.sectionHeadText}>{headerItem.section.key}</Text>
-      </View>
-    );
-  };
-
-  render() {
+  sectionList = () => {
     const { home } = this.props;
-    if (!home) {
-      return null;
-    }
     return (
       <SectionList
         style={styles.container}
-        ListEmptyComponent
         stickySectionHeadersEnabled // 安卓粘性头部需要开启这个，ios默认开启
         initialNumToRender={5}
         sections={home}
-        renderItem={this.renderItem}
-        renderSectionHeader={this.renderHeader}
+        renderItem={item => {
+          return this.renderItem(item);
+        }}
+        renderSectionHeader={item => {
+          return this.renderHeader(item);
+        }}
         keyExtractor={item => {
           return item.id;
         }}
@@ -101,6 +89,30 @@ export default class Zi extends Component {
             progressBackgroundColor="#FF5200"
           />
         }
+      />
+    );
+  };
+
+  renderHeader = headerItem => {
+    return (
+      <View style={styles.sectionHead}>
+        <Text style={styles.sectionHeadText}>{headerItem.section.key}</Text>
+      </View>
+    );
+  };
+
+  renderItem = item => {
+    return <ListItem data={item.item} gopage={this.goPage} />;
+  };
+
+  render() {
+    const { loading } = this.props;
+    return (
+      <ListParagraph
+        ParagraphLength={4}
+        isLoading={loading}
+        hasTitle
+        list={this.sectionList}
       />
     );
   }

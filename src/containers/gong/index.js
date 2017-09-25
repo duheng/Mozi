@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import HomeSelector from 'selectors/home';
 import * as HomeActions from 'actions/home';
-import ListItem from 'components/ListItem';
+import { ListItem, ListParagraph } from 'components';
 import connect from 'store/connect';
 
 const styles = StyleSheet.create({
@@ -30,13 +30,6 @@ export default class Gong extends Component {
     headerTitle: 'FlatList and Placeholder',
   };
 
-  constructor(...args) {
-    super(...args);
-    this.state = {
-      done: true,
-    };
-  }
-
   componentWillMount() {
     this.props.actions.fetchLibrary();
   }
@@ -46,6 +39,22 @@ export default class Gong extends Component {
     navigation.navigate('HeaderImageScrollView');
   };
 
+  flatList = () => {
+    const { home } = this.props;
+    return (
+      <FlatList
+        style={styles.container}
+        keyExtractor={item => item.data[0].id}
+        ListHeaderComponent={() => {
+          return this.renderHeader();
+        }}
+        renderItem={item => {
+          return this.renderItem(item);
+        }}
+        data={home}
+      />
+    );
+  };
   renderHeader = () => {
     return (
       <View style={styles.headerButton}>
@@ -61,17 +70,13 @@ export default class Gong extends Component {
   };
 
   render() {
-    const { home } = this.props;
-    if (!home) {
-      return null;
-    }
+    const { loading } = this.props;
+
     return (
-      <FlatList
-        style={styles.container}
-        keyExtractor={item => item.data[0].id}
-        ListHeaderComponent={this.renderHeader}
-        renderItem={this.renderItem}
-        data={home}
+      <ListParagraph
+        ParagraphLength={5}
+        isLoading={loading}
+        list={this.flatList}
       />
     );
   }
