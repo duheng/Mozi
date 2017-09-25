@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { WebView, StyleSheet } from 'react-native';
+import { WebView, StyleSheet, ActivityIndicator } from 'react-native';
 
 const styles = StyleSheet.create({
   webview: {
@@ -17,9 +17,16 @@ export default class Web extends Component {
   //   navigation.state.params.onGoBack();
   //   navigation.goBack();
   // };
+
+  loading = () => {
+    return (
+      <ActivityIndicator style={styles.webview} size="small" color="#aa00aa" />
+    );
+  };
+
   render() {
     const { navigation } = this.props;
-    const { url } = navigation.state.params;
+    const { url, userAgent = 'Mozi/' } = navigation.state.params;
     console.log('web props___', url);
     return (
       <WebView
@@ -28,6 +35,11 @@ export default class Web extends Component {
         }}
         style={styles.webview}
         source={{ uri: url }}
+        userAgent={userAgent}
+        startInLoadingState
+        renderLoading={() => {
+          return this.loading();
+        }}
       />
     );
   }
