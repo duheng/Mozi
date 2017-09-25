@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
   headerButton: {
     borderRadius: 5,
     borderWidth: 3,
-    borderColor: '#42c02e',
-    backgroundColor: '#42c02e',
+    borderColor: '#B0B0B0',
+    backgroundColor: '#B0B0B0',
     margin: 10,
     padding: 10,
   },
@@ -59,7 +59,7 @@ export default class Gong extends Component {
     return (
       <View style={styles.headerButton}>
         <Text style={styles.welcome} onPress={this.headerImageScrollView}>
-          点击进入自定义头部图片 & 缩放!
+          自定义头部图片 & 缩放!
         </Text>
       </View>
     );
