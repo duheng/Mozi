@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
@@ -13,25 +13,25 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
-});
+})
 
 const apiurls = {
   mozi: 'https://github.com/duheng/Mozi',
   icons: 'https://zhuanlan.zhihu.com/p/29447462',
   splash: 'https://zhuanlan.zhihu.com/p/29495955',
-};
+}
 
 export default class Plug extends Component {
   static navigationOptions = {
     headerTitle: '墨依赖',
-  };
+  }
 
   goWeb = (gourl = apiurls.mozi) => {
-    const { navigation } = this.props;
+    const { navigation } = this.props
     navigation.navigate('Web', {
       url: gourl,
-    });
-  };
+    })
+  }
 
   render() {
     return (
@@ -39,7 +39,7 @@ export default class Plug extends Component {
         <Text
           style={styles.welcome}
           onPress={() => {
-            this.goWeb(apiurls.splash);
+            this.goWeb(apiurls.splash)
           }}
         >
           启动屏!
@@ -47,7 +47,7 @@ export default class Plug extends Component {
         <Text
           style={styles.welcome}
           onPress={() => {
-            this.goWeb();
+            this.goWeb()
           }}
         >
           react-navigation集成!
@@ -55,7 +55,7 @@ export default class Plug extends Component {
         <Text
           style={styles.welcome}
           onPress={() => {
-            this.goWeb(apiurls.icons);
+            this.goWeb(apiurls.icons)
           }}
         >
           react-native-vector-icons集成!
@@ -63,7 +63,7 @@ export default class Plug extends Component {
         <Text
           style={styles.welcome}
           onPress={() => {
-            this.goWeb();
+            this.goWeb()
           }}
         >
           codepush集成!
@@ -71,7 +71,7 @@ export default class Plug extends Component {
         <Text
           style={styles.welcome}
           onPress={() => {
-            this.goWeb();
+            this.goWeb()
           }}
         >
           jpush集成!
@@ -79,7 +79,7 @@ export default class Plug extends Component {
         <Text
           style={styles.welcome}
           onPress={() => {
-            this.goWeb();
+            this.goWeb()
           }}
         >
           redux集成!
@@ -87,12 +87,12 @@ export default class Plug extends Component {
         <Text
           style={styles.welcome}
           onPress={() => {
-            this.goWeb();
+            this.goWeb()
           }}
         >
           redux-saga集成!
         </Text>
       </View>
-    );
+    )
   }
 }

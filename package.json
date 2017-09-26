@@ -51,6 +51,8 @@
     "printWidth": 100,
     "parser": "babylon",
     "trailingComma": "all",
-    "singleQuote": true
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "jsxBracketSameLine": true
   }
 }

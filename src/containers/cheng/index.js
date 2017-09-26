@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Placeholder from 'rn-placeholder';
-import CustomPlaceholder from './CustomPlaceholder';
+import React, { Component } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import Placeholder from 'rn-placeholder'
+import CustomPlaceholder from './CustomPlaceholder'
 
 const styles = StyleSheet.create({
   container: {
@@ -19,18 +19,18 @@ const styles = StyleSheet.create({
     width: '90%',
     margin: 10,
   },
-});
+})
 
 export default class Cheng extends Component {
   static navigationOptions = {
     headerTitle: '城',
-  };
+  }
   constructor(...args) {
-    super(...args);
+    super(...args)
 
     this.state = {
       isReady: false,
-    };
+    }
   }
   render() {
     return (
@@ -92,6 +92,6 @@ export default class Cheng extends Component {
           <CustomPlaceholder animate="fade" bgColor="yellow" />
         </View>
       </View>
-    );
+    )
   }
 }
