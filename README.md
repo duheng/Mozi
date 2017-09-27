@@ -29,7 +29,7 @@
   [添加启动屏API](http://www.jianshu.com/p/4540ac17dfd4)
 
   二：
-  [添加icons](http://www.jianshu.com/p/4540ac17dfd4)
+  [添加icons](http://www.jianshu.com/p/a25e4ecce60f)
 
   三：SectionList Demo & 下拉刷新
 

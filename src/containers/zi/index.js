@@ -1,36 +1,36 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text, View, RefreshControl, SectionList } from 'react-native'
-import { ListItem, ListParagraph } from 'components'
-import HomeSelector from 'selectors/home'
-import * as HomeActions from 'actions/home'
-import connect from 'store/connect'
+import React, { Component } from "react"
+import { StyleSheet, Text, View, RefreshControl, SectionList } from "react-native"
+import { ListItem, ListParagraph } from "components"
+import HomeSelector from "selectors/home"
+import * as HomeActions from "actions/home"
+import connect from "store/connect"
 
 const styles = StyleSheet.create({
   container: {
     paddingLeft: 10,
-    overflow: 'hidden',
-    backgroundColor: '#FFFFFF',
+    overflow: "hidden",
+    backgroundColor: "#FFFFFF",
   },
   sectionHead: {
     height: 30,
     paddingTop: 6,
     paddingLeft: 10,
-    backgroundColor: '#F7F7F7',
-    shadowColor: '#666666',
+    backgroundColor: "#F7F7F7",
+    shadowColor: "#666666",
     shadowOffset: { height: 2, width: 0 },
     shadowRadius: 3,
     shadowOpacity: 0.3,
   },
   sectionHeadText: {
     fontSize: 12,
-    color: '#666666',
+    color: "#666666",
   },
 })
 
 @connect(HomeSelector, HomeActions)
 export default class Zi extends Component {
   static navigationOptions = {
-    headerTitle: 'SectionList Demo',
+    headerTitle: "SectionList Demo",
   }
   constructor(...args) {
     super(...args)
@@ -45,15 +45,13 @@ export default class Zi extends Component {
 
   onRefresh = () => {
     this.setState({ isRefreshing: true })
-    this.props.actions.fetchLibrary()
-
     setTimeout(() => {
       this.setState({ isRefreshing: false })
     }, 3000)
   }
 
   goPage = () => {
-    this.props.navigation.navigate('Web', { onGoBack: () => this.onRefresh() })
+    this.props.navigation.navigate("Web", { onGoBack: () => this.onRefresh() })
   }
 
   sectionList = () => {
