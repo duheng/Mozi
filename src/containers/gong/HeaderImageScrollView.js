@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native'
-import * as Animatable from 'react-native-animatable'
-import { Header } from 'react-navigation'
-import HeaderImageScrollView, { TriggeringView } from 'react-native-image-header-scroll-view'
+import React, { Component } from "react"
+import { StyleSheet, Text, View, Image, Dimensions } from "react-native"
+import * as Animatable from "react-native-animatable"
+import { Header } from "react-navigation"
+import HeaderImageScrollView, { TriggeringView } from "react-native-image-header-scroll-view"
 
 const MIN_HEIGHT = Header.HEIGHT
 const MAX_HEIGHT = 200
 const styles = StyleSheet.create({
   nav: {
-    position: 'absolute',
+    position: "absolute",
     left: 0,
     top: 0,
     width: 50,
@@ -17,59 +17,60 @@ const styles = StyleSheet.create({
   },
   image: {
     height: MAX_HEIGHT,
-    width: Dimensions.get('window').width,
-    alignSelf: 'stretch',
-    resizeMode: 'cover',
+    width: Dimensions.get("window").width,
+    alignSelf: "stretch",
+    resizeMode: "cover",
   },
   navTitleView: {
     height: MIN_HEIGHT,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     paddingTop: 16,
     opacity: 0,
   },
   navTitle: {
-    color: 'white',
+    color: "white",
     fontSize: 18,
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
   },
   titleContainer: {
     flex: 1,
-    alignSelf: 'stretch',
-    justifyContent: 'center',
-    alignItems: 'center',
+    alignSelf: "stretch",
+    justifyContent: "center",
+    alignItems: "center",
   },
   imageTitle: {
-    color: 'white',
-    backgroundColor: 'transparent',
+    color: "white",
+    backgroundColor: "transparent",
     fontSize: 24,
   },
   section: {
     padding: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#cccccc',
-    backgroundColor: 'white',
+    borderBottomColor: "#cccccc",
+    backgroundColor: "white",
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   sectionContent: {
     fontSize: 16,
     marginTop: 10,
     marginBottom: 10,
-    textAlign: 'justify',
+    textAlign: "justify",
   },
 })
 
 export default class HeaderImageScrollViews extends Component {
   static navigationOptions = {
-    headerTintColor: 'white',
+    headerTintColor: "white",
+    headerTitle: null,
     headerStyle: {
-      position: 'absolute',
+      position: "absolute",
       top: 0,
       elevation: 0,
-      shadowColor: 'transparent',
+      shadowColor: "transparent",
       shadowRadius: 0,
       shadowOffset: {
         height: 0,
@@ -94,7 +95,7 @@ export default class HeaderImageScrollViews extends Component {
             <Image
               source={{
                 uri:
-                  'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505209877964&di=9632d6f7c4f4aa873214ebc46d9780c3&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F1%2F57c00d27edf5d.jpg',
+                  "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505209877964&di=9632d6f7c4f4aa873214ebc46d9780c3&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F1%2F57c00d27edf5d.jpg",
               }}
               style={styles.image}
             />
