@@ -2,28 +2,32 @@
   "presets": ["react-native"],
   "sourceMaps": true,
   "plugins": [
-    ["module-resolver", {
-      "root": ["./src"],
-      "alias": {
-        "actions": "app/actions",
-        "constants": "app/constants",
-        "reducers": "app/reducers",
-        "sagas": "app/sagas",
-        "selectors": "app/selectors",
-        "store": "app/store",
-        "i18n": "commons/i18n",
-        "assets": "commons/assets",
-        "styles": "commons/styles",
-        "utils": "commons/utils",
-        "components": "components",
-        "containers":"containers"
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "extensions": [".js", ".ios.js", ".android.js"],
+        "alias": {
+          "actions": "app/actions",
+          "constants": "app/constants",
+          "reducers": "app/reducers",
+          "sagas": "app/sagas",
+          "selectors": "app/selectors",
+          "store": "app/store",
+          "i18n": "commons/i18n",
+          "assets": "commons/assets",
+          "styles": "commons/styles",
+          "utils": "commons/utils",
+          "components": "components",
+          "containers": "containers"
         }
-    }],
-    "transform-decorators-legacy"],
-    "env": {
-      "production": {
-        "plugins": ["transform-remove-console"]
       }
+    ],
+    "transform-decorators-legacy"
+  ],
+  "env": {
+    "production": {
+      "plugins": ["transform-remove-console"]
     }
-
+  }
 }
