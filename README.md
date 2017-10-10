@@ -34,17 +34,22 @@
   二：
   [添加icons](http://www.jianshu.com/p/a25e4ecce60f)
 
-  三：SectionList Demo & 下拉刷新
+  三：
+  [React Native预设占位placeholder](http://www.jianshu.com/p/984ef99641f5)
 
-  四：FlatList Demo
+  四：SectionList Demo & 下拉刷新
 
-  五：react-navigation自定义可缩放头部
+  五：FlatList Demo
+
+  六：react-navigation自定义可缩放头部
 
 群号:397885169（有问题或者需求欢迎进群探讨 ）
 
+简书：http://www.jianshu.com/u/c971c7ffa27e
+
 知乎：https://www.zhihu.com/people/duheng2011/activities
 
-简书：http://www.jianshu.com/u/c971c7ffa27e
+
 
 
 **项目演示**
