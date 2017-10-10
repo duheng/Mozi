@@ -1,0 +1,11 @@
+{
+    "printWidth": 100,
+    "parser": "babylon",
+    "trailingComma": "all",
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "jsxBracketSameLine": true,
+    "semi": true,
+    "requirePragma": false
+}
+

@@ -1,66 +1,66 @@
-import { StackNavigator, TabNavigator } from "react-navigation"
-import { Mo, Zi, Gong, Cheng, Web, HeaderImageScrollView } from "containers/index"
+import { StackNavigator, TabNavigator } from 'react-navigation';
+import { Mo, Zi, Gong, Cheng, Web, HeaderImageScrollView } from 'containers/index';
 
-import { headerOptions, RouteConfigs, TabNavigatorConfig, StackNavigatorConfig } from "config"
+import { headerOptions, RouteConfigs, TabNavigatorConfig, StackNavigatorConfig } from 'config';
 
 const TabBarText = {
-  mo: "墨",
-  zi: "子",
-  gong: "攻",
-  cheng: "城",
-}
+  mo: '墨',
+  zi: '子',
+  gong: '攻',
+  cheng: '城',
+};
 
 const Nav = TabNavigator(
   {
     Mo: {
       screen: Mo,
-      path: "Mo",
+      path: 'Mo',
       navigationOptions: props => {
         return RouteConfigs({
-          iconame: "ios-home",
+          iconame: 'ios-home',
           label: TabBarText.mo,
           props,
-        })
+        });
       },
     },
     Zi: {
       screen: Zi,
-      path: "Zi",
+      path: 'Zi',
       navigationOptions: props => {
         return RouteConfigs({
-          iconame: "ios-planet",
+          iconame: 'ios-planet',
           label: TabBarText.zi,
           props,
-        })
+        });
       },
     },
     Gong: {
       screen: Gong,
-      path: "Gong",
+      path: 'Gong',
       navigationOptions: props => {
         return RouteConfigs({
-          iconame: "ios-analytics",
+          iconame: 'ios-analytics',
           label: TabBarText.gong,
           props,
-        })
+        });
       },
     },
     Cheng: {
       screen: Cheng,
-      path: "Cheng",
+      path: 'Cheng',
       navigationOptions: props => {
         return RouteConfigs({
-          iconame: "ios-contacts",
+          iconame: 'ios-contacts',
           label: TabBarText.cheng,
           props,
-        })
+        });
       },
     },
   },
   TabNavigatorConfig({
-    initialRouteName: "Mo",
+    initialRouteName: 'Mo',
   }),
-)
+);
 
 const AppNavigator = StackNavigator(
   {
@@ -75,7 +75,7 @@ const AppNavigator = StackNavigator(
           ...{
             back: true,
           },
-        })
+        });
       },
     },
     HeaderImageScrollView: {
@@ -86,12 +86,12 @@ const AppNavigator = StackNavigator(
           ...{
             back: true,
           },
-        })
+        });
       },
     },
   },
   StackNavigatorConfig({
-    initialRouteName: "Nav",
+    initialRouteName: 'Nav',
   }),
-)
-export default AppNavigator
+);
+export default AppNavigator;

@@ -8,7 +8,7 @@
 此项目致力于构建一套可最基础，最精简，可维护的react-native项目，适用于团队合作开发React Native项目，我们知道react-native init出来的项目只是一个最简单的demo，距离开发企业级项目还差很远，所以这套框架是我在我们团队开发中总结优化而来的，会提供群里关注度高的问题的解决方案以及demo，此项目虽然还不够完善，但是以此为基础足可以搭建一个大型项目：
 
 #### 公告：
-本项目是在mac系统下开发的，由于mac和windows命令相差太多，本项目暂不支持windows系统下的开发，windows系统开发的用户请自行更换cp（copy），alias地址映射请手动引用或者自行写一个bat代替
+本项目是在mac系统下开发的，由于mac和windows命令相差太多，本项目暂不支持windows系统下的开发，windows系统开发的用户请自行更换cp（copy）
 
 #### 涉及主要技术
 ```
@@ -137,7 +137,7 @@ git clone https://github.com/duheng/Mozi.git
 
 cd Mozi
 
-yarn install 或者 npm install
+yarn install
 
 yarn start
 
