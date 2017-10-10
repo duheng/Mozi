@@ -26,6 +26,44 @@
   editorconfig
 ```
 
+#### 项目初始化
+
+请完全按照以下步骤启动项目，请完全按照以下步骤启动项目，请完全按照以下步骤启动项目，重要的事情说三遍
+
+
+```
+git clone https://github.com/duheng/Mozi.git
+
+cd Mozi
+
+yarn install
+
+yarn start
+
+yarn run ios (android)
+
+```
+
+
+
+**项目演示**
+
+
+------
+
+
+<p align="center">
+
+<img height="470" src="https://github.com/duheng/Mozi/blob/master/splash.gif" />
+<img height="470" src="https://github.com/duheng/Mozi/blob/master/SectionList.gif" />
+<img height="470" src="https://github.com/duheng/Mozi/blob/master/HeaderImageScrollView.gif" />
+
+</p>
+
+
+
+------
+
 #### 已经完善文档 & 已完善效果
 
   一：
@@ -51,24 +89,6 @@
 
 
 
-
-**项目演示**
-
-
-------
-
-
-<p align="center">
-
-<img height="470" src="https://github.com/duheng/Mozi/blob/master/splash.gif" />
-<img height="470" src="https://github.com/duheng/Mozi/blob/master/SectionList.gif" />
-<img height="470" src="https://github.com/duheng/Mozi/blob/master/HeaderImageScrollView.gif" />
-
-</p>
-
-
-
-------
 
 **项目结构**
 
@@ -131,24 +151,6 @@
   ```
   4. 待更新...
 
-
-**项目初始化**
-
-请完全按照以下步骤启动项目，请完全按照以下步骤启动项目，请完全按照以下步骤启动项目，重要的事情说三遍
-
-
-```
-git clone https://github.com/duheng/Mozi.git
-
-cd Mozi
-
-yarn install
-
-yarn start
-
-yarn run ios (android)
-
-```
 
 
 **特别注意**   目前npm5存在安装新库时会删除其他库的问题，导致项目无法正常运行。请尽量使用yarn代替npm操作；
