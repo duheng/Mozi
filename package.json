@@ -4,19 +4,20 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start":
-      "npm run precommit && node node_modules/react-native/local-cli/cli.js start",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "android": "react-native run-android",
     "ios": "react-native run-ios --simulator 'iPhone 6'",
-    "precommit": "cp pre-commit .git/hooks/"
+    "lint": "eslint ./ --cache --ignore-pattern .gitignore",
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
+  "pre-commit": ["precommit-msg", "lint"],
   "dependencies": {
     "react": "16.0.0-alpha.12",
     "react-native": "0.47.2",
     "react-native-animatable": "^1.2.3",
     "react-native-image-header-scroll-view": "^0.6.1",
-    "react-native-scrollable-tab-view": "^0.7.4",
+    "react-native-scrollable-tab-view": "^0.8.0",
     "react-native-splash-screen": "^3.0.1",
     "react-native-vector-icons": "^4.3.0",
     "react-navigation": "^1.0.0-beta.12",
