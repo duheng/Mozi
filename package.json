@@ -9,7 +9,7 @@
     "ios": "react-native run-ios --simulator 'iPhone 6'",
     "test": "jest",
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
-    "precommit-msg": "echo '正在检查代码规范...' && exit 0"
+    "precommit-msg": "echo '>>正在检查您的代码代码规范...' && exit 0"
   },
   "pre-commit": ["precommit-msg", "lint"],
   "dependencies": {
