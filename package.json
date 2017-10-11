@@ -5,11 +5,11 @@
   "license": "MIT",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
     "android": "react-native run-android",
     "ios": "react-native run-ios --simulator 'iPhone 6'",
+    "test": "jest",
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
-    "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
+    "precommit-msg": "echo '正在检查代码规范...' && exit 0"
   },
   "pre-commit": ["precommit-msg", "lint"],
   "dependencies": {
