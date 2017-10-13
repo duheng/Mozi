@@ -38,7 +38,9 @@ yarn install
 
 yarn start
 
-yarn run ios (android)
+yarn run ios (android)     
+
+windows用户请用 react-native run-android 命令启动
 
 ```
 

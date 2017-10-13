@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, RefreshControl, SectionList } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  RefreshControl,
+  SectionList,
+  InteractionManager,
+} from 'react-native';
 import { ListItem, ListParagraph } from 'components';
 import HomeSelector from 'selectors/home';
 import * as HomeActions from 'actions/home';
@@ -40,7 +47,9 @@ export default class Zi extends Component {
   }
 
   componentWillMount() {
-    this.props.actions.fetchLibrary();
+    InteractionManager.runAfterInteractions(() => {
+      this.props.actions.fetchLibrary();
+    });
   }
 
   onRefresh = () => {
@@ -60,7 +69,7 @@ export default class Zi extends Component {
       <SectionList
         style={styles.container}
         stickySectionHeadersEnabled // 安卓粘性头部需要开启这个，ios默认开启
-        initialNumToRender={5}
+        initialNumToRender={6}
         sections={home}
         renderItem={item => {
           return this.renderItem(item);
@@ -100,7 +109,7 @@ export default class Zi extends Component {
   render() {
     const { loading } = this.props;
     return (
-      <ListParagraph ParagraphLength={4} isLoading={loading} hasTitle list={this.sectionList} />
+      <ListParagraph ParagraphLength={6} isLoading={loading} hasTitle list={this.sectionList} />
     );
   }
 }
