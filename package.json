@@ -11,13 +11,16 @@
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
     "precommit-msg": "echo '>>正在检查您的代码代码规范...' && exit 0"
   },
-  "pre-commit": ["precommit-msg", "lint"],
+  "pre-commit": [
+    "precommit-msg",
+    "lint"
+  ],
   "dependencies": {
     "react": "16.0.0-alpha.12",
     "react-native": "0.47.2",
     "react-native-animatable": "^1.2.3",
-    "react-native-image-header-scroll-view": "^0.6.1",
-    "react-native-scrollable-tab-view": "0.7.4",
+    "react-native-image-header-scroll-view": "^0.6.2",
+    "react-native-scrollable-tab-view": "^0.8.0",
     "react-native-splash-screen": "^3.0.1",
     "react-native-vector-icons": "^4.3.0",
     "react-navigation": "^1.0.0-beta.12",
