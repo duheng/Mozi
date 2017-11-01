@@ -1,31 +1,31 @@
-import { delay } from 'redux-saga';
-import { call, spawn } from 'redux-saga/effects';
+import { delay } from "redux-saga"
+import { call, spawn } from "redux-saga/effects"
 
-import { watchLibrary } from './home';
+import { watchJunShi } from "./home"
 
 const makeRestartable = saga => {
-  const loop = true;
+  const loop = true
   return function* restartable() {
     yield spawn(function* task() {
       while (loop) {
         try {
-          yield call(saga);
+          yield call(saga)
           const errMsg =
-            'unexpected root saga termination. The root sagas are supposed to be sagas that live during the whole app lifetime!';
+            "unexpected root saga termination. The root sagas are supposed to be sagas that live during the whole app lifetime!"
 
-          console.error(errMsg, saga);
+          console.error(errMsg, saga)
         } catch (e) {
-          console.error('Saga error, the saga will be restarted', e);
+          console.error("Saga error, the saga will be restarted", e)
         }
         // Avoid infinite failures blocking app TODO use backoff retry policy...
-        yield delay(1000);
+        yield delay(1000)
       }
-    });
-  };
-};
+    })
+  }
+}
 
-const rootSagas = [watchLibrary].map(makeRestartable);
+const rootSagas = [watchJunShi].map(makeRestartable)
 
 export default function* rootSaga() {
-  yield rootSagas.map(saga => call(saga));
+  yield rootSagas.map(saga => call(saga))
 }

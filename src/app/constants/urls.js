@@ -1,7 +1,7 @@
 // const HOST = 'https://box-test.wepiao.com/api'
-const HOST = 'https://piaofang.wepiao.com/api';
-const PIAOFANG_BOX_WILLPLAY = `${HOST}/v2/lib/movie/soon`;
+const HOST = "https://www.yidianzixun.com/home/q"
+const ZIXUN_JUNSHI = `${HOST}/news_list_for_channel`
 
 module.exports = {
-  PIAOFANG_BOX_WILLPLAY,
-};
+  ZIXUN_JUNSHI,
+}

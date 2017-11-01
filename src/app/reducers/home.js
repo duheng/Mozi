@@ -1,18 +1,18 @@
-import { handleActions } from 'redux-actions';
-import * as types from 'constants/action-types';
+import { handleActions } from "redux-actions"
+import * as types from "constants/action-types"
 
 const initialState = {
-  library: {},
-};
+  junshi: [],
+}
 
-const handler = {};
+const handler = {}
 
-handler[types.RECEIVE_BOX_LIBRARY] = (state, action) => {
-  const { library } = action;
+handler[types.RECEIVE_JUNSHI] = (state, action) => {
+  const { junshi } = action
   return {
     ...state,
-    library,
-  };
-};
+    junshi,
+  }
+}
 
-export default handleActions(handler, initialState);
+export default handleActions(handler, initialState)

@@ -1,6 +1,6 @@
 // base
-export const BASE_LOADING = 'BASE_LOADING';
+export const BASE_LOADING = "BASE_LOADING"
 
-// box library
-export const FETCH_BOX_LIBRARY = 'FETCH_BOX_LIBRARY';
-export const RECEIVE_BOX_LIBRARY = 'RECEIVE_BOX_LIBRARY';
+// junshi
+export const FETCH_JUNSHI = "FETCH_JUNSHI"
+export const RECEIVE_JUNSHI = "RECEIVE_JUNSHI"

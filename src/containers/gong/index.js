@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList, InteractionManager } from 'react-native';
-import HomeSelector from 'selectors/home';
-import * as HomeActions from 'actions/home';
-import { ListItem, ListParagraph } from 'components';
-import connect from 'store/connect';
+import React, { Component } from "react"
+import { StyleSheet, Text, View, FlatList, InteractionManager } from "react-native"
+import HomeSelector from "selectors/home"
+import * as HomeActions from "actions/home"
+import { ListItem, ListParagraph } from "components"
+import connect from "store/connect"
 
 const styles = StyleSheet.create({
   container: {
@@ -13,51 +13,51 @@ const styles = StyleSheet.create({
   headerButton: {
     borderRadius: 5,
     borderWidth: 3,
-    borderColor: '#B0B0B0',
-    backgroundColor: '#B0B0B0',
+    borderColor: "#B0B0B0",
+    backgroundColor: "#B0B0B0",
     margin: 10,
     padding: 10,
   },
   welcome: {
     fontSize: 20,
-    textAlign: 'center',
+    textAlign: "center",
   },
-});
+})
 
 @connect(HomeSelector, HomeActions)
 export default class Gong extends Component {
   static navigationOptions = {
-    headerTitle: 'FlatList and Placeholder',
-  };
+    headerTitle: "FlatList and Placeholder",
+  }
 
   componentWillMount() {
     InteractionManager.runAfterInteractions(() => {
-      this.props.actions.fetchLibrary();
-    });
+      this.props.actions.fetchJunShi()
+    })
   }
 
   headerImageScrollView = () => {
-    const { navigation } = this.props;
-    navigation.navigate('HeaderImageScrollView');
-  };
+    const { navigation } = this.props
+    navigation.navigate("HeaderImageScrollView")
+  }
 
   flatList = () => {
-    const { home } = this.props;
+    const { home } = this.props
     return (
       <FlatList
         initialNumToRender={8}
         style={styles.container}
-        keyExtractor={item => item.data[0].id}
+        keyExtractor={item => item.data[0].itemid}
         ListHeaderComponent={() => {
-          return this.renderHeader();
+          return this.renderHeader()
         }}
         renderItem={item => {
-          return this.renderItem(item);
+          return this.renderItem(item)
         }}
         data={home}
       />
-    );
-  };
+    )
+  }
   renderHeader = () => {
     return (
       <View style={styles.headerButton}>
@@ -65,16 +65,16 @@ export default class Gong extends Component {
           自定义头部图片 & 缩放!
         </Text>
       </View>
-    );
-  };
+    )
+  }
 
   renderItem = item => {
-    return <ListItem data={item.item.data[0]} gopage={this.goPage} />;
-  };
+    return <ListItem data={item.item.data[0]} />
+  }
 
   render() {
-    const { loading } = this.props;
+    const { loading } = this.props
 
-    return <ListParagraph ParagraphLength={8} isLoading={loading} list={this.flatList} />;
+    return <ListParagraph ParagraphLength={8} isLoading={loading} list={this.flatList} />
   }
 }

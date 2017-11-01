@@ -1,14 +1,14 @@
-import * as types from 'constants/action-types';
+import * as types from "constants/action-types"
 
-export function fetchLibrary() {
+export function fetchJunShi() {
   return {
-    type: types.FETCH_BOX_LIBRARY,
-  };
+    type: types.FETCH_JUNSHI,
+  }
 }
 
-export function receiveLibrary(library) {
+export function receiveJunShi(junshi) {
   return {
-    type: types.RECEIVE_BOX_LIBRARY,
-    library,
-  };
+    type: types.RECEIVE_JUNSHI,
+    junshi,
+  }
 }

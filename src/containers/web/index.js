@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { WebView, StyleSheet, ActivityIndicator } from 'react-native'
+import React, { Component } from "react"
+import { WebView, StyleSheet, ActivityIndicator } from "react-native"
 
 const styles = StyleSheet.create({
   webview: {
@@ -9,8 +9,9 @@ const styles = StyleSheet.create({
 
 export default class Web extends Component {
   static navigationOptions = {
-    headerTitle: 'Web',
+    headerTitle: "Web",
   }
+  // 这是返回刷新的demo，如果需要就取消注释调试一下
   // reLoad = () => {
   //   const { navigation } = this.props;
   //   console.log('navigation____', navigation);
@@ -24,8 +25,8 @@ export default class Web extends Component {
 
   render() {
     const { navigation } = this.props
-    const { url, userAgent = 'Mozi/' } = navigation.state.params
-    console.log('web props___', url)
+    const { url, userAgent = "Mozi/" } = navigation.state.params
+    console.log("web props___", url)
     return (
       <WebView
         ref={ref => {

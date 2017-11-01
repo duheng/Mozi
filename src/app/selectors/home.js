@@ -1,33 +1,34 @@
-import { createSelector } from 'reselect';
+import { createSelector } from "reselect"
 
 const getLoading = state => {
-  const { loading } = { ...state.base };
-  return loading;
-};
+  const { loading } = { ...state.base }
+  return loading
+}
+
+const hasImage = item => {
+  return item.image && item.image.indexOf("http:") >= 0
+}
+
+const listData = item => {
+  const MyItem = { ...item }
+  MyItem.image =
+    MyItem.image.indexOf("https") < 0 ? MyItem.image.replace("http", "https") : MyItem.image
+  MyItem.url = MyItem.url.indexOf("https") < 0 ? MyItem.url.replace("http", "https") : MyItem.url
+  return {
+    key: MyItem.itemid,
+    data: [{ ...MyItem }],
+  }
+}
 
 const getHome = state => {
-  const { library } = { ...state.home };
-  const newSectionList = [];
-  if (library.movies) {
-    const cpSectionList = JSON.parse(JSON.stringify(library.movies));
-    cpSectionList.map(item => {
-      const { year, month, day, week, list } = item.data;
-      month >= 0 &&
-        day >= 0 &&
-        newSectionList.push({
-          key: `${year}年${month}月${day}日 ${week}`,
-          data: list,
-        });
-      return null;
-    });
-  }
-
-  return newSectionList;
-};
+  const { junshi } = { ...state.home }
+  const filterJunShi = junshi.filter(hasImage).map(listData)
+  return filterJunShi
+}
 
 export default createSelector(getLoading, getHome, (loading, home) => {
   return {
     loading,
     home,
-  };
-});
+  }
+})

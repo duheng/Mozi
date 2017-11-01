@@ -1,32 +1,38 @@
-import { put, take, call, fork } from 'redux-saga/effects';
-import * as types from 'constants/action-types';
-import { POST } from 'utils/request';
-import { PIAOFANG_BOX_WILLPLAY } from 'constants/urls';
-import { showLoading } from 'actions/base';
-import { receiveLibrary } from 'actions/home';
+import { put, take, call, fork } from "redux-saga/effects"
+import * as types from "constants/action-types"
+import { GET } from "utils/request"
+import { ZIXUN_JUNSHI } from "constants/urls"
+import { showLoading } from "actions/base"
+import { receiveJunShi } from "actions/home"
 
 const PARAMS = {
-  lang: 'cn',
-};
-export function* handleLibraryAction() {
-  yield put(showLoading(true)); // 控制loading状态
-  const resp = yield call(POST, PIAOFANG_BOX_WILLPLAY, PARAMS);
-
+  channel_id: "c7",
+  cstart: 1,
+  cend: 50,
+  infinite: true,
+  refresh: 1,
+  __from__: "wap",
+  multi: 5,
+  appid: "web_yidian",
+}
+export function* handleJunShiAction() {
+  yield put(showLoading(true)) // 控制loading状态
+  const resp = yield call(GET, ZIXUN_JUNSHI, PARAMS)
   if (resp) {
-    yield put(receiveLibrary(resp.data));
+    yield put(receiveJunShi(resp.result))
   } else {
-    yield put(receiveLibrary({}));
+    yield put(receiveJunShi({}))
   }
-  yield put(showLoading(false));
+  yield put(showLoading(false))
 }
 
-export function* requestLibraryTask() {
+export function* requestJunShiTask() {
   while (true) {
-    yield take(types.FETCH_BOX_LIBRARY);
-    yield fork(handleLibraryAction);
+    yield take(types.FETCH_JUNSHI)
+    yield fork(handleJunShiAction)
   }
 }
 
-export function* watchLibrary() {
-  yield [call(requestLibraryTask)];
+export function* watchJunShi() {
+  yield [call(requestJunShiTask)]
 }
