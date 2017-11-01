@@ -44,7 +44,7 @@ windows用户请用 react-native run-android 命令启动
 
 ```
 
-
+**特别注意**   目前npm5存在安装新库时会删除其他库的问题，导致项目无法正常运行。请尽量使用yarn代替npm操作；
 
 **项目演示**
 
@@ -153,7 +153,7 @@ windows用户请用 react-native run-android 命令启动
 
 
 
-**特别注意**   目前npm5存在安装新库时会删除其他库的问题，导致项目无法正常运行。请尽量使用yarn代替npm操作；
+
 
 ### 依赖库
 
