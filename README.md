@@ -108,9 +108,11 @@ windows用户请用 react-native run-android 命令启动
 │   ├── commons                 // 共享基础模块
 │   ├── components              // Ract Native 通用组件
 │   ├── containers
-│   │    ├── page               // 具体业务模块
-│   │    ├── app.js             // 导航注册
-│   │    └── index.js           // page模块聚合页
+│   │    └── page               // 具体业务模块
+│   ├── routers                 // 路由部分
+│   │    ├── index.js           // page模块聚合页
+│   │    └── app.js             // 导航注册
+│   ├── AppNavigationState.js   // Nvigation state 入口
 │   ├── config.js               // 导航通用配置
 │   └── root.js                 // Ract Native 入口页
 │
