@@ -19,7 +19,8 @@
           "styles": "commons/styles",
           "utils": "commons/utils",
           "components": "components",
-          "containers": "containers"
+          "containers": "containers",
+          "routers": "routers"
         }
       }
     ],

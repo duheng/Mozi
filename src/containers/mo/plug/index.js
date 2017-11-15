@@ -33,6 +33,11 @@ export default class Plug extends Component {
     });
   };
 
+  goBack = () => {
+    const { navigation } = this.props;
+    navigation.navigate('Backa');
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -43,6 +48,14 @@ export default class Plug extends Component {
           }}
         >
           启动屏!
+        </Text>
+        <Text
+          style={styles.welcome}
+          onPress={() => {
+            this.goBack();
+          }}
+        >
+          返回到指定页面Demo!
         </Text>
         <Text
           style={styles.welcome}

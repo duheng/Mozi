@@ -1,5 +1,5 @@
 import { StackNavigator, TabNavigator } from 'react-navigation';
-import { Mo, Zi, Gong, Cheng, Web, HeaderImageScrollView } from 'containers/index';
+import { Mo, Zi, Gong, Cheng, Web, Back, Backa, HeaderImageScrollView } from 'routers';
 
 import { headerOptions, RouteConfigs, TabNavigatorConfig, StackNavigatorConfig } from 'config';
 
@@ -62,13 +62,35 @@ const Nav = TabNavigator(
   }),
 );
 
-const AppNavigator = StackNavigator(
+const Routers = StackNavigator(
   {
     Nav: {
       screen: Nav,
     },
     Web: {
       screen: Web,
+      navigationOptions: props => {
+        return headerOptions({
+          ...props,
+          ...{
+            back: true,
+          },
+        });
+      },
+    },
+    Back: {
+      screen: Back,
+      navigationOptions: props => {
+        return headerOptions({
+          ...props,
+          ...{
+            back: true,
+          },
+        });
+      },
+    },
+    Backa: {
+      screen: Backa,
       navigationOptions: props => {
         return headerOptions({
           ...props,
@@ -94,4 +116,4 @@ const AppNavigator = StackNavigator(
     initialRouteName: 'Nav',
   }),
 );
-export default AppNavigator;
+export default Routers;

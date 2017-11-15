@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
 import configureStore from 'store/configure-store';
 import rootSaga from 'sagas';
-import App from 'containers/app';
+import App from './AppNavigationState';
 
 const store = configureStore();
 // run root saga

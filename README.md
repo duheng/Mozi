@@ -57,6 +57,7 @@ windows用户请用 react-native run-android 命令启动
 <img height="470" src="https://github.com/duheng/Mozi/blob/master/splash.gif" />
 <img height="470" src="https://github.com/duheng/Mozi/blob/master/SectionList.gif" />
 <img height="470" src="https://github.com/duheng/Mozi/blob/master/HeaderImageScrollView.gif" />
+<img height="470" src="https://github.com/duheng/Mozi/blob/master/back.gif" />
 
 </p>
 
@@ -80,6 +81,8 @@ windows用户请用 react-native run-android 命令启动
   五：FlatList Demo
 
   六：react-navigation自定义可缩放头部
+
+  七：返回到指定页面（返回多级）
 
 群号:397885169（有问题或者需求欢迎进群探讨 ）
 
