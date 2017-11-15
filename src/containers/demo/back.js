@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   routes: state.nav.routes,
 }), {})
 export default class Back extends Component {
-  static navigationOptions = (navigation) => ({
+  static navigationOptions = ({ navigation }) => ({
     headerTitle: 'Custom Back Demo',
     headerLeft: <NavigationButton
       name="back"
