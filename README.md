@@ -21,7 +21,8 @@
 
   eslint,
   prettier,
-  editorconfig
+  editorconfig,
+  pre-commit
 ```
 
 #### 项目初始化
@@ -116,9 +117,8 @@ windows用户请用 react-native run-android 命令启动
 │   ├── config.js               // 导航通用配置
 │   └── root.js                 // Ract Native 入口页
 │
-├── index.ios.js                // ios入口文件
 ├── ios                         // ios原生部分
-├── index.android.js            // android入口文件
+├── index.js                    // 项目注册入口文件
 ├── android                     // android原生部分
 ├── node_modules                // 项目依赖包
 ├── __test__                    // 自动化测试
