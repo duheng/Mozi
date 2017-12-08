@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
-import NavigationButton from 'components/NavigationButton';
-import Logo from 'assets/logo.png';
+import NavigationButton from './components/NavigationButton';
+import Logo from './commons/assets/logo.png';
 
 const activeTabColor = '#42c02e';
 const defaultTabColor = '#949494';

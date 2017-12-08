@@ -1,9 +1,9 @@
 import { put, take, call, fork } from "redux-saga/effects"
-import * as types from "constants/actionTypes"
-import { GET } from "utils/request"
-import { ZIXUN_JUNSHI } from "constants/urls"
-import { showLoading } from "actions/base"
-import { receiveJunShi } from "actions/home"
+import { FETCH_JUNSHI } from "../constants/actionTypes"
+import { GET } from "../../commons/utils/request"
+import { ZIXUN_JUNSHI } from "../constants/urls"
+import { showLoading } from "../actions/base"
+import { receiveJunShi } from "../actions/home"
 
 const PARAMS = {
   channel_id: "c7",
@@ -28,7 +28,7 @@ export function* handleJunShiAction() {
 
 export function* requestJunShiTask() {
   while (true) {
-    yield take(types.FETCH_JUNSHI)
+    yield take(FETCH_JUNSHI)
     yield fork(handleJunShiAction)
   }
 }

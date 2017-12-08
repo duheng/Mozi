@@ -1,7 +1,7 @@
 import { StackNavigator, TabNavigator } from 'react-navigation';
-import { Mo, Zi, Gong, Cheng, Web, Back, Backa, HeaderImageScrollView } from 'routers';
+import { Mo, Zi, Gong, Cheng, Web, Back, Backa, HeaderImageScrollView } from './index';
 
-import { headerOptions, RouteConfigs, TabNavigatorConfig, StackNavigatorConfig } from 'config';
+import { headerOptions, RouteConfigs, TabNavigatorConfig, StackNavigatorConfig } from '../config';
 
 const TabBarText = {
   mo: '墨',

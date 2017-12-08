@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import connect from "store/connect"
 import { StyleSheet, Text, View } from 'react-native';
-import NavigationButton from 'components/NavigationButton';
+import connect from "../../app/store/connect";
+import NavigationButton from '../../components/NavigationButton';
 
 const styles = StyleSheet.create({
   container: {

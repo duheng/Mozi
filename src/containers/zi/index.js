@@ -7,10 +7,10 @@ import {
   SectionList,
   InteractionManager,
 } from "react-native"
-import { ListItem, ListParagraph } from "components"
-import HomeSelector from "selectors/home"
-import * as HomeActions from "actions/home"
-import connect from "store/connect"
+import { ListItem, ListParagraph } from "../../components"
+import HomeSelector from "../../app/selectors/home"
+import * as HomeActions from "../../app/actions/home"
+import connect from "../../app/store/connect"
 
 const styles = StyleSheet.create({
   container: {

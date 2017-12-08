@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import Icon from 'components/Icon';
+import Icon from '../Icon';
 
 const typeMap = {
   share: 'md-share-alt',

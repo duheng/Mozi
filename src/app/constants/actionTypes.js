@@ -1,6 +1,12 @@
 // base
-export const BASE_LOADING = "BASE_LOADING"
+const BASE_LOADING = "BASE_LOADING"
 
 // junshi
-export const FETCH_JUNSHI = "FETCH_JUNSHI"
-export const RECEIVE_JUNSHI = "RECEIVE_JUNSHI"
+const FETCH_JUNSHI = "FETCH_JUNSHI"
+const RECEIVE_JUNSHI = "RECEIVE_JUNSHI"
+
+module.exports = {
+  BASE_LOADING,
+  FETCH_JUNSHI,
+  RECEIVE_JUNSHI,
+}

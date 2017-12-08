@@ -1,4 +1,4 @@
-import * as types from 'constants/actionTypes';
+import * as types from '../constants/actionTypes';
 
 export function showLoading(loading = true) {
   return {
