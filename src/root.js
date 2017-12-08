@@ -6,7 +6,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
-import configureStore from 'store/configure-store';
+import configureStore from 'store/configureStore';
 import rootSaga from 'sagas';
 import App from './AppNavigationState';
 
