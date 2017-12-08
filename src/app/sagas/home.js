@@ -1,5 +1,5 @@
 import { put, take, call, fork } from "redux-saga/effects"
-import * as types from "constants/action-types"
+import * as types from "constants/actionTypes"
 import { GET } from "utils/request"
 import { ZIXUN_JUNSHI } from "constants/urls"
 import { showLoading } from "actions/base"
