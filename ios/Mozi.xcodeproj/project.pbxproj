@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -49,6 +48,7 @@
 		B7B97B70282F47109C6D884F /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8364BB7718B488B96D7BA46 /* Ionicons.ttf */; };
 		CDADE8F99C4D4C33871032FE /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9C3900C66074853937A0E3B /* Foundation.ttf */; };
 		F02B6C54DD3D4ACBB957CE91 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E683A6ECEBC44E186E186E6 /* MaterialIcons.ttf */; };
+		3EFC119072504DE5BAA1053D /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB98245B2CF648DA9A0D10B3 /* Feather.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -325,6 +325,7 @@
 		B04A5E546465440EA935C9FC /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		B3621F4032F9435D945418CE /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		F9C3900C66074853937A0E3B /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		EB98245B2CF648DA9A0D10B3 /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -577,6 +578,7 @@
 				7FEAAC7DE5774AD5A7AF964C /* Octicons.ttf */,
 				457EDB6A20284C51B0572ABE /* SimpleLineIcons.ttf */,
 				6F5416F3A1B843A39E65D101 /* Zocial.ttf */,
+				EB98245B2CF648DA9A0D10B3 /* Feather.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1028,6 +1030,7 @@
 				0A94FA42FA734AFBB7EE42A6 /* Octicons.ttf in Resources */,
 				4A90A66A06BF4355A875AF26 /* SimpleLineIcons.ttf in Resources */,
 				903B1E360AE14C57A8B851FA /* Zocial.ttf in Resources */,
+				3EFC119072504DE5BAA1053D /* Feather.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
