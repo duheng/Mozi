@@ -5,6 +5,7 @@ import {
   View,
   RefreshControl,
   SectionList,
+  InteractionManager,
 } from "react-native"
 import { ListItem, ListParagraph } from "../../components"
 import HomeSelector from "../../app/selectors/home"
@@ -45,7 +46,9 @@ export default class Zi extends Component {
   }
 
   componentWillMount() {
-    this.props.actions.fetchJunShi()
+    InteractionManager.runAfterInteractions(() => {
+      this.props.actions.fetchJunShi()
+    })
   }
 
   onRefresh = () => {

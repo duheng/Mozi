@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { StyleSheet, Text, View, FlatList } from "react-native"
+import { StyleSheet, Text, View, FlatList, InteractionManager } from "react-native"
 import HomeSelector from "../../app/selectors/home"
 import * as HomeActions from "../../app/actions/home"
 import { ListItem, ListParagraph } from "../../components"
@@ -31,7 +31,9 @@ export default class Gong extends Component {
   }
 
   componentWillMount() {
-    this.props.actions.fetchJunShi()
+    InteractionManager.runAfterInteractions(() => {
+      this.props.actions.fetchJunShi()
+    })
   }
 
   headerImageScrollView = () => {
