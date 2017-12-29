@@ -46,7 +46,6 @@ const ListParagraph = props => {
   };
   const options = { ...baseOption, ...props };
   const { isLoading, list } = props;
-  console.log('isLoading___', isLoading)
   if (isLoading) {
     return Placeholders(options);
   }
