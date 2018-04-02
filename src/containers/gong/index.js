@@ -47,7 +47,7 @@ export default class Gong extends Component {
       <FlatList
         initialNumToRender={8}
         style={styles.container}
-        keyExtractor={item => item.data[0].itemid}
+        keyExtractor={item => `gong_${item.data[0].item_id}`}
         ListHeaderComponent={() => {
           return this.renderHeader()
         }}

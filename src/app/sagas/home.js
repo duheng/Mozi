@@ -6,20 +6,19 @@ import { showLoading } from "../actions/base"
 import { receiveJunShi } from "../actions/home"
 
 const PARAMS = {
-  channel_id: "c7",
-  cstart: 1,
-  cend: 50,
-  infinite: true,
-  refresh: 1,
-  __from__: "wap",
-  multi: 5,
-  appid: "web_yidian",
+  tag: "news_hot",
+  ac: "wap",
+  count: 50,
+  format: "json_raw",
+  as: "A1E55A7CF10D87C",
+  cp: "5AC15D28478C7E1",
+  min_behot_time: 0,
 }
 export function* handleJunShiAction() {
   yield put(showLoading(true)) // 控制loading状态
   const resp = yield call(GET, ZIXUN_JUNSHI, PARAMS)
   if (resp) {
-    yield put(receiveJunShi(resp.result))
+    yield put(receiveJunShi(resp.data))
   } else {
     yield put(receiveJunShi({}))
   }

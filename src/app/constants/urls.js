@@ -1,6 +1,6 @@
-// const HOST = 'https://box-test.wepiao.com/api'
-const HOST = "https://www.yidianzixun.com/home/q"
-const ZIXUN_JUNSHI = `${HOST}/news_list_for_channel`
+// const HOST = 'https://m.toutiao.com/list/'
+const HOST = "https://m.toutiao.com"
+const ZIXUN_JUNSHI = `${HOST}/list/`
 
 module.exports = {
   ZIXUN_JUNSHI,

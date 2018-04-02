@@ -77,7 +77,7 @@ export default class Zi extends Component {
           return this.renderHeader(item)
         }}
         keyExtractor={item => {
-          return item.itemid
+          return item.item_id
         }}
         refreshControl={
           <RefreshControl
@@ -102,12 +102,12 @@ export default class Zi extends Component {
   }
 
   renderItem = renderItem => {
-    const { url } = renderItem.item
+    const { share_url } = renderItem.item
     return (
       <ListItem
         data={renderItem.item}
         gopage={() => {
-          this.goPage(url)
+          this.goPage(share_url.replace(/http:/g, 'https:'))
         }}
       />
     )
