@@ -38,13 +38,7 @@ export default class Back extends Component {
   }
 
   goBack = () => {
-    const { routes } = this.props;
-    // 这是入栈的路由数组
-    console.log('routes______', routes)
-    // 这是返回上上个页面的demo
-    this.props.navigation.goBack(routes[1].key);
-    // 这是返回上一个页面的demo
-    // this.props.navigation.goBack(routes[2].key);
+    this.props.navigation.navigate('Mo')
   };
 
   render() {

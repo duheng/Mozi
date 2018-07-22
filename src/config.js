@@ -1,151 +1,93 @@
 import React from "react"
-import { View, Image } from "react-native"
-import CardStackStyleInterpolator from "react-navigation/src/views/CardStack/CardStackStyleInterpolator"
+import { View,Text, Image } from "react-native"
 import NavigationButton from "./components/NavigationButton"
-import Logo from "./commons/assets/logo.png"
+import { tabBar, window } from "../app"
 
-const activeTabColor = "#42c02e"
-const defaultTabColor = "#949494"
-
-const headerOptions = props => {
-  const { navigation, navigationOptions, visible = true, back = false, right = false } = props
-  const { goBack } = navigation
-  const headerLeft = back ? (
-    <NavigationButton
-      name="back"
-      callback={() => {
-        goBack(null)
-      }}
-    />
-  ) : (
-    <View />
-  )
-
-  const headerRight = right ? (
-    NavigationButton([
-      {
-        name: "share",
-        callback: () => {
-          console.log("this is my share button")
-        },
-      },
-      {
-        name: "reload",
-        callback: () => {
-          console.log("this is my search button")
-        },
-      },
-    ])
-  ) : (
-    <View />
-  )
-
-  const header = visible === false ? null : undefined
-  const headerTitle = (
-    <Image
-      source={Logo}
-      style={{
-        width: 30,
-        height: 30,
-        alignSelf: "center",
-        borderRadius: 15,
-      }}
-      resizeMode="contain"
-    />
-  )
-
-  return {
-    headerTitle,
-    headerLeft,
-    headerRight,
-    header,
-    headerTitleStyle: { fontSize: 18, alignSelf: "center", color: "#9c9c9c" },
-    headerStyle: {
-      height: 64,
-      backgroundColor: "#262a37",
-    },
-    ...navigationOptions,
-  }
-}
-
-const RouteConfigs = options => {
-  const { iconame = null, label = null, props } = options
-  return {
-    ...headerOptions(props),
-    tabBarLabel: label,
-    tabBarIcon: ({ focused }) => {
-      if (!iconame) return null
-      const IcoName = focused ? iconame : `${iconame}-outline`
-      const IcoColor = focused ? activeTabColor : defaultTabColor
-      return <NavigationButton name={IcoName} size={20} color={IcoColor} usename />
-    },
-  }
-}
-
-const TabNavigatorConfig = options => {
+const BottomTabNavigatorConfig = options => {
+  const { inactiveTintColor, activeTintColor, list } = tabBar
   const {
-    initialRouteName: InitialRouteName = "",
-    tabBarPosition: TabBarPosition = "bottom",
-    swipeEnabled: SwipeEnabled = false,
-    scrollEnabled: ScrollEnabled = false,
-    animationEnabled: AnimationEnabled = false,
-    showIcon: ShowIcon = true,
+    initialRouteName = "",
+    showIcon = true,
   } = options
 
   return {
-    initialRouteName: InitialRouteName,
-    tabBarPosition: TabBarPosition,
-    swipeEnabled: SwipeEnabled,
-    scrollEnabled: ScrollEnabled,
-    animationEnabled: AnimationEnabled,
-    backBehavior: "none",
-    lazy: true,
+    initialRouteName,
     tabBarOptions: {
-      labelStyle: {
-        margin: 0,
-        padding: 0,
-        fontSize: 12,
-      },
-      style: {
-        margin: 0,
-        padding: 0,
-        height: 50,
-        borderTopColor: "#e5e5e5",
-        borderTopWidth: 0.5,
-        borderBottomWidth: 0.5,
-        borderBottomColor: "#e5e5e5",
-        backgroundColor: "#f8f8f8",
-      },
-      pressColor: "#e5e5e5",
-      pressOpacity: 0.3,
+      inactiveTintColor,
+      activeTintColor,
+      showLabel: true,
+      showIcon,
       indicatorStyle: {
         height: 0,
       },
-      inactiveTintColor: defaultTabColor,
-      activeTintColor: activeTabColor,
-      showLabel: true,
-      showIcon: ShowIcon,
-      upperCaseLabel: false,
+      style: {
+
+      },
+      labelStyle: {
+        fontSize: 12,
+      },
     },
-  }
-}
-const StackNavigatorConfig = options => {
-  const { initialRouteName: InitialRouteName = "" } = options
-  return {
-    initialRouteName: InitialRouteName,
-    mode: "card", // 页面跳转方式 card - 原生系统默认的的跳转;modal - 只针对iOS平台，模态跳转
-    headerMode: "screen", // float - 渐变，类似iOS的原生效果;screen - 标题与屏幕一起淡入淡出;none - 没有动画
-    cardStyle: { backgroundColor: "#F5FCFF" }, // 为各个页面设置统一的样式，比如背景色，字体大小等
-    transitionConfig: () => ({
-      // 配置页面跳转的动画，覆盖默认的动画效果
-      screenInterpolator: CardStackStyleInterpolator.forHorizontal,
-    }),
+    navigationOptions: ({navigation}) => {
+      const { routeName } = navigation.state;
+      const { icoPath, icoName, text } = list[routeName]
+      return {
+        tabBarIcon: ({ focused, tintColor }) => {
+           if(!!icoPath) {
+             return <Image
+               source={icoPath}
+               style={{
+                 width: 20,
+                 height: 20,
+                 alignSelf: "center",
+               }}
+               resizeMode="contain"
+             />
+           } else {
+             const IcoName = focused ? icoName : `${icoName}-outline`
+             return <NavigationButton name={IcoName} size={20} color={tintColor} usename />
+           }
+        },
+        tabBarLabel:  ({ focused, tintColor }) => {
+            return <Text style={{ color:tintColor,marginBottom: 4 }} >{text}</Text>
+        }
+      }
+    },
+
+
   }
 }
 
+const StackNavigatorConfig = options => {
+  const { initialRouteName = "" } = options
+  const {
+    headerBackTitle = null,
+    headerTintColor = '#FFFFFF',
+    gesturesEnabled = true,
+    headerBackgroundColor = "#262a37",
+    headerTitleStyle = {
+      fontSize: 18,
+      alignSelf: "center",
+      color: "#9c9c9c"
+    }
+  } = window || {};
+  return {
+    initialRouteName,
+    mode: "card", // 页面跳转方式 card - 原生系统默认的的跳转;modal - 只针对iOS平台，模态跳转
+    headerMode: "float", // float - 渐变，类似iOS的原生效果;screen - 标题与屏幕一起淡入淡出;none - 没有动画
+    cardStyle: { backgroundColor: "#F5FCFF" }, // 为各个页面设置统一的样式，比如背景色，字体大小等
+    navigationOptions: {
+      headerBackTitle, // 返回按钮文字
+      headerTintColor, // 返回按钮颜色
+      gesturesEnabled, // 是否支持滑动返回
+      headerTitleStyle,
+      headerStyle: {
+        backgroundColor: headerBackgroundColor ,
+      },
+    }
+  };
+}
+
 module.exports = {
-  headerOptions,
-  RouteConfigs,
-  TabNavigatorConfig,
+  BottomTabNavigatorConfig,
   StackNavigatorConfig,
 }

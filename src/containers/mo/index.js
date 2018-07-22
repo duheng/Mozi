@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet,Image } from 'react-native';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
-
+import Logo from "../../commons/assets/logo.png"
 import Plug from './plug';
 import Moui from './moui';
 import Rule from './rule';
@@ -23,7 +23,23 @@ const styles = StyleSheet.create({
   },
 });
 
+const headerTitle = (
+  <Image
+    source={Logo}
+    style={{
+      width: 30,
+      height: 30,
+      alignSelf: "center",
+      borderRadius: 15,
+    }}
+    resizeMode="contain"
+  />
+)
+
 export default class Mo extends Component {
+  static navigationOptions = {
+    headerTitle: '墨子攻城',
+  };
   render() {
     const { navigation } = this.props;
     return (

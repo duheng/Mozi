@@ -1,119 +1,34 @@
-import { StackNavigator, TabNavigator } from "react-navigation"
-import { Mo, Zi, Gong, Cheng, Web, Back, Backa, HeaderImageScrollView } from "./index"
-
-import { headerOptions, RouteConfigs, TabNavigatorConfig, StackNavigatorConfig } from "../config"
-
-const TabBarText = {
-  mo: "墨",
-  zi: "子",
-  gong: "攻",
-  cheng: "城",
-}
-
-const Nav = TabNavigator(
+import { createBottomTabNavigator, createStackNavigator } from "react-navigation"
+import * as pages from "./index"
+import { TabNavigatorConfig,BottomTabNavigatorConfig, StackNavigatorConfig } from "../config"
+const TabNav = createBottomTabNavigator(
   {
-    Mo: {
-      screen: Mo,
-      path: "Mo",
-      navigationOptions: props => {
-        return RouteConfigs({
-          iconame: "ios-home",
-          label: TabBarText.mo,
-          props,
-        })
-      },
-    },
-    Zi: {
-      screen: Zi,
-      path: "Zi",
-      navigationOptions: props => {
-        return RouteConfigs({
-          iconame: "ios-planet",
-          label: TabBarText.zi,
-          props,
-        })
-      },
-    },
-    Gong: {
-      screen: Gong,
-      path: "Gong",
-      navigationOptions: props => {
-        return RouteConfigs({
-          iconame: "ios-analytics",
-          label: TabBarText.gong,
-          props,
-        })
-      },
-    },
-    Cheng: {
-      screen: Cheng,
-      path: "Cheng",
-      navigationOptions: props => {
-        return RouteConfigs({
-          iconame: "ios-contacts",
-          label: TabBarText.cheng,
-          props,
-        })
-      },
-    },
+    Mo: pages.Mo,
+    Zi: pages.Zi,
+    Gong: pages.Gong,
+    Cheng: pages.Cheng,
   },
-  TabNavigatorConfig({
-    initialRouteName: "Mo",
-  }),
-)
+  BottomTabNavigatorConfig({
+      initialRouteName: "Mo",
+  })
+);
 
-const Routers = StackNavigator(
-  {
-    Nav: {
-      screen: Nav,
-    },
-    Web: {
-      screen: Web,
-      navigationOptions: props => {
-        return headerOptions({
-          ...props,
-          ...{
-            back: true,
-          },
-        })
-      },
-    },
-    Back: {
-      screen: Back,
-      navigationOptions: props => {
-        return headerOptions({
-          ...props,
-          ...{
-            back: true,
-          },
-        })
-      },
-    },
-    Backa: {
-      screen: Backa,
-      navigationOptions: props => {
-        return headerOptions({
-          ...props,
-          ...{
-            back: true,
-          },
-        })
-      },
-    },
-    HeaderImageScrollView: {
-      screen: HeaderImageScrollView,
-      navigationOptions: props => {
-        return headerOptions({
-          ...props,
-          ...{
-            back: true,
-          },
-        })
-      },
-    },
+TabNav.navigationOptions = ({ navigation }) => { // 设置tabBar的标题
+  const { routes, index } = navigation.state
+  const { routeName } = routes[index];
+  return pages[routeName].navigationOptions
+};
+
+const Routers = createStackNavigator({
+    Root: TabNav,
+    Web: pages.Web,
+    Back: pages.Back,
+    Backa: pages.Backa,
+    HeaderImageScrollView: pages.HeaderImageScrollView
   },
   StackNavigatorConfig({
-    initialRouteName: "Nav",
-  }),
+      initialRouteName: "Root",
+  })
 )
+
 export default Routers

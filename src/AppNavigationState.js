@@ -1,18 +1,38 @@
 import React, { Component } from 'react';
-import { BackHandler, ToastAndroid } from "react-native";
-import { connect } from 'react-redux';
-import { addNavigationHelpers, NavigationActions } from 'react-navigation';
+import { BackHandler, ToastAndroid,Platform } from "react-native";
+import { NavigationActions } from 'react-navigation';
+import JPushModule from 'jpush-react-native';
 import Routers from './routers/app';
 
-@connect(state => ({ nav: state.nav }))
-export default class AppWithNavigationState extends Component {
+export default class AppNavigationState extends Component {
   componentDidMount() {
     BackHandler.addEventListener("hardwareBackPress", this.onBackPress);
+    if (Platform.OS === 'android') {
+    // 通知 JPushModule 初始化完成，发送缓存事件。
+         JPushModule.notifyJSDidLoad((resultCode) => {});
+    }
+    // 接收自定义消息
+    JPushModule.addReceiveCustomMsgListener((message) => {
+      this.setState({pushMsg: message});
+    });
+    // 接收推送通知
+    JPushModule.addReceiveNotificationListener((message) => {
+      console.log("receive notification: " + message);
+    });
+    // 打开通知
+    JPushModule.addReceiveOpenNotificationListener((map) => {
+      console.log("Opening notification!");
+      !!this.root && this.root.props.navigation.navigate('Gong')
+    });
+
   }
 
   componentWillUnmount() {
     BackHandler.removeEventListener("hardwareBackPress", this.onBackPress);
     this.lastBackPressed = null
+
+    JPushModule.removeReceiveCustomMsgListener();
+    JPushModule.removeReceiveNotificationListener();
   }
 
   onBackPress = () => {
@@ -29,13 +49,12 @@ export default class AppWithNavigationState extends Component {
   };
 
   render() {
-    const { dispatch, nav } = this.props;
-    const navigation = addNavigationHelpers({
-      dispatch,
-      state: nav,
-    });
     return (
-      <Routers navigation={navigation} />
+      <Routers
+        ref={ref => {
+          this.root = ref;
+        }}
+      />
     );
   }
 }

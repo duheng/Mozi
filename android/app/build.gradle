@@ -77,6 +77,7 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -102,7 +103,12 @@ android {
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
+        manifestPlaceholders = [
+                JPUSH_APPKEY: "896ea8641e9c62c38906de41",
+                APP_CHANNEL : "default"
+        ]
+
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -128,6 +134,7 @@ android {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             signingConfig signingConfigs.release
+            buildConfigField "String", "CODEPUSH_KEY", "TyXCHztJx9rvb3Ogy5I4cVU-DHGH6a76e0de-a57f-4a89-b60d-01d72ab0675f"
         }
     }
     // applicationVariants are e.g. debug, release
@@ -146,6 +153,9 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-code-push')
+    compile project(':jcore-react-native')
+    compile project(':jpush-react-native')
     compile project(':react-native-splash-screen')
     compile project(':react-native-vector-icons')
     compile fileTree(dir: "libs", include: ["*.jar"])

@@ -46,6 +46,9 @@ export default class Zi extends Component {
   }
 
   componentWillMount() {
+    this.props.navigation.setParams({
+     title: '识兔',
+   })
     InteractionManager.runAfterInteractions(() => {
       this.props.actions.fetchJunShi()
     })
