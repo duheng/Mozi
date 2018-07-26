@@ -1,9 +1,5 @@
 import { createSelector } from "reselect"
 
-const getLoading = state => {
-  const { loading } = { ...state.base }
-  return loading
-}
 
 const listData = item => {
   const MyItem = { ...item }
@@ -20,9 +16,9 @@ const getHome = state => {
   return filterJunShi
 }
 
-export default createSelector(getLoading, getHome, (loading, home) => {
+export default createSelector(getHome, (home) => {
+  console.log('redu-js--',home)
   return {
-    loading,
     home,
   }
 })

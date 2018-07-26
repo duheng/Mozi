@@ -117,7 +117,12 @@ export default class Zi extends Component {
   }
 
   render() {
-    const { loading } = this.props
+    console.log('js---',this.props)
+    const { home } = this.props
+    let loading = true
+    if(home.length > 0) {
+      loading = false
+    }
     return (
       <ListParagraph ParagraphLength={6} isLoading={loading} hasTitle list={this.sectionList} />
     )

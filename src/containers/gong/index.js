@@ -73,8 +73,11 @@ export default class Gong extends Component {
   }
 
   render() {
-    const { loading } = this.props
-
+    const { home } = this.props
+    let loading = true
+    if(home.length > 0) {
+      loading = false
+    }
     return <ListParagraph ParagraphLength={8} isLoading={loading} list={this.flatList} />
   }
 }

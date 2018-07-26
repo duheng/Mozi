@@ -5513,6 +5513,10 @@ redux-saga@^0.16.0:
   version "0.16.0"
   resolved "https://registry.npmjs.org/redux-saga/-/redux-saga-0.16.0.tgz#0a231db0a1489301dd980f6f2f88d8ced418f724"
 
+redux-thunk@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
+
 redux@^4.0.0-beta.1:
   version "4.0.0-beta.1"
   resolved "https://registry.npmjs.org/redux/-/redux-4.0.0-beta.1.tgz#fc1cf2fc33d23a1a201d00235b3e27a331261ec7"

@@ -8,12 +8,9 @@ import { Provider } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
 import codePush from "react-native-code-push";
 import configureStore from './app/store/configureStore';
-import rootSaga from './app/sagas';
 import App from './AppNavigationState';
 
 const store = configureStore();
-// run root saga
-store.runSaga(rootSaga);
 
 @codePush
 export default class Root extends Component {
