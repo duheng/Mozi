@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import connect from "../../app/store/connect";
+import connect from '../../app/store/connect';
 import NavigationButton from '../../components/NavigationButton';
 
 const styles = StyleSheet.create({
@@ -17,28 +17,33 @@ const styles = StyleSheet.create({
   },
 });
 
-@connect(state => ({
-  routes: state.nav.routes,
-}), {})
+@connect(
+  state => ({
+    routes: state.nav.routes,
+  }),
+  {},
+)
 export default class Back extends Component {
   static navigationOptions = ({ navigation }) => ({
     headerTitle: 'Custom Back Demo',
-    headerLeft: <NavigationButton
-      name="back"
-      callback={() => {
-        navigation.state.params.goBack && navigation.state.params.goBack()
-      }}
-    />,
+    headerLeft: (
+      <NavigationButton
+        name="back"
+        callback={() => {
+          navigation.state.params.goBack && navigation.state.params.goBack();
+        }}
+      />
+    ),
   });
 
   componentDidMount() {
     this.props.navigation.setParams({
       goBack: this.goBack,
-    })
+    });
   }
 
   goBack = () => {
-    this.props.navigation.navigate('Mo')
+    this.props.navigation.navigate('Mo');
   };
 
   render() {

@@ -1,13 +1,21 @@
-import React, { PureComponent } from "react"
-import { View, Text, Image, TouchableOpacity } from "react-native"
-import styles from "./item.style"
+import React, { PureComponent } from 'react';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+import styles from './item.style';
 
 export default class MovieItem extends PureComponent {
   render() {
-    const { has_image, image_url, image_list, source, title, abstract, cell_flag } = this.props.data
-    let images = image_url
+    const {
+      has_image,
+      image_url,
+      image_list,
+      source,
+      title,
+      abstract,
+      cell_flag,
+    } = this.props.data;
+    let images = image_url;
     if (!has_image && image_list[0]) {
-      images = image_list[0].url
+      images = image_list[0].url;
     }
     return (
       <TouchableOpacity style={styles.item} onPress={this.props.gopage}>
@@ -17,7 +25,7 @@ export default class MovieItem extends PureComponent {
             <Text style={[styles.width50, styles.fontSize15, styles.black]} numberOfLines={1}>
               {title}
             </Text>
-            <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
+            <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
               <Text style={[styles.fontSize15, styles.red]}>{cell_flag}</Text>
               <Text style={[styles.fontSize11, styles.red, { paddingBottom: 2 }]}>喜欢</Text>
             </View>
@@ -30,6 +38,6 @@ export default class MovieItem extends PureComponent {
           </View>
         </View>
       </TouchableOpacity>
-    )
+    );
   }
 }

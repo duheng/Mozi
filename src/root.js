@@ -6,7 +6,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
-import codePush from "react-native-code-push";
+import codePush from 'react-native-code-push';
 import configureStore from './app/store/configureStore';
 import App from './AppNavigationState';
 

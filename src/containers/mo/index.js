@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Image } from 'react-native';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
-import Logo from "../../commons/assets/logo.png"
+import Logo from '../../commons/assets/logo.png';
 import Plug from './plug';
 import Moui from './moui';
 import Rule from './rule';
@@ -29,12 +29,12 @@ const headerTitle = (
     style={{
       width: 30,
       height: 30,
-      alignSelf: "center",
+      alignSelf: 'center',
       borderRadius: 15,
     }}
     resizeMode="contain"
   />
-)
+);
 
 export default class Mo extends Component {
   static navigationOptions = {

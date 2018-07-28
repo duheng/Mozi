@@ -5,17 +5,17 @@
  * Email: duheng1100@163.com
  */
 
-import { StyleSheet } from "react-native"
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   item: {
-    flexDirection: "row",
-    borderBottomColor: "#e5e5e5",
+    flexDirection: 'row',
+    borderBottomColor: '#e5e5e5',
     borderBottomWidth: 0.5,
     paddingTop: 10,
     paddingBottom: 10,
     paddingRight: 10,
-    alignItems: "center",
+    alignItems: 'center',
   },
   image: {
     marginLeft: 10,
@@ -25,19 +25,19 @@ export default StyleSheet.create({
   right: {
     flex: 1,
     marginLeft: 10,
-    flexDirection: "column",
-    justifyContent: "space-between",
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   rightTop: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   rightInfo: {
     marginTop: 10,
   },
   colorGray: {
-    color: "#666",
-    width: "60%",
+    color: '#666',
+    width: '60%',
     fontSize: 12,
   },
   fontSize15: {
@@ -50,12 +50,12 @@ export default StyleSheet.create({
     fontSize: 11,
   },
   red: {
-    color: "#FF5200",
+    color: '#FF5200',
   },
   black: {
-    color: "#333",
+    color: '#333',
   },
   width50: {
-    width: "50%",
+    width: '50%',
   },
-})
+});

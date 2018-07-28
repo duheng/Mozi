@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
   },
 });
 
-
 export default class Backa extends Component {
   static navigationOptions = {
     headerTitle: '第一个入栈的页面',

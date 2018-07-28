@@ -27,9 +27,7 @@ const runCallback = options => {
 
   const buttons =
     callback && typeof callback === 'function' ? (
-      <TouchableOpacity onPress={callback}>
-        {creatIcon(options)}
-      </TouchableOpacity>
+      <TouchableOpacity onPress={callback}>{creatIcon(options)}</TouchableOpacity>
     ) : (
       creatIcon(options)
     );
