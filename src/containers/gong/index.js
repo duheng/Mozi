@@ -5,6 +5,7 @@ import * as HomeActions from "../../app/actions/home"
 import { ListItem, ListParagraph } from "../../components"
 import connect from "../../app/store/connect"
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
