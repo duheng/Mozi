@@ -1,27 +1,8 @@
 {
   "parser": "babel-eslint",
-  "extends": [
-    "plugin:react/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "airbnb",
-    "prettier",
-    "prettier/react"
-  ],
-  "plugins": ["react", "jsx-a11y", "import", "prettier"],
+  "extends": "airbnb",
+  "plugins": ["react", "jsx-a11y", "import"],
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "printWidth": 100,
-        "parser": "babylon",
-        "trailingComma": "all",
-        "singleQuote": true,
-        "bracketSpacing": true,
-        "jsxBracketSameLine": false,
-        "semi": true
-      }
-    ],
     "no-console": 0,
     "no-mixed-operators": 0,
     "no-underscore-dangle": 0,
@@ -39,7 +20,6 @@
         "allowShortCircuit": true
       }
     ],
-    "camelcase": 0,
     "semi": 0,
     "quotes": 0,
     "arrow-parens": 0,
