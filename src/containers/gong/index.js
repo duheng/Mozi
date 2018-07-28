@@ -6,10 +6,11 @@ import { ListItem, ListParagraph } from '../../components';
 import connect from '../../app/store/connect';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginLeft: 10,
-  },
+  container:
+   {
+     flex: 1,
+     marginLeft: 10,
+   },
   headerButton: {
     borderRadius: 5,
     borderWidth: 3,
