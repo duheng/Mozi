@@ -8,13 +8,8 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios --simulator 'iPhone 6'",
     "test": "jest",
-    "lint": "eslint ./ --cache --ignore-pattern .gitignore",
-    "precommit-msg": "echo '>>正在检查您的代码代码规范...' && exit 0"
+    "precommit": "lint-staged"
   },
-  "pre-commit": [
-    "precommit-msg",
-    "lint"
-  ],
   "dependencies": {
     "jcore-react-native": "^1.2.6",
     "jpush-react-native": "^2.2.5",
@@ -48,11 +43,21 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.3.0",
+    "husky": "^1.0.0-rc.13",
     "jest": "23.2.0",
-    "pre-commit": "^1.2.2",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.13.7",
+    "prettier-eslint": "^8.8.2",
     "react-test-renderer": "16.3.1"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "lint-staged": {
+    "*.{js,json,css}": [
+      "eslint --fix ./ --cache --ignore-pattern .gitignore",
+      "prettier --write",
+      "git add"
+    ]
   }
 }

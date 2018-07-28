@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet,Image } from 'react-native';
+import { StyleSheet, Image } from 'react-native';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
 import Logo from "../../commons/assets/logo.png"
 import Plug from './plug';
@@ -38,7 +38,7 @@ const headerTitle = (
 
 export default class Mo extends Component {
   static navigationOptions = {
-    headerTitle: '墨子攻城',
+    headerTitle,
   };
   render() {
     const { navigation } = this.props;

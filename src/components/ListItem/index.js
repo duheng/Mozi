@@ -5,7 +5,10 @@ import styles from "./item.style"
 export default class MovieItem extends PureComponent {
   render() {
     const { has_image, image_url, image_list, source, title, abstract, cell_flag } = this.props.data
-    const images = has_image ? image_url : (image_list[0] && image_list[0].url)
+    let images = image_url
+    if (!has_image && image_list[0]) {
+      images = image_list[0].url
+    }
     return (
       <TouchableOpacity style={styles.item} onPress={this.props.gopage}>
         <Image source={{ uri: images }} style={styles.image} />

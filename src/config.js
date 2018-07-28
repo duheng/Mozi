@@ -1,5 +1,5 @@
 import React from "react"
-import { View,Text, Image } from "react-native"
+import { Text, Image } from "react-native"
 import NavigationButton from "./components/NavigationButton"
 import { tabBar, window } from "../app"
 
@@ -27,29 +27,28 @@ const BottomTabNavigatorConfig = options => {
         fontSize: 12,
       },
     },
-    navigationOptions: ({navigation}) => {
+    navigationOptions: ({ navigation }) => {
       const { routeName } = navigation.state;
       const { icoPath, icoName, text } = list[routeName]
       return {
         tabBarIcon: ({ focused, tintColor }) => {
-           if(!!icoPath) {
-             return <Image
-               source={icoPath}
-               style={{
-                 width: 20,
-                 height: 20,
-                 alignSelf: "center",
-               }}
-               resizeMode="contain"
-             />
-           } else {
-             const IcoName = focused ? icoName : `${icoName}-outline`
-             return <NavigationButton name={IcoName} size={20} color={tintColor} usename />
-           }
+          if (icoPath) {
+            return (<Image
+              source={icoPath}
+              style={{
+                width: 20,
+                height: 20,
+                alignSelf: "center",
+              }}
+              resizeMode="contain"
+            />)
+          }
+          const IcoName = focused ? icoName : `${icoName}-outline`
+          return <NavigationButton name={IcoName} size={20} color={tintColor} usename />
         },
-        tabBarLabel:  ({ focused, tintColor }) => {
-            return <Text style={{ color:tintColor,marginBottom: 4 }} >{text}</Text>
-        }
+        tabBarLabel: ({ tintColor }) => {
+          return <Text style={{ color: tintColor, marginBottom: 4 }} >{text}</Text>
+        },
       }
     },
 
@@ -67,8 +66,8 @@ const StackNavigatorConfig = options => {
     headerTitleStyle = {
       fontSize: 18,
       alignSelf: "center",
-      color: "#9c9c9c"
-    }
+      color: "#9c9c9c",
+    },
   } = window || {};
   return {
     initialRouteName,
@@ -81,9 +80,9 @@ const StackNavigatorConfig = options => {
       gesturesEnabled, // 是否支持滑动返回
       headerTitleStyle,
       headerStyle: {
-        backgroundColor: headerBackgroundColor ,
+        backgroundColor: headerBackgroundColor,
       },
-    }
+    },
   };
 }
 

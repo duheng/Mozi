@@ -47,8 +47,8 @@ export default class Zi extends Component {
 
   componentWillMount() {
     this.props.navigation.setParams({
-     title: '识兔',
-   })
+      title: '识兔',
+    })
     InteractionManager.runAfterInteractions(() => {
       const PARAMS = {
         tag: "news_hot",
@@ -127,10 +127,10 @@ export default class Zi extends Component {
   }
 
   render() {
-    console.log('js---',this.props)
+    console.log('js---', this.props)
     const { home } = this.props
     let loading = true
-    if(home.length > 0) {
+    if (home.length > 0) {
       loading = false
     }
     return (

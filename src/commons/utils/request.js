@@ -89,12 +89,12 @@ const GET = (url, data = {}, options = {}) => {
     contentType: "application/json",
     ...options,
   })
-  .then(res => {
-    return res
-  })
-  .catch(error => {
-    throw error
-  })
+    .then(res => {
+      return res
+    })
+    .catch(error => {
+      throw error
+    })
 }
 
 module.exports = {
