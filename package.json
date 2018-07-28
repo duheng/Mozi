@@ -55,8 +55,8 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix ./ --cache --ignore-pattern .gitignore",
       "prettier --single-quote --write",
+      "eslint --fix ./ --cache --ignore-pattern .gitignore",
       "git add"
     ]
   }
