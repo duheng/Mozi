@@ -32,7 +32,16 @@ export default class Gong extends Component {
 
   componentWillMount() {
     InteractionManager.runAfterInteractions(() => {
-      this.props.actions.fetchJunShi()
+      const PARAMS = {
+        tag: "news_hot",
+        ac: "wap",
+        count: 50,
+        format: "json_raw",
+        as: "A1E55A7CF10D87C",
+        cp: "5AC15D28478C7E1",
+        min_behot_time: 0,
+      }
+      this.props.actions.fetchJunShi(PARAMS)
     })
   }
 

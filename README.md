@@ -1,4 +1,4 @@
-# Mozi
+# Mozi 2.0-beta
 [![npm](https://img.shields.io/npm/l/express.svg)](https://github.com/duheng/Mozi)
 [![CircleCI](https://img.shields.io/circleci/project/github/RedSparr0w/node-csgo-parser.svg)](https://github.com/duheng/Mozi)
 [![Codecov branch](https://img.shields.io/codecov/c/github/codecov/example-python/master.svg)](https://github.com/duheng/Mozi)
@@ -6,6 +6,16 @@
 
 
 此项目致力于构建一套可最基础，最精简，可维护的react-native项目，适用于团队合作开发React Native项目，我们知道react-native init出来的项目只是一个最简单的demo，距离开发企业级项目还差很远，所以这套框架是我在我们团队开发中总结优化而来的，会提供群里关注度高的问题的解决方案以及demo，此项目虽然还不够完善，但是以此为基础足可以搭建一个大型项目：
+
+##升级2.0-beta说明：
+```
+  1- 升级react-native到0.55.4；升级了react-navigation到2.5.5；这快改动比较大，如果你自己的项目有不会升级react-navigation的可以参考一下config.js
+  2- 增加了消息推动和codepush，和jpush，目前安卓版本有效，ios因没有证书还没测试
+  3- 删除了redux-saga，删除的原因并不是因为它不优秀，我个人觉得它很优秀，但是根据大多数工程师反馈不会用saga。而我个人觉得它是一个锦上添花的模块，并不是一个必须的，为了适应大多数工程师的使用习惯改回了原始版本。 注：（大家有喜欢用saga的也可以用 mozi1.0 的分枝）
+  4-master分枝是2.0-beta版本，还没有完善，大家要用稳定版本的也可以用mozi1.0分枝
+  5- 这个版本集成了codepush和jpush，因为我觉得这是每个成熟的产品都必须要有的功能，大家换成自己申请的key就可以了；如果觉得不需要某个我集成的功能可以直接 unlink就OK了；比如：react-native unlink react-native-code-push 这个模块
+```
+
 
 
 #### 涉及主要技术
