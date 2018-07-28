@@ -57,7 +57,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "npm run format",
+      "eslint --fix",
       "git add"
     ]
   }
