@@ -2,7 +2,9 @@ import React, { PureComponent } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from './item.style';
 
-export default class MovieItem extends PureComponent {
+export default class MovieItem extends PureComponent
+
+{
   render() {
     const {
       has_image,
