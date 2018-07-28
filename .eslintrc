@@ -20,6 +20,7 @@
         "allowShortCircuit": true
       }
     ],
+    "camelcase": 0,
     "semi": 0,
     "quotes": 0,
     "arrow-parens": 0,
