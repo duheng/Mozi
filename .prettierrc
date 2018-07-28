@@ -3,7 +3,7 @@
     "parser": "flow",
     "trailingComma": "all",
     "singleQuote": true,
-    "bracketSpacing": true,
+    "bracketSpacing": false,
     "jsxBracketSameLine": false,
     "semi": true,
     "requirePragma": true
