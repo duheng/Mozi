@@ -10,8 +10,13 @@
     "test": "jest",
     "format": "prettier --config ./.prettierrc --write \"src/**/*.js\"",
     "fix": "eslint --fix \"src/**/*.js\"",
-    "precommit": "lint-staged"
+    "lint": "eslint ./ --cache --ignore-pattern .gitignore",
+    "precommit-msg": "echo '>>正在检查您的代码代码规范...' && exit 0"
   },
+  "pre-commit": [
+    "precommit-msg",
+    "fix"
+  ],
   "dependencies": {
     "jcore-react-native": "^1.2.6",
     "jpush-react-native": "^2.2.5",
@@ -42,12 +47,15 @@
     "babel-preset-react-native": "4.0.0",
     "eslint": "^4.6.1",
     "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.3.0",
     "husky": "^1.0.0-rc.13",
     "jest": "23.2.0",
     "lint-staged": "^7.2.0",
+    "pre-commit": "^1.2.2",
     "prettier": "^1.13.7",
     "prettier-eslint": "^8.8.2",
     "react-test-renderer": "16.3.1"
