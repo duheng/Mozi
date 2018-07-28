@@ -54,7 +54,7 @@
     "preset": "react-native"
   },
   "lint-staged": {
-    "*.{js,json,css}": [
+    "*.js": [
       "eslint --fix ./ --cache --ignore-pattern .gitignore",
       "prettier --config ./.prettierrc --write *.js",
       "git add"
