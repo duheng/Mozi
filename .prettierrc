@@ -1,5 +1,5 @@
 {
-    "printWidth": 100,
+    "printWidth": 10,
     "parser": "babylon",
     "trailingComma": "all",
     "singleQuote": true,
