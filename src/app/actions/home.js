@@ -1,4 +1,4 @@
-import { GET } from "../../commons/utils/request"
+import { GET } from "../../commons/utils/request";
 import { ZIXUN_JUNSHI } from "../constants/urls"
 import * as types from "../constants/actionTypes"
 
