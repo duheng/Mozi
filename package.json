@@ -8,7 +8,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios --simulator 'iPhone 6'",
     "test": "jest",
-    "format": "prettier --config ./.prettierrc --write \"src/**/*.js\" && npm fix",
+    "format": "prettier --config ./.prettierrc --write \"src/**/*.js\"",
     "fix": "eslint --fix \"src/**/*.js\"",
     "precommit": "lint-staged"
   },
@@ -42,10 +42,8 @@
     "babel-preset-react-native": "4.0.0",
     "eslint": "^4.6.1",
     "eslint-config-airbnb": "^15.1.0",
-    "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.3.0",
     "husky": "^1.0.0-rc.13",
     "jest": "23.2.0",
@@ -59,7 +57,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix \"src/**/*.js\"",
+      "npm run format -- ",
       "git add"
     ]
   }
