@@ -56,7 +56,7 @@
   "lint-staged": {
     "*.{js,json,css}": [
       "eslint --fix ./ --cache --ignore-pattern .gitignore",
-      "prettier --config ./.prettierrc --write",
+      "prettier --config ./.prettierrc --write *.js",
       "git add"
     ]
   }

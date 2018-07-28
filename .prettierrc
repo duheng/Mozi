@@ -2,7 +2,7 @@
     "printWidth": 100,
     "parser": "babylon",
     "trailingComma": "all",
-    "singleQuote": false,
+    "singleQuote": true,
     "bracketSpacing": true,
     "jsxBracketSameLine": false,
     "semi": true,
