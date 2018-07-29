@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, } from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,7 +7,7 @@ import {
   SectionList,
   InteractionManager,
 } from 'react-native';
-import { ListItem, ListParagraph } from '../../components';
+import { ListItem, ListParagraph, } from '../../components';
 import HomeSelector from '../../app/selectors/home';
 import * as HomeActions from '../../app/actions/home';
 import connect from '../../app/store/connect';
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     backgroundColor: '#F7F7F7',
     shadowColor: '#666666',
-    shadowOffset: { height: 2, width: 0 },
+    shadowOffset: { height: 2, width: 0, },
     shadowRadius: 3,
     shadowOpacity: 0.3,
   },
@@ -65,9 +65,9 @@ export default class Zi extends Component {
   }
 
   onRefresh = () => {
-    this.setState({ isRefreshing: true });
+    this.setState({ isRefreshing: true, });
     setTimeout(() => {
-      this.setState({ isRefreshing: false });
+      this.setState({ isRefreshing: false, });
     }, 3000);
   };
 
@@ -79,7 +79,7 @@ export default class Zi extends Component {
   };
 
   sectionList = () => {
-    const { home } = this.props;
+    const { home, } = this.props;
     return (
       <SectionList
         style={styles.container}
@@ -118,7 +118,7 @@ export default class Zi extends Component {
   };
 
   renderItem = renderItem => {
-    const { share_url } = renderItem.item;
+    const { share_url, } = renderItem.item;
     return (
       <ListItem
         data={renderItem.item}
@@ -131,7 +131,7 @@ export default class Zi extends Component {
 
   render() {
     console.log('js---', this.props);
-    const { home } = this.props;
+    const { home, } = this.props;
     let loading = true;
     if (home.length > 0) {
       loading = false;

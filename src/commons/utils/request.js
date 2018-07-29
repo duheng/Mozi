@@ -14,7 +14,7 @@ const throwError = json => {
   throw error;
 };
 
-const checkStatus = ({ resp, json }) => {
+const checkStatus = ({ resp, json, }) => {
   // 如果 返回结果中包含 code 和 message, 则认为出错了
   if (resp.status >= 200 && resp.status < 300) {
     return json;
@@ -44,9 +44,9 @@ const encodeQuery = (path, data = {}) => {
 
 const FETCH = (url, options, noHeaders = false) => {
   const { headers, ...others } = options;
-  let combineHeaders = { ...headers };
+  let combineHeaders = { ...headers, };
   if (!noHeaders) {
-    combineHeaders = { 'X-Request-Id': GUID(), ...headers };
+    combineHeaders = { 'X-Request-Id': GUID(), ...headers, };
   }
 
   return fetch(url, {
@@ -57,14 +57,14 @@ const FETCH = (url, options, noHeaders = false) => {
     .then(resp =>
       resp
         .json()
-        .then(json => ({ resp, json }))
-        .catch(error => ({ resp, json: {}, error })),
+        .then(json => ({ resp, json, }))
+        .catch(error => ({ resp, json: {}, error, })),
     )
     .then(checkStatus);
 };
 
 const POST = (url, data = {}, options = {}) => {
-  const dataCopy = { ...data, _: Date.now() };
+  const dataCopy = { ...data, _: Date.now(), };
 
   return FETCH(url, {
     method: 'POST',

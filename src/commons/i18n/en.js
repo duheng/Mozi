@@ -7,8 +7,8 @@ export default {
     ok: 'OK',
   },
   unit: {
-    M: { value: 1000 * 1000, name: 'M' },
-    B: { value: 1000 * 1000 * 1000, name: 'B' },
+    M: { value: 1000 * 1000, name: 'M', },
+    B: { value: 1000 * 1000 * 1000, name: 'B', },
   },
   tabbars: {
     home: 'home',
@@ -44,8 +44,8 @@ export default {
     today: 'Today',
     tomorrow: 'Tomorrow',
     ttomorrow: '',
-    dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'],
-    dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    dayNamesShort: [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', ],
+    dayNames: [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', ],
     monthNamesShort: [
       'Jan',
       'Feb',
@@ -74,7 +74,7 @@ export default {
       'November',
       'December',
     ],
-    amPm: ['am', 'pm'],
+    amPm: [ 'am', 'pm', ],
   },
   boxoffice: {
     rank: 'Rank',
@@ -108,7 +108,7 @@ export default {
       avgTickets: 'Avg Tickets',
       tickets: 'Tickets',
     },
-    shows: ['First Day', day => `Day ${day}th`, 'Midnight', 'Limited Release'],
+    shows: [ 'First Day', day => `Day ${day}th`, 'Midnight', 'Limited Release', ],
     schedules: {
       name: 'Movie',
       rate: 'Rate',

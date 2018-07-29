@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions';
+import { handleActions, } from 'redux-actions';
 import * as types from '../constants/actionTypes';
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
 const handler = {};
 
 handler[types.RECEIVE_JUNSHI] = (state, action) => {
-  const { junshi } = action;
+  const { junshi, } = action;
   return {
     ...state,
     junshi,

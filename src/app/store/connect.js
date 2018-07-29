@@ -1,5 +1,5 @@
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect, } from 'react-redux';
+import { bindActionCreators, } from 'redux';
 
 function mapStateToProps(props, state) {
   if (typeof props === 'function') return props;

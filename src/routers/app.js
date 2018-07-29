@@ -1,6 +1,6 @@
-import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator, } from 'react-navigation';
 import * as pages from './index';
-import { BottomTabNavigatorConfig, StackNavigatorConfig } from '../config';
+import { BottomTabNavigatorConfig, StackNavigatorConfig, } from '../config';
 
 const TabNav = createBottomTabNavigator(
   {
@@ -14,10 +14,10 @@ const TabNav = createBottomTabNavigator(
   }),
 );
 
-TabNav.navigationOptions = ({ navigation }) => {
+TabNav.navigationOptions = ({ navigation, }) => {
   // 设置tabBar的标题
-  const { routes, index } = navigation.state;
-  const { routeName } = routes[index];
+  const { routes, index, } = navigation.state;
+  const { routeName, } = routes[index];
   return pages[routeName].navigationOptions;
 };
 

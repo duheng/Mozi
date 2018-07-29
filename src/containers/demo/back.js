@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component, } from 'react';
+import { StyleSheet, Text, View, } from 'react-native';
 import connect from '../../app/store/connect';
 import NavigationButton from '../../components/NavigationButton';
 
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   {},
 )
 export default class Back extends Component {
-  static navigationOptions = ({ navigation }) => ({
+  static navigationOptions = ({ navigation, }) => ({
     headerTitle: 'Custom Back Demo',
     headerLeft: (
       <NavigationButton

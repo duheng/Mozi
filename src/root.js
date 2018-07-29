@@ -3,8 +3,8 @@
  * GitHub: https://github.com/duheng/Mozi
  * Email: duheng1100@163.com
  */
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
+import React, { Component, } from 'react';
+import { Provider, } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
 import codePush from 'react-native-code-push';
 import configureStore from './app/store/configureStore';

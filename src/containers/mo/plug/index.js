@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component, } from 'react';
+import { StyleSheet, Text, View, } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -27,14 +27,14 @@ export default class Plug extends Component {
   };
 
   goWeb = (gourl = apiurls.mozi) => {
-    const { navigation } = this.props;
+    const { navigation, } = this.props;
     navigation.navigate('Web', {
       url: gourl,
     });
   };
 
   goBack = () => {
-    const { navigation } = this.props;
+    const { navigation, } = this.props;
     navigation.navigate('Backa');
   };
 

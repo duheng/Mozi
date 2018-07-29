@@ -1,15 +1,15 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers/index';
 
-const middlewares = [thunk];
-const { logger } = require('redux-logger');
+const middlewares = [ thunk, ];
+const { logger, } = require('redux-logger');
 
 /* global __DEV__  */
 if (__DEV__) {
   middlewares.push(logger);
   console.disableYellowBox = true;
-  console.ignoredYellowBox = ['Warning: ...'];
+  console.ignoredYellowBox = [ 'Warning: ...', ];
 }
 
 const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore);

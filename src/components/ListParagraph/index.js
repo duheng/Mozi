@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, } from 'react-native';
 
 import Placeholder from 'rn-placeholder';
 
@@ -44,8 +44,8 @@ const ListParagraph = props => {
     lineSpacing: 12,
     lastLineWidth: '60%',
   };
-  const options = { ...baseOption, ...props };
-  const { isLoading, list } = props;
+  const options = { ...baseOption, ...props, };
+  const { isLoading, list, } = props;
   if (isLoading) {
     return Placeholders(options);
   }

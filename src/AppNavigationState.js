@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { BackHandler, ToastAndroid, Platform } from 'react-native';
-import { NavigationActions } from 'react-navigation';
+import React, { Component, } from 'react';
+import { BackHandler, ToastAndroid, Platform, } from 'react-native';
+import { NavigationActions, } from 'react-navigation';
 import JPushModule from 'jpush-react-native';
 import Routers from './routers/app';
 
@@ -13,7 +13,7 @@ export default class AppNavigationState extends Component {
     }
     // 接收自定义消息
     JPushModule.addReceiveCustomMsgListener(message => {
-      this.setState({ pushMsg: message });
+      this.setState({ pushMsg: message, });
     });
     // 接收推送通知
     JPushModule.addReceiveNotificationListener(message => {
@@ -35,7 +35,7 @@ export default class AppNavigationState extends Component {
   }
 
   onBackPress = () => {
-    const { dispatch, nav } = this.props;
+    const { dispatch, nav, } = this.props;
     if (nav.index === 0) {
       if (this.lastBackPressed && this.lastBackPressed + 2000 >= Date.now()) {
         return false;

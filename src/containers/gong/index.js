@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList, InteractionManager } from 'react-native';
+import React, { Component, } from 'react';
+import { StyleSheet, Text, View, FlatList, InteractionManager, } from 'react-native';
 import HomeSelector from '../../app/selectors/home';
 import * as HomeActions from '../../app/actions/home';
-import { ListItem, ListParagraph } from '../../components';
+import { ListItem, ListParagraph, } from '../../components';
 import connect from '../../app/store/connect';
 
 const styles = StyleSheet.create({
@@ -47,12 +47,12 @@ export default class Gong extends Component {
   }
 
   headerImageScrollView = () => {
-    const { navigation } = this.props;
+    const { navigation, } = this.props;
     navigation.navigate('HeaderImageScrollView');
   };
 
   flatList = () => {
-    const { home } = this.props;
+    const { home, } = this.props;
     return (
       <FlatList
         initialNumToRender={8}
@@ -83,7 +83,7 @@ export default class Gong extends Component {
   };
 
   render() {
-    const { home } = this.props;
+    const { home, } = this.props;
     let loading = true;
     if (home.length > 0) {
       loading = false;

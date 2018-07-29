@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component, } from 'react';
+import { StyleSheet, Text, View, } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +21,7 @@ export default class Moui extends Component {
   };
 
   goTab = () => {
-    const { navigation } = this.props;
+    const { navigation, } = this.props;
     navigation.navigate('Gong');
   };
 

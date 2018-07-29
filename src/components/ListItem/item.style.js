@@ -5,7 +5,7 @@
  * Email: duheng1100@163.com
  */
 
-import { StyleSheet } from 'react-native';
+import { StyleSheet, } from 'react-native';
 
 export default StyleSheet.create({
   item: {

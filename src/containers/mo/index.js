@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { StyleSheet, Image } from 'react-native';
-import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
+import React, { Component, } from 'react';
+import { StyleSheet, Image, } from 'react-native';
+import ScrollableTabView, { DefaultTabBar, } from 'react-native-scrollable-tab-view';
 import Logo from '../../commons/assets/logo.png';
 import Plug from './plug';
 import Moui from './moui';
 import Rule from './rule';
 
 const activeTabColor = '#42c02e';
-const defaultTabColor = '#949494';
+const defaultTabColor = "#949494";
 
 const styles = StyleSheet.create({
   underline: {
@@ -41,7 +41,7 @@ export default class Mo extends Component {
     headerTitle,
   };
   render() {
-    const { navigation } = this.props;
+    const { navigation, } = this.props;
     return (
       <ScrollableTabView
         scrollWithoutAnimation={false}

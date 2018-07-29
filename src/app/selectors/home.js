@@ -1,16 +1,16 @@
-import { createSelector } from 'reselect';
+import { createSelector, } from 'reselect';
 
 const listData = item => {
-  const MyItem = { ...item };
+  const MyItem = { ...item, };
 
   return {
     key: MyItem.item_id,
-    data: [{ ...MyItem }],
+    data: [ { ...MyItem, }, ],
   };
 };
 
 const getHome = state => {
-  const { junshi } = { ...state.home };
+  const { junshi, } = { ...state.home, };
   const filterJunShi = junshi.map(listData);
   return filterJunShi;
 };

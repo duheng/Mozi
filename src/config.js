@@ -1,11 +1,11 @@
 import React from 'react';
-import { Text, Image } from 'react-native';
+import { Text, Image, } from 'react-native';
 import NavigationButton from './components/NavigationButton';
-import { tabBar, window } from '../app';
+import { tabBar, window, } from '../app';
 
 const BottomTabNavigatorConfig = options => {
-  const { inactiveTintColor, activeTintColor, list } = tabBar;
-  const { initialRouteName = '', showIcon = true } = options;
+  const { inactiveTintColor, activeTintColor, list, } = tabBar;
+  const { initialRouteName = '', showIcon = true, } = options;
 
   return {
     initialRouteName,
@@ -22,11 +22,11 @@ const BottomTabNavigatorConfig = options => {
         fontSize: 12,
       },
     },
-    navigationOptions: ({ navigation }) => {
-      const { routeName } = navigation.state;
-      const { icoPath, icoName, text } = list[routeName];
+    navigationOptions: ({ navigation, }) => {
+      const { routeName, } = navigation.state;
+      const { icoPath, icoName, text, } = list[routeName];
       return {
-        tabBarIcon: ({ focused, tintColor }) => {
+        tabBarIcon: ({ focused, tintColor, }) => {
           if (icoPath) {
             return (
               <Image
@@ -43,8 +43,8 @@ const BottomTabNavigatorConfig = options => {
           const IcoName = focused ? icoName : `${icoName}-outline`;
           return <NavigationButton name={IcoName} size={20} color={tintColor} usename />;
         },
-        tabBarLabel: ({ tintColor }) => {
-          return <Text style={{ color: tintColor, marginBottom: 4 }}>{text}</Text>;
+        tabBarLabel: ({ tintColor, }) => {
+          return <Text style={{ color: tintColor, marginBottom: 4, }}>{text}</Text>;
         },
       };
     },
@@ -52,7 +52,7 @@ const BottomTabNavigatorConfig = options => {
 };
 
 const StackNavigatorConfig = options => {
-  const { initialRouteName = '' } = options;
+  const { initialRouteName = '', } = options;
   const {
     headerBackTitle = null,
     headerTintColor = '#FFFFFF',
@@ -69,7 +69,7 @@ const StackNavigatorConfig = options => {
     initialRouteName,
     mode: 'card', // 页面跳转方式 card - 原生系统默认的的跳转;modal - 只针对iOS平台，模态跳转
     headerMode: 'float', // float - 渐变，类似iOS的原生效果;screen - 标题与屏幕一起淡入淡出;none - 没有动画
-    cardStyle: { backgroundColor: '#F5FCFF' }, // 为各个页面设置统一的样式，比如背景色，字体大小等
+    cardStyle: { backgroundColor: '#F5FCFF', }, // 为各个页面设置统一的样式，比如背景色，字体大小等
     navigationOptions: {
       headerBackTitle, // 返回按钮文字
       headerTintColor, // 返回按钮颜色

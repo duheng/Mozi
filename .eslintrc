@@ -20,7 +20,10 @@
         "allowShortCircuit": true
       }
     ],
-    "semi": 0,
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "always"],
+    "array-bracket-spacing": ["error", "always"],
+    "comma-spacing": ["error", { "before": false, "after": true }],
     "quotes": 0,
     "camelcase": 0,
     "arrow-parens": 0,

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import React, { Component, } from 'react';
+import { StyleSheet, Text, View, Image, Dimensions, } from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import { Header } from 'react-navigation';
-import HeaderImageScrollView, { TriggeringView } from 'react-native-image-header-scroll-view';
+import { Header, } from 'react-navigation';
+import HeaderImageScrollView, { TriggeringView, } from 'react-native-image-header-scroll-view';
 
 const MIN_HEIGHT = Header.HEIGHT;
 const MAX_HEIGHT = 200;

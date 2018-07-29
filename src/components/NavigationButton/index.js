@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, } from 'react-native';
 import Icon from '../Icon';
 
 const typeMap = {
@@ -16,14 +16,14 @@ const iStyle = {
 };
 
 const creatIcon = props => {
-  const { name, usename = false, size = 30, color = 'white' } = props;
+  const { name, usename = false, size = 30, color = 'white', } = props;
   const names = usename ? name : typeMap[name];
   const styles = usename ? '' : iStyle;
   return <Icon name={names} style={styles} size={size} color={color} />;
 };
 
 const runCallback = options => {
-  const { callback } = options;
+  const { callback, } = options;
 
   const buttons =
     callback && typeof callback === 'function' ? (
