@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
 
 const apiurls = {
   mozi: 'https://github.com/duheng/Mozi',
-  icons: 'https://zhuanlan.zhihu.com/p/29447462',
-  splash: 'https://zhuanlan.zhihu.com/p/29495955',
+  icons: 'https://www.jianshu.com/p/a25e4ecce60f',
+  splash: 'https://www.jianshu.com/p/4540ac17dfd4',
 };
 
 export default class Plug extends Component {
@@ -26,7 +26,7 @@ export default class Plug extends Component {
     headerTitle: '墨依赖',
   };
 
-  goWeb = (gourl = apiurls.mozi) => {
+  goWeb = (gourl = 'https://www.jianshu.com/u/c971c7ffa27e') => {
     const { navigation, } = this.props;
     navigation.navigate('Web', {
       url: gourl,
