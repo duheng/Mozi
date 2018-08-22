@@ -20,7 +20,7 @@ export default class Web extends Component {
   // };
 
   loading = () => {
-    return <ActivityIndicator style={styles.webview} size="small" color="#aa00aa" />;
+    return <ActivityIndicator style={styles.webview} size="small" color="#c5c5c5" />;
   };
 
   render() {

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, Dimensions, } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { Header, } from 'react-navigation';
 import HeaderImageScrollView, { TriggeringView, } from 'react-native-image-header-scroll-view';
+import NavigationButton from '../../components/NavigationButton';
 
 const MIN_HEIGHT = Header.HEIGHT;
 const MAX_HEIGHT = 200;
@@ -25,12 +26,18 @@ const styles = StyleSheet.create({
     height: MIN_HEIGHT,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 16,
     opacity: 0,
+    flexDirection: 'row',
+  },
+  navBack: {
+    flex: 1,
+    alignSelf: 'stretch',
   },
   navTitle: {
+    flex: 3,
     color: 'white',
     fontSize: 18,
+    textAlign: 'center',
     backgroundColor: 'transparent',
   },
   titleContainer: {
@@ -77,7 +84,6 @@ export default class HeaderImageScrollViews extends Component {
       },
     },
   };
-
   render() {
     return (
       <View
@@ -85,6 +91,7 @@ export default class HeaderImageScrollViews extends Component {
           flex: 1,
         }}
       >
+
         <HeaderImageScrollView
           maxHeight={MAX_HEIGHT}
           minHeight={MIN_HEIGHT}
@@ -92,6 +99,7 @@ export default class HeaderImageScrollViews extends Component {
           minOverlayOpacity={0.3}
           fadeOutForeground
           renderHeader={() => (
+
             <Image
               source={{
                 uri:
@@ -99,6 +107,7 @@ export default class HeaderImageScrollViews extends Component {
               }}
               style={styles.image}
             />
+
           )}
           renderFixedForeground={() => (
             <Animatable.View
@@ -107,6 +116,13 @@ export default class HeaderImageScrollViews extends Component {
                 this.navTitleView = navTitleView;
               }}
             >
+              <NavigationButton
+                style={styles.navBack}
+                name="back"
+                callback={() => {
+                  this.props.navigation.goBack();
+                }}
+              />
               <Text style={styles.navTitle}> 墨子 - 攻城 </Text>
             </Animatable.View>
           )}

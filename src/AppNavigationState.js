@@ -1,9 +1,11 @@
 import React, { Component, } from 'react';
 import { BackHandler, ToastAndroid, Platform, } from 'react-native';
+import { connect, } from 'react-redux';
 import { NavigationActions, } from 'react-navigation';
 import JPushModule from 'jpush-react-native';
 import Routers from './routers/app';
 
+@connect(state => ({ nav: state.nav, }))
 export default class AppNavigationState extends Component {
   componentDidMount() {
     BackHandler.addEventListener('hardwareBackPress', this.onBackPress);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Image, } from 'react-native';
+import { Image, } from 'react-native';
 import NavigationButton from './components/NavigationButton';
 import { tabBar, window, } from '../app';
 
@@ -17,9 +17,17 @@ const BottomTabNavigatorConfig = options => {
       indicatorStyle: {
         height: 0,
       },
-      style: {},
+      style: {
+        height: 49,
+        margin: 0,
+        padding: 0,
+        borderTopColor: "#F0F0F0",
+        borderTopWidth: 1,
+      },
       labelStyle: {
         fontSize: 12,
+        margin: 0,
+        padding: 0,
       },
     },
     navigationOptions: ({ navigation, }) => {
@@ -43,9 +51,7 @@ const BottomTabNavigatorConfig = options => {
           const IcoName = focused ? icoName : `${icoName}-outline`;
           return <NavigationButton name={IcoName} size={20} color={tintColor} usename />;
         },
-        tabBarLabel: ({ tintColor, }) => {
-          return <Text style={{ color: tintColor, marginBottom: 4, }}>{text}</Text>;
-        },
+        tabBarLabel: text,
       };
     },
   };
@@ -59,8 +65,10 @@ const StackNavigatorConfig = options => {
     gesturesEnabled = true,
     headerBackgroundColor = '#262a37',
     headerTitleStyle = {
-      fontSize: 18,
       alignSelf: 'center',
+      fontSize: 18,
+      flex: 1,
+      textAlign: 'center',
       color: '#9c9c9c',
     },
   } =

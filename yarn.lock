@@ -5575,9 +5575,9 @@ react-native-scrollable-tab-view@^0.8.0:
     prop-types "^15.6.0"
     react-timer-mixin "^0.13.3"
 
-react-native-splash-screen@^3.0.9:
-  version "3.1.0"
-  resolved "https://registry.npmjs.org/react-native-splash-screen/-/react-native-splash-screen-3.1.0.tgz#9636f83d711dadded27167cdc3dc6aa98ec222ee"
+react-native-splash-screen@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/react-native-splash-screen/-/react-native-splash-screen-3.0.1.tgz#178b29b7d848e6ee5a41fbb9c1299eb2b5aaa600"
 
 react-native-tab-view@^0.0.77:
   version "0.0.77"

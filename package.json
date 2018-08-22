@@ -19,7 +19,7 @@
     "react-native-code-push": "^5.3.5",
     "react-native-image-header-scroll-view": "^0.6.2",
     "react-native-scrollable-tab-view": "^0.8.0",
-    "react-native-splash-screen": "^3.0.9",
+    "react-native-splash-screen": "^3.0.1",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "2.5.5",
     "react-redux": "^5.1.0-test.1",
