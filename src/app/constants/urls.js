@@ -1,7 +1,8 @@
 // const HOST = 'https://m.toutiao.com/list/'
-const HOST = 'https://m.toutiao.com';
-const ZIXUN_JUNSHI = `${HOST}/list/`;
-
+const HOST = 'https://m.maoyan.com';
+const MOVE_LIST = `${HOST}/ajax/movieOnInfoList`;
+const MOVE_LISTALL = `${HOST}/ajax/moreComingList`;
 module.exports = {
-  ZIXUN_JUNSHI,
+  MOVE_LIST,
+  MOVE_LISTALL,
 };

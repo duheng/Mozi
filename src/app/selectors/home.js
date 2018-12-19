@@ -4,19 +4,23 @@ const listData = item => {
   const MyItem = { ...item, };
 
   return {
-    key: MyItem.item_id,
+    key: MyItem.id,
     data: [ { ...MyItem, }, ],
   };
 };
 
 const getHome = state => {
-  const { junshi, } = { ...state.home, };
-  const filterJunShi = junshi.map(listData);
-  return filterJunShi;
+  const { movies, movieid, } = { ...state.home, };
+  console.log('movies--', movies);
+  const filterMovies = movies.map(listData);
+  return {
+    movieid,
+    movies: filterMovies,
+  };
 };
 
 export default createSelector(getHome, home => {
-  console.log('redu-js--', home);
+  console.log('redu-js--', getHome);
   return {
     home,
   };

@@ -33,16 +33,7 @@ export default class Gong extends Component {
 
   componentWillMount() {
     InteractionManager.runAfterInteractions(() => {
-      const PARAMS = {
-        tag: 'news_hot',
-        ac: 'wap',
-        count: 50,
-        format: 'json_raw',
-        as: 'A1E55A7CF10D87C',
-        cp: '5AC15D28478C7E1',
-        min_behot_time: 0,
-      };
-      this.props.actions.fetchJunShi(PARAMS);
+      this.props.actions.fetchMovies();
     });
   }
 
@@ -57,14 +48,14 @@ export default class Gong extends Component {
       <FlatList
         initialNumToRender={8}
         style={styles.container}
-        keyExtractor={item => `gong_${item.data[0].item_id}`}
+        keyExtractor={item => `gong_${item.data[0].id}`}
         ListHeaderComponent={() => {
           return this.renderHeader();
         }}
         renderItem={item => {
           return this.renderItem(item);
         }}
-        data={home}
+        data={home.movies}
       />
     );
   };
@@ -85,7 +76,7 @@ export default class Gong extends Component {
   render() {
     const { home, } = this.props;
     let loading = true;
-    if (home.length > 0) {
+    if (!!home.movies && home.movies.length > 0) {
       loading = false;
     }
     return <ListParagraph ParagraphLength={8} isLoading={loading} list={this.flatList} />;

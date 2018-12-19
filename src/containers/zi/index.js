@@ -42,26 +42,29 @@ export default class Zi extends Component {
     super(...args);
     this.state = {
       isRefreshing: false,
+      flagApi: true,
     };
   }
 
+
   componentWillMount() {
     this.props.navigation.setParams({
-      title: '识兔',
+      title: '墨子',
     });
     InteractionManager.runAfterInteractions(() => {
-      const PARAMS = {
-        tag: 'news_hot',
-        ac: 'wap',
-        count: 50,
-        format: 'json_raw',
-        as: 'A1E55A7CF10D87C',
-        cp: '5AC15D28478C7E1',
-        min_behot_time: 0,
-      };
-
-      this.props.actions.fetchJunShi(PARAMS);
+      this.props.actions.fetchMovies();
     });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { home, } = nextProps;
+    if (home.movieid.length > 0) {
+      // const PARAM = {
+      //   movieIds: home.movieid,
+      // };
+      //  this.props.actions.fetchMovieAll(PARAM)
+      console.log('nextProps---', nextProps);
+    }
   }
 
   onRefresh = () => {
@@ -85,7 +88,7 @@ export default class Zi extends Component {
         style={styles.container}
         stickySectionHeadersEnabled // 安卓粘性头部需要开启这个，ios默认开启
         initialNumToRender={6}
-        sections={home}
+        sections={home.movies}
         renderItem={item => {
           return this.renderItem(item);
         }}
@@ -93,7 +96,7 @@ export default class Zi extends Component {
           return this.renderHeader(item);
         }}
         keyExtractor={item => {
-          return item.item_id;
+          return item.id;
         }}
         refreshControl={
           <RefreshControl
@@ -110,20 +113,22 @@ export default class Zi extends Component {
   };
 
   renderHeader = headerItem => {
+    console.log('renderHeader---', headerItem);
     return (
       <View style={styles.sectionHead}>
-        <Text style={styles.sectionHeadText}>{headerItem.section.data[0].source}</Text>
+        <Text style={styles.sectionHeadText}>{headerItem.section.data[0].nm}</Text>
       </View>
     );
   };
 
   renderItem = renderItem => {
-    const { share_url, } = renderItem.item;
+    const { id, } = renderItem.item;
+    const __url = `https://m.maoyan.com/cinema/movie/${id}?$from=canary#`;
     return (
       <ListItem
         data={renderItem.item}
         gopage={() => {
-          this.goPage(share_url.replace(/http:/g, 'https:'));
+          this.goPage(__url);
         }}
       />
     );
@@ -133,7 +138,7 @@ export default class Zi extends Component {
     console.log('js---', this.props);
     const { home, } = this.props;
     let loading = true;
-    if (home.length > 0) {
+    if (!!home.movies && home.movies.length > 0) {
       loading = false;
     }
     return (

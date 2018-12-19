@@ -2,16 +2,18 @@ import { handleActions, } from 'redux-actions';
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-  junshi: [],
+  movies: [],
+  movieid: [],
 };
 
 const handler = {};
 
-handler[types.RECEIVE_JUNSHI] = (state, action) => {
-  const { junshi, } = action;
+handler[types.RECEIVE_MOVIES] = (state, action) => {
+  const { movieid, movies, } = action;
   return {
     ...state,
-    junshi,
+    movieid,
+    movies,
   };
 };
 

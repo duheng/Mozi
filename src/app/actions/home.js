@@ -1,20 +1,37 @@
 import { GET, } from '../../commons/utils/request';
-import { ZIXUN_JUNSHI, } from '../constants/urls';
+import { MOVE_LIST, MOVE_LISTALL, } from '../constants/urls';
 import * as types from '../constants/actionTypes';
 
-const receiveJunShi = data => {
+const receiveMovies = data => {
   return {
-    type: types.RECEIVE_JUNSHI,
+    type: types.RECEIVE_MOVIES,
     ...data,
   };
 };
 
-const fetchJunShi = params => {
+const fetchMovies = params => {
   return dispatch => {
-    return GET(ZIXUN_JUNSHI, params).then(resp => {
+    return GET(MOVE_LIST, params).then(resp => {
+      console.log('logs--', resp);
+      const { movieIds, movieList, } = resp;
       dispatch(
-        receiveJunShi({
-          junshi: resp.data,
+        receiveMovies({
+          movieid: movieIds,
+          movies: movieList,
+        }),
+      );
+    });
+  };
+};
+
+const fetchMovieAll = params => {
+  return dispatch => {
+    return GET(MOVE_LISTALL, params).then(resp => {
+      console.log('logs--', resp);
+      dispatch(
+        receiveMovies({
+          movieid: [],
+          movies: resp.coming,
         }),
       );
     });
@@ -22,5 +39,6 @@ const fetchJunShi = params => {
 };
 
 module.exports = {
-  fetchJunShi,
+  fetchMovies,
+  fetchMovieAll,
 };

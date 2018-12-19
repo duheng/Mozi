@@ -1,12 +1,10 @@
 // base
 const BASE_LOADING = 'BASE_LOADING';
 
-// junshi
-const FETCH_JUNSHI = 'FETCH_JUNSHI';
-const RECEIVE_JUNSHI = 'RECEIVE_JUNSHI';
+// movies
+const RECEIVE_MOVIES = 'RECEIVE_MOVIES';
 
 module.exports = {
   BASE_LOADING,
-  FETCH_JUNSHI,
-  RECEIVE_JUNSHI,
+  RECEIVE_MOVIES,
 };
