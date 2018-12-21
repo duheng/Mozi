@@ -122,8 +122,7 @@ export default class Zi extends Component {
   };
 
   renderItem = renderItem => {
-    const { id, } = renderItem.item;
-    const __url = `https://m.maoyan.com/cinema/movie/${id}?$from=canary#`;
+    const __url = 'https://www.jianshu.com/p/984ef99641f5';
     return (
       <ListItem
         data={renderItem.item}
