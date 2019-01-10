@@ -2,7 +2,7 @@
   "name": "Mozi",
   "displayName": "Mozi",
   "window": {
-     "headerBackgroundColor": "#262a37",
+     "headerBackgroundColor": "#262a37"
   },
   "tabBar": {
      "inactiveTintColor": "#949494",
@@ -11,21 +11,25 @@
      "list": {
          "Mo": {
             "icoPath": "",
+            "selectedIconPath": "",
             "icoName": "ios-home",
             "text": "墨"
          },
          "Zi": {
            "icoPath": "",
+           "selectedIconPath": "",
            "icoName": "ios-planet",
            "text": "子"
          },
          "Gong": {
            "icoPath": "",
+           "selectedIconPath": "",
            "icoName": "ios-analytics",
            "text": "攻"
          },
          "Cheng": {
            "icoPath": "",
+           "selectedIconPath": "",
            "icoName": "ios-contacts",
            "text": "城"
          }

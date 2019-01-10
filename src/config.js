@@ -31,15 +31,15 @@ const BottomTabNavigatorConfig = options => {
         padding: 0,
       },
     },
-    navigationOptions: ({ navigation, }) => {
+    defaultNavigationOptions: ({ navigation, }) => {
       const { routeName, } = navigation.state;
-      const { icoPath, icoName, text, } = list[routeName];
+      const { icoPath, selectedIconPath, icoName, text, } = list[routeName];
       return {
         tabBarIcon: ({ focused, tintColor, }) => {
           if (icoPath) {
             return (
               <Image
-                source={icoPath}
+                source={focused ? selectedIconPath : icoPath}
                 style={{
                   width: 20,
                   height: 20,

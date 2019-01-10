@@ -10,5 +10,6 @@ const TYPES = {
 export default props => {
   const { source = 'ionicons', ...others } = props;
   const Icon = TYPES[source.toLowerCase()];
+  console.log('Ionicons----', Ionicons);
   return <Icon {...others} />;
 };

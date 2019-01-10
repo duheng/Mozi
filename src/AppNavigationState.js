@@ -5,7 +5,7 @@ import { NavigationActions, } from 'react-navigation';
 import JPushModule from 'jpush-react-native';
 import Routers from './routers/app';
 
-@connect(state => ({ state: state.nav, }))
+@connect(state => ({ nav: state.nav, }))
 export default class AppNavigationState extends Component {
   componentDidMount() {
     BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
