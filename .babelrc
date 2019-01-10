@@ -1,8 +1,12 @@
 {
-  "presets": ["react-native"],
+  "presets": ["module:metro-react-native-babel-preset"],
   "sourceMaps": true,
   "plugins": [
-    "transform-decorators-legacy"
+      ["@babel/plugin-proposal-decorators", { "legacy": true }],
+      ["@babel/transform-runtime", {
+         "helpers": true,
+         "regenerator": false
+       }]
   ],
   "env": {
     "production": {

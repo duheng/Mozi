@@ -11,7 +11,6 @@ const listData = item => {
 
 const getHome = state => {
   const { movies, movieid, } = { ...state.home, };
-  console.log('movies--', movies);
   const filterMovies = movies.map(listData);
   return {
     movieid,
@@ -20,7 +19,7 @@ const getHome = state => {
 };
 
 export default createSelector(getHome, home => {
-  console.log('redu-js--', getHome);
+  console.log('redu-home--', home);
   return {
     home,
   };

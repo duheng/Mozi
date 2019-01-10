@@ -19,6 +19,7 @@ export default class Root extends Component {
   }
 
   render() {
+    console.log('store----', store);
     return (
       <Provider store={store}>
         <App />

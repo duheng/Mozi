@@ -1,4 +1,4 @@
-import { createBottomTabNavigator, createStackNavigator, } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator, createAppContainer, } from 'react-navigation';
 import * as pages from './index';
 import { BottomTabNavigatorConfig, StackNavigatorConfig, } from '../config';
 
@@ -34,4 +34,4 @@ const Routers = createStackNavigator(
   }),
 );
 
-export default Routers;
+export default createAppContainer(Routers);
