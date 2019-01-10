@@ -3551,9 +3551,10 @@ istanbul-reports@^1.3.0:
   dependencies:
     handlebars "^4.0.3"
 
-jcore-react-native@^1.2.6:
-  version "1.2.7"
-  resolved "https://registry.npmjs.org/jcore-react-native/-/jcore-react-native-1.2.7.tgz#94bc3abc0626f527b02480366cfaa72254e78a78"
+jcore-react-native@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.npmjs.org/jcore-react-native/-/jcore-react-native-1.3.0.tgz#be7a5a31c058e49f8d457d54c257b5224d8deec3"
+  integrity sha512-slCqqnKGNAxrkCBeJ9v165l9tclpIYZ3rlAccdR4c97KtoHOPZZ1LBbcLtgaYyVBs0bFNMStcRAHFmiYkwrzMA==
 
 jest-changed-files@^23.4.2:
   version "23.4.2"
@@ -3884,9 +3885,10 @@ jest@23.6.0:
     import-local "^1.0.0"
     jest-cli "^23.6.0"
 
-jpush-react-native@^2.2.5:
-  version "2.2.6"
-  resolved "https://registry.npmjs.org/jpush-react-native/-/jpush-react-native-2.2.6.tgz#aa57dddbb9d04e820432e2d5641fdc4be8a8da3b"
+jpush-react-native@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.npmjs.org/jpush-react-native/-/jpush-react-native-2.5.0.tgz#e64a65736cca9168869934c1129bdd85f37d34b8"
+  integrity sha512-stD5A5d3cCbG90l/+NwV7FK/mTQtvtfAFVGrtRWMKtJGySnzgON3wGvYetFc918TOp7Tyhz2SKoL69Tp2evrEQ==
   dependencies:
     inquirer "*"
     mpatch "^0.1.0"
