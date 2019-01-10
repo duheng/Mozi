@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, } from 'react-native';
+
 import NavigationButton from './components/NavigationButton';
 import { tabBar, window, } from '../app';
 
@@ -78,7 +79,7 @@ const StackNavigatorConfig = options => {
     mode: 'card', // 页面跳转方式 card - 原生系统默认的的跳转;modal - 只针对iOS平台，模态跳转
     headerMode: 'float', // float - 渐变，类似iOS的原生效果;screen - 标题与屏幕一起淡入淡出;none - 没有动画
     cardStyle: { backgroundColor: '#F5FCFF', }, // 为各个页面设置统一的样式，比如背景色，字体大小等
-    navigationOptions: {
+    defaultNavigationOptions: {
       headerBackTitle, // 返回按钮文字
       headerTintColor, // 返回按钮颜色
       gesturesEnabled, // 是否支持滑动返回

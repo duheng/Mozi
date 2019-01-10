@@ -76,6 +76,7 @@ export default class HeaderImageScrollViews extends Component {
     headerStyle: {
       position: 'absolute',
       top: 0,
+      height: 0,
       elevation: 0,
       shadowColor: 'transparent',
       shadowRadius: 0,
