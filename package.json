@@ -19,7 +19,7 @@
     "react": "16.6.3",
     "react-native": "0.57.8",
     "react-native-animatable": "^1.2.4",
-    "react-native-code-push": "^5.3.5",
+    "react-native-code-push": "^5.5.1",
     "react-native-gesture-handler": "^1.0.12",
     "react-native-image-header-scroll-view": "^0.8.2",
     "react-native-scrollable-tab-view": "^0.10.0",
