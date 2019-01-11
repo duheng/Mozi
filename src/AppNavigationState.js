@@ -8,7 +8,7 @@ import Routers from './routers/app';
 @connect(state => ({ nav: state.nav, }))
 export default class AppNavigationState extends Component {
   componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
+    console.log('Platform-----', Platform);
     if (Platform.OS === 'android') {
       // 通知 JPushModule 初始化完成，发送缓存事件。
       JPushModule.notifyJSDidLoad(() => {});
@@ -26,6 +26,7 @@ export default class AppNavigationState extends Component {
       console.log('Opening notification!');
       !!this.root && this.root.props.navigation.navigate('Gong');
     });
+    BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
   }
 
   componentWillUnmount() {
