@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 @connect(HomeSelector, HomeActions)
 export default class Zi extends Component {
   static navigationOptions = {
-    headerTitle: 'SectionList Demo',
+    headerTitle: '墨子测试codepush升级',
   };
   constructor(...args) {
     super(...args);

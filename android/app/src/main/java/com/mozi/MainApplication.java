@@ -1,10 +1,10 @@
 package com.mozi;
 
-import cn.jpush.reactnativejpush.JPushPackage;   // <--   导入 JPushPackage
 
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import cn.jpush.reactnativejpush.JPushPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.microsoft.codepush.react.CodePush;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
@@ -20,16 +20,15 @@ import java.util.List;
 public class MainApplication extends Application implements ReactApplication {
   // 设置为 true 将不会弹出 toast
   private boolean SHUTDOWN_TOAST = false;
-  // 设置为 true 将不会打印 log
+    // 设置为 true 将不会打印 log
   private boolean SHUTDOWN_LOG = false;
-
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
 
         @Override
         protected String getJSBundleFile() {
         return CodePush.getJSBundleFile();
         }
-    
+
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
