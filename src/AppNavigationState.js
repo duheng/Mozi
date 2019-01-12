@@ -12,13 +12,13 @@ export default class AppNavigationState extends Component {
       if (resultCode === 0) { }
     });
     // 接收自定义消息
-    // JPushModule.addReceiveCustomMsgListener(message => {
-    //   this.setState({ pushMsg: message, });
-    // });
+    JPushModule.addReceiveCustomMsgListener(message => {
+      this.setState({ pushMsg: message, });
+    });
     // 接收推送通知
-    // JPushModule.addReceiveNotificationListener(message => {
-    //   console.log(`receive notification: ${message}`);
-    // });
+    JPushModule.addReceiveNotificationListener(message => {
+      console.log(`receive notification: ${message}`);
+    });
     // 打开通知
     JPushModule.addReceiveOpenNotificationListener(() => {
       console.log('Opening notification!');

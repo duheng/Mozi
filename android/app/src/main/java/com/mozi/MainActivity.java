@@ -23,8 +23,26 @@ public class MainActivity extends ReactActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) { // 2. 显示启动方法
         SplashScreen.show(this);
-        JPushInterface.init(this);
         super.onCreate(savedInstanceState);
+        JPushInterface.init(this);
+
     }
-    
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JPushInterface.onPause(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+
 }
