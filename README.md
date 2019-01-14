@@ -192,6 +192,13 @@ windows用户请用 react-native run-android 命令启动
     1. jpush-react-native: 极光推送官方支持的 React Native 插件（Android & iOS）
     2. react-native-code-push: 微软的热更新开源库
 
+### 如何使用消息推送
+    全局搜索 896ea8641e9c62c38906de41 ，替换成自己的JPUSH_APPKEY就可以了
+
+### 如何使用热更新
+    1. android部分：全局搜索 TyXCHztJx9rvb3Ogy5I4cVU-DHGH6a76e0de-a57f-4a89-b60d-01d72ab0675f ，替换成自己的安卓项目codepushkey就可以了；
+    2. ios部分： 全局搜索 5WgvzaDBLyL5zKjeLscIhfGKtJHb6a76e0de-a57f-4a89-b60d-01d72ab0675f ，替换成自己的ios项目codepushkey就可以了；
+
 ### 编程规范
     编程规范我们使用的是airbnb，但是这还不够，我希望大部分的代码格式类的工作都能自动化帮我做，开发人员只需要注重业务代码就好。
     为此我们用prettier+eslint+sublimelinter+airbnb，在保存代码的时候就对我们的代码进行格式化，提交代码之前再做一次严格的airbnb校验。基本就能保证团队代码的可维护性。
