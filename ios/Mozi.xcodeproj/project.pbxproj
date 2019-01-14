@@ -46,12 +46,10 @@
 		4C54B34038B34A2C899176C4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0FBF4A43E048ACA7E6EE50 /* CoreGraphics.framework */; };
 		512C933BE9B742BAA88280CB /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34413B3C9C7947159BCAD312 /* libRNGestureHandler.a */; };
 		54D4656D0DE948AE8229199A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD3A42F9FC544449C0D210F /* Security.framework */; };
-		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		6C20C6581D114CB981E69A16 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78911FABBFF6445C8C46912B /* SystemConfiguration.framework */; };
 		71BAD735686C47A8884FFDE5 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67EEBE3037544141B01EF948 /* Entypo.ttf */; };
 		7503964D7F33441489D8270D /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C959D21FA764B0396428649 /* libSplashScreen.a */; };
-		8292B522BA374F13A79EFE4E /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 647EAC5399ED42D48E250864 /* UserNotifications.framework */; };
-		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+		8292B522BA374F13A79EFE4E /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 647EAC5399ED42D48E250864 /* UserNotifications.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		832583A23FB346DC968C09BF /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3621F4032F9435D945418CE /* libRNVectorIcons.a */; };
 		866F2DD2EDCC4B7F85681B54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC5A5E28735F4B90BAD770D6 /* Foundation.framework */; };
@@ -457,7 +455,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -905,7 +902,13 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = JWBK73M2QS;
+						DevelopmentTeam = 36SPC7M5CX;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1522,9 +1525,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Lexueyou Culture Development Co., Ltd. (36SPC7M5CX)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = JWBK73M2QS;
+				DEVELOPMENT_TEAM = 36SPC7M5CX;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
@@ -1541,8 +1547,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lxy.songqingling;
 				PRODUCT_NAME = Mozi;
+				PROVISIONING_PROFILE_SPECIFIER = lxySql_ad_hoc;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1552,8 +1559,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Lexueyou Culture Development Co., Ltd. (36SPC7M5CX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Lexueyou Culture Development Co., Ltd. (36SPC7M5CX)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JWBK73M2QS;
+				DEVELOPMENT_TEAM = 36SPC7M5CX;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
@@ -1570,8 +1580,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lxy.songqingling;
 				PRODUCT_NAME = Mozi;
+				PROVISIONING_PROFILE_SPECIFIER = lxySql_ad_hoc;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

@@ -11,6 +11,8 @@ export default class AppNavigationState extends Component {
     if (Platform.OS === 'android') {
       // 通知 JPushModule 初始化完成，发送缓存事件。
       JPushModule.notifyJSDidLoad(() => {});
+    } else {
+      JPushModule.initPush();
     }
 
     JPushModule.getLaunchAppNotification(notification => {
