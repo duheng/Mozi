@@ -1,6 +1,8 @@
-import { createBottomTabNavigator, createStackNavigator, createAppContainer, } from 'react-navigation';
-import * as pages from './index';
+import { createBottomTabNavigator, createStackNavigator, createAppContainer, createSwitchNavigator, } from 'react-navigation';
 import { BottomTabNavigatorConfig, StackNavigatorConfig, } from '../config';
+import * as pages from './index';
+
+const { SigIn, AuthLoading, } = pages;
 
 const TabNav = createBottomTabNavigator(
   {
@@ -21,7 +23,7 @@ TabNav.navigationOptions = ({ navigation, }) => {
   return pages[routeName].navigationOptions;
 };
 
-const Routers = createStackNavigator(
+const AppStack = createStackNavigator(
   {
     Root: TabNav,
     Web: pages.Web,
@@ -34,4 +36,17 @@ const Routers = createStackNavigator(
   }),
 );
 
-export default createAppContainer(Routers);
+const AuthStack = createStackNavigator({ SignIn: SigIn, });
+
+const App = createSwitchNavigator(
+  {
+    AuthLoading,
+    App: AppStack,
+    Auth: AuthStack,
+  },
+  {
+    initialRouteName: 'AuthLoading',
+  }
+);
+
+export default createAppContainer(App);

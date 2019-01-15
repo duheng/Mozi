@@ -4,6 +4,7 @@ package com.mozi;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import cn.jpush.reactnativejpush.JPushPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.microsoft.codepush.react.CodePush;
@@ -38,6 +39,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNDeviceInfo(),
             new RNGestureHandlerPackage(),
             new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
             new SplashScreenReactPackage(),

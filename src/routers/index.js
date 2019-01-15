@@ -1,3 +1,6 @@
+import AuthLoading from '../containers/auth/AuthLoading';
+import SigIn from '../containers/auth/SigIn';
+
 import Mo from '../containers/mo';
 import Zi from '../containers/zi';
 import Gong from '../containers/gong';
@@ -8,6 +11,8 @@ import Backa from '../containers/demo/backa';
 import HeaderImageScrollView from '../containers/gong/HeaderImageScrollView';
 
 module.exports = {
+  AuthLoading,
+  SigIn,
   Mo,
   Zi,
   Gong,

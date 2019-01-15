@@ -5286,6 +5286,11 @@ react-native-code-push@^5.5.1:
     plist "3.0.1"
     xcode "1.0.0"
 
+react-native-device-info@^0.24.3:
+  version "0.24.3"
+  resolved "https://registry.npmjs.org/react-native-device-info/-/react-native-device-info-0.24.3.tgz#f15eff8d09fe418eaf5e7c89ddaabbc5ed718fd7"
+  integrity sha512-usW00Wk6DoXH1eRSMt07j0uYvuka3SIEnJ9girlddAacyqwfa1QMVTN4eYmtaBzuMd/avhis8iHZQ3cLaR9CMA==
+
 react-native-gesture-handler@^1.0.12:
   version "1.0.12"
   resolved "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-1.0.12.tgz#99a22f90212df299245357dbd3a9a01c788f310b"
