@@ -7,11 +7,15 @@ export const fetchSigIn = params => {
   return dispatch => {
     return POST(login, params).then(resp => {
       console.log('login-----', resp);
-      //  const { movieIds, movieList, } = resp;
-      dispatch({
-        type: types.SET_SIGIN_STATE,
-        logged: true,
-      });
+      const { code, message, data, } = resp;
+      if (code != 0) {
+
+      } else {
+        dispatch({
+          type: types.SET_SIGIN_STATE,
+          logged: true,
+        });
+      }
     });
   };
 };
