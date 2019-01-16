@@ -15,15 +15,6 @@ export default class AppNavigationState extends Component {
       JPushModule.initPush();
     }
 
-    JPushModule.getLaunchAppNotification(notification => {
-      if (notification === undefined) {
-        // 说明应用不是通过点击通知启动的，是通过点击应用 icon
-      } else if (notification.aps === undefined) {
-        // 说明是 local notification
-      } else {
-        // 说明是 remote notification
-      }
-    });
     // 接收自定义消息
     JPushModule.addReceiveCustomMsgListener(message => {
       // this.setState({ pushMsg: message, });
