@@ -4,3 +4,4 @@ package.json
 package-lock.json
 ios/
 android/
+src/commons/utils/md5.js

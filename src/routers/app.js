@@ -2,7 +2,6 @@ import { createBottomTabNavigator, createStackNavigator, createAppContainer, cre
 import { BottomTabNavigatorConfig, StackNavigatorConfig, } from '../config';
 import * as pages from './index';
 
-const { SigIn, AuthLoading, } = pages;
 
 const TabNav = createBottomTabNavigator(
   {
@@ -36,17 +35,4 @@ const AppStack = createStackNavigator(
   }),
 );
 
-const AuthStack = createStackNavigator({ SignIn: SigIn, });
-
-const App = createSwitchNavigator(
-  {
-    AuthLoading,
-    App: AppStack,
-    Auth: AuthStack,
-  },
-  {
-    initialRouteName: 'AuthLoading',
-  }
-);
-
-export default createAppContainer(App);
+export default createAppContainer(AppStack);

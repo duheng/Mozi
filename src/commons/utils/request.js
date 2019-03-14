@@ -1,7 +1,7 @@
-import { Platform, } from 'react-native';
+import { Platform, AsyncStorage, } from 'react-native';
 import { IOS_LXY_KEY, ANDROID_LXY_DKEY, } from '../../app/constants/apiConfig';
 import { hexMD5, } from './md5';
-import { sortObject, setUrlK, } from './util';
+import { sortObject, setUrlK, formData, } from './util';
 import { appid, platform, } from '../../app/constants/urls';
 
 const signKey = Platform.OS === 'android' ? ANDROID_LXY_DKEY : IOS_LXY_KEY;
@@ -49,7 +49,7 @@ const encodeQuery = (path, data = {}) => {
 
   return `${url}${query}`;
 };
-
+// 这个方法是做接口签名用的，如果你的项目中需要对接口做签名直接改一下 IOS_LXY_KEY, ANDROID_LXY_DKEY的值就行，
 const signMd = (pKey, data) => {
   const __data = JSON.parse(JSON.stringify(data));
   const sign_data = {
@@ -59,29 +59,37 @@ const signMd = (pKey, data) => {
   delete __data.signs;
   delete sign_data.signs;
   __data.sign = hexMD5(pKey + decodeURIComponent(setUrlK(sortObject(sign_data)))).toUpperCase();
-  return JSON.stringify(__data);
+  return __data;
 };
 
 
-const FETCH = (url, options, noHeaders = false) => {
-  const { headers, body, ...others } = options;
+// get token
+const getToken = async () => {
+  const users = await AsyncStorage.getItem('users');
+  if (users) {
+    const __users = JSON.parse(users);
+    return __users.token ? __users.token : null;
+  }
+  return null;
+};
 
-  const __body = {
-    appid,
-    platform,
-    ...body,
-  };
 
-  const __signParam = signMd(signKey, __body);
-  const __others = { ...others, ...{ body: __signParam, }, };
+const FETCH = async (url, options, noHeaders = false) => {
+  const { headers, ...others } = options;
+  const __token = await getToken();
   let combineHeaders = { ...headers, };
   if (!noHeaders) {
     combineHeaders = { 'X-Request-Id': GUID(), ...headers, };
   }
-  console.log('请求地址:', url, '请求信息:', __others);
+  if (__token) {
+    combineHeaders['Request-Token'] = __token;
+  }
+
+  console.log('请求头信息:', combineHeaders);
+  console.log('请求地址:', url, '请求信息:', others);
   return fetch(url, {
     credentials: 'include',
-    ...__others,
+    ...others,
     headers: combineHeaders,
   })
     .then(resp =>
@@ -94,14 +102,17 @@ const FETCH = (url, options, noHeaders = false) => {
 };
 
 const POST = (url, data = {}, options = {}) => {
-  const dataCopy = { ...data, };
-
+  const dataCopy = { appid, platform, ...data, };
+  const __signParam = signMd(signKey, dataCopy);
+  const __formData = formData(__signParam);
   return FETCH(url, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "multipart/form-data",
+      Connection: "close",
+	    type: "getUserData",
     },
-    body: dataCopy,
+    body: __formData,
     ...options,
   })
     .then(resp => {
@@ -113,7 +124,9 @@ const POST = (url, data = {}, options = {}) => {
 };
 
 const GET = (url, data = {}, options = {}) => {
-  const requestUrl = encodeQuery(url, data);
+  const dataCopy = { appid, platform, ...data, };
+  const __signParam = signMd(signKey, dataCopy);
+  const requestUrl = encodeQuery(url, __signParam);
   return FETCH(requestUrl, {
     method: 'GET',
     contentType: 'application/json',
