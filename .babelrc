@@ -2,11 +2,32 @@
   "presets": ["module:metro-react-native-babel-preset"],
   "sourceMaps": true,
   "plugins": [
+      [
+         "module-resolver",
+         {
+           "extensions": [".js"],
+           "alias": {
+             "actions": "./src/app/actions",
+             "constants": "./src/app/constants",
+             "reducers": "./src/app/reducers",
+             "selectors": "./src/app/selectors",
+             "store": "./src/app/store",
+             "assets": "./src/commons/assets",
+             "styles": "./src/commons/styles",
+             "utils": "./src/commons/utils",
+             "components": "./src/components",
+             "containers": "./src/containers",
+             "routers": "./src/routers"
+           },
+           "cwd": "babelrc"
+         }
+      ],
       ["@babel/plugin-proposal-decorators", { "legacy": true }],
       ["@babel/transform-runtime", {
          "helpers": true,
          "regenerator": false
-       }]
+       }],
+
   ],
   "env": {
     "production": {

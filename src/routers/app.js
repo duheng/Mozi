@@ -1,4 +1,6 @@
 import { createBottomTabNavigator, createStackNavigator, createAppContainer, createSwitchNavigator, } from 'react-navigation';
+import { mergeJSON, } from 'utils/util';
+
 import { BottomTabNavigatorConfig, StackNavigatorConfig, } from '../config';
 import * as pages from './index';
 
@@ -18,8 +20,18 @@ const TabNav = createBottomTabNavigator(
 TabNav.navigationOptions = ({ navigation, }) => {
   // 设置tabBar的标题
   const { routes, index, } = navigation.state;
-  const { routeName, } = routes[index];
-  return pages[routeName].navigationOptions;
+  const { routeName, params, } = routes[index];
+  const __defaultNavigationOptions = StackNavigatorConfig({ initialRouteName: routeName, }).defaultNavigationOptions;
+  console.log('efaultNavigationOptions######', routes[index]);
+  const __navigationOptions = pages[routeName].navigationOptions;
+  let targetNavigationOptions = {};
+  if (typeof (__navigationOptions) === 'function') {
+    targetNavigationOptions = __navigationOptions({ navigation, params, });
+  } else {
+    targetNavigationOptions = { ...__navigationOptions, };
+  }
+  mergeJSON(__defaultNavigationOptions, targetNavigationOptions);
+  return targetNavigationOptions;
 };
 
 const AppStack = createStackNavigator(

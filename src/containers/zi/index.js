@@ -3,10 +3,13 @@ import {
   StyleSheet,
   Text,
   View,
+  Alert,
   RefreshControl,
   SectionList,
+  TouchableOpacity,
   InteractionManager,
 } from 'react-native';
+import { Icon, } from 'components';
 import { ListItem, ListParagraph, } from '../../components';
 import HomeSelector from '../../app/selectors/home';
 import * as HomeActions from '../../app/actions/home';
@@ -31,12 +34,34 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#666666',
   },
+  headerTitle: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+  },
+  headerText: {
+    color: '#FFFFFF',
+    fontSize: 17,
+    fontWeight: '500',
+    marginRight: 4,
+  },
 });
 
 @connect(HomeSelector, HomeActions)
 export default class Zi extends Component {
-  static navigationOptions = {
-    headerTitle: '墨子测试codepush升级',
+  static navigationOptions = ({ navigation, params, }) => {
+    return {
+      headerTitle: <View style={styles.headerTitle}>
+        <Text style={styles.headerText} onPress={_ => Alert.alert('自定头部标题')}>{ !!params && params.headerName }</Text>
+        <Icon name="ios-arrow-forward" size={15} color="#FFFFFF" />
+      </View>,
+
+      headerRight: <TouchableOpacity style={{ paddingHorizontal: 15, }} onPress={_ => Alert.alert('自定头部右侧')}>
+        <Icon name="md-qr-scanner" size={20} color="#FFFFFF" />
+      </TouchableOpacity>,
+    };
   };
   constructor(...args) {
     super(...args);
@@ -56,6 +81,9 @@ export default class Zi extends Component {
     });
   }
 
+  componentDidMount() {
+    this.props.navigation.setParams({ headerName: '自定义头部', });
+  }
   componentWillReceiveProps(nextProps) {
     const { home, } = nextProps;
     if (home.movieid.length > 0) {

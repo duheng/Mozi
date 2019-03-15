@@ -93,6 +93,31 @@ const formData = (data) => {
   return __formData;
 };
 
+// 遇到相同元素级属性，以后者（main）为准
+// 不返还新Object，而是main改变
+function mergeJSON(minor, main) {
+  for (const key in minor) {
+    if (main[key] === undefined) { // 不冲突的，直接赋值
+      main[key] = minor[key];
+      continue;
+    }
+    // 冲突了，如果是Object，看看有么有不冲突的属性
+    // 不是Object 则以main为主，忽略即可。故不需要else
+    if (isJSON(minor[key])) {
+      // arguments.callee 递归调用，并且与函数名解耦
+      arguments.callee(minor[key], main[key]);
+    }
+  }
+}
+
+const isJSON = (target) => {
+  return typeof target === "object" && target.constructor == Object;
+};
+
+const isArray = (o) => {
+  return Object.prototype.toString.call(o) == '[object Array]';
+};
+
 module.exports = {
   formatTime,
   sortObject,
@@ -100,4 +125,5 @@ module.exports = {
   onlyOnes,
   compareVersion,
   formData,
+  mergeJSON,
 };

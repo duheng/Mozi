@@ -1,8 +1,10 @@
 import React from 'react';
-import { Image, } from 'react-native';
-
+import { Platform, Image, } from 'react-native';
+import StackViewStyleInterpolator from
+  'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
 import NavigationButton from './components/NavigationButton';
-import { tabBar, window, } from '../app';
+import { window, } from '../app';
+import { tabBar, } from '../tab';
 
 const BottomTabNavigatorConfig = options => {
   const { inactiveTintColor, activeTintColor, list, } = tabBar;
@@ -37,9 +39,10 @@ const BottomTabNavigatorConfig = options => {
       return {
         tabBarIcon: ({ focused, tintColor, }) => {
           if (icoPath) {
+            const icon = focused ? selectedIconPath : icoPath;
             return (
               <Image
-                source={focused ? selectedIconPath : icoPath}
+                source={icon}
                 style={{
                   width: 20,
                   height: 20,
@@ -59,17 +62,23 @@ const BottomTabNavigatorConfig = options => {
 };
 
 const StackNavigatorConfig = options => {
-  const { initialRouteName = '', } = options;
+  const {
+    initialRouteName = '',
+    screenInterpolator = StackViewStyleInterpolator.forHorizontal,
+  } = options;
+
+  const TITLE_OFFSET = Platform.OS === 'ios' ? 70 : 56;
+
   const {
     headerBackTitle = null,
     headerTintColor = '#FFFFFF',
     gesturesEnabled = true,
     headerBackgroundColor = '#262a37',
     headerTitleStyle = {
-      alignSelf: 'center',
-      fontSize: 18,
+      alignSelf: 'right',
+      textAlign: 'right',
       flex: 1,
-      textAlign: 'center',
+      fontSize: 18,
       color: '#9c9c9c',
     },
   } =
@@ -84,10 +93,22 @@ const StackNavigatorConfig = options => {
       headerTintColor, // 返回按钮颜色
       gesturesEnabled, // 是否支持滑动返回
       headerTitleStyle,
+      headerTitleContainerStyle: {
+        left: TITLE_OFFSET,
+        right: TITLE_OFFSET,
+      },
       headerStyle: {
         backgroundColor: headerBackgroundColor,
+        shadowColor: 'transparent',
+        shadowOpacity: 0,
+        borderBottomWidth: 0,
+        borderBottomColor: 'transparent',
+        elevation: 0,
       },
     },
+    transitionConfig: () => ({
+      screenInterpolator,
+    }),
   };
 };
 
