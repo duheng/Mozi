@@ -12,7 +12,10 @@ import App from './AppNavigationState';
 
 const store = configureStore();
 
-@codePush
+@codePush({
+  checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
+  installMode: codePush.InstallMode.ON_NEXT_SUSPEND,
+})
 export default class Root extends Component {
   componentDidMount() {
     SplashScreen.hide(); // 隐藏启动屏

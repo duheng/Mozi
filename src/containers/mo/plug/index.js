@@ -23,7 +23,7 @@ const apiurls = {
 
 export default class Plug extends Component {
   static navigationOptions = {
-    headerTitle: '墨依赖',
+    headerTitle: '墨依赖!&',
   };
 
   goWeb = (gourl = 'https://www.jianshu.com/u/c971c7ffa27e') => {

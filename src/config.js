@@ -75,8 +75,8 @@ const StackNavigatorConfig = options => {
     gesturesEnabled = true,
     headerBackgroundColor = '#262a37',
     headerTitleStyle = {
-      alignSelf: 'right',
-      textAlign: 'right',
+      alignSelf: 'center',
+      textAlign: 'center',
       flex: 1,
       fontSize: 18,
       color: '#9c9c9c',
