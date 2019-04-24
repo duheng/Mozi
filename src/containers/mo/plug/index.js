@@ -38,6 +38,11 @@ export default class Plug extends Component {
     navigation.navigate('Backa');
   };
 
+  goTab = () => {
+    const { navigation, } = this.props;
+    navigation.navigate('Gong');
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -56,6 +61,14 @@ export default class Plug extends Component {
           }}
         >
           返回到指定页面Demo!
+        </Text>
+        <Text
+          style={styles.welcome}
+          onPress={() => {
+            this.goTab();
+          }}
+        >
+          跳转到指定tab页面
         </Text>
         <Text
           style={styles.welcome}
@@ -97,14 +110,7 @@ export default class Plug extends Component {
         >
           redux集成!
         </Text>
-        <Text
-          style={styles.welcome}
-          onPress={() => {
-            this.goWeb();
-          }}
-        >
-          redux-saga集成!
-        </Text>
+
       </View>
     );
   }

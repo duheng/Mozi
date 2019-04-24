@@ -1,5 +1,6 @@
 import React, { Component, } from 'react';
 import { StyleSheet, Text, View, } from 'react-native';
+import { Toast, Loading, } from 'components';
 
 const styles = StyleSheet.create({
   container: {
@@ -20,10 +21,22 @@ export default class Moui extends Component {
     headerTitle: '墨组件',
   };
 
-  goTab = () => {
-    const { navigation, } = this.props;
-    navigation.navigate('Gong');
-  };
+  showToast = (state = 'default') => {
+    if (state == 'success') {
+      Toast.show({ title: '恭喜您！', state: 'success', });
+    } else if (state == 'fail') {
+      Toast.show({ title: '抱歉！', state: 'fail', });
+    } else {
+      Toast.show({ title: '这是我的自定义Toast！', });
+    }
+  }
+
+  showLoading = () => {
+    Loading.show();
+    setTimeout(_ => {
+      Loading.hide();
+    }, 2500);
+  }
 
   render() {
     return (
@@ -31,14 +44,27 @@ export default class Moui extends Component {
         <Text
           style={styles.welcome}
           onPress={() => {
-            this.goTab();
+            this.showToast();
           }}
-        >
-          跳转到指定tab页面
-        </Text>
-        <Text style={styles.welcome}>Toase!</Text>
-        <Text style={styles.welcome}>Loading!</Text>
-        <Text style={styles.welcome}>Tips!</Text>
+        >Toase default</Text>
+        <Text
+          style={styles.welcome}
+          onPress={() => {
+            this.showToast('success');
+          }}
+        >Toase success</Text>
+        <Text
+          style={styles.welcome}
+          onPress={() => {
+            this.showToast('fail');
+          }}
+        >Toase fail</Text>
+        <Text
+          style={styles.welcome}
+          onPress={() => {
+            this.showLoading();
+          }}
+        >Loading!</Text>
       </View>
     );
   }
