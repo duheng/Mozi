@@ -1,10 +1,10 @@
 import { Platform, AsyncStorage, } from 'react-native';
-import { IOS_LXY_KEY, ANDROID_LXY_DKEY, } from '../../app/constants/apiConfig';
+import { IOS_MOZI_KEY, ANDROID_MOZI_DKEY, } from '../../app/constants/apiConfig';
 import { hexMD5, } from './md5';
 import { sortObject, setUrlK, formData, } from './util';
 import { appid, platform, } from '../../app/constants/urls';
 
-const signKey = Platform.OS === 'android' ? ANDROID_LXY_DKEY : IOS_LXY_KEY;
+const signKey = Platform.OS === 'android' ? ANDROID_MOZI_DKEY : IOS_MOZI_KEY;
 
 const GUID = () => {
   function s4() {
@@ -49,7 +49,7 @@ const encodeQuery = (path, data = {}) => {
 
   return `${url}${query}`;
 };
-// 这个方法是做接口签名用的，如果你的项目中需要对接口做签名直接改一下 IOS_LXY_KEY, ANDROID_LXY_DKEY的值就行，
+// 这个方法是做接口签名用的，如果你的项目中需要对接口做签名直接改一下 IOS_MOZI_KEY, ANDROID_MOZI_DKEY的值就行，
 const signMd = (pKey, data) => {
   const __data = JSON.parse(JSON.stringify(data));
   const sign_data = {

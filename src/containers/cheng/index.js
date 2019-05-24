@@ -1,96 +1,234 @@
 import React, { Component, } from 'react';
-import { StyleSheet, Text, View, } from 'react-native';
-import Placeholder from 'rn-placeholder';
-import CustomPlaceholder from './CustomPlaceholder';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ImageBackground,
+  InteractionManager,
+  TouchableOpacity,
+  Linking,
+  Alert,
+} from 'react-native';
+
+import { ImmediateCheckCodePush, } from 'components/CodepushUpdate';
+import { Icon, } from 'components';
+import BaseSelector from 'selectors/base';
+import * as BaseActions from 'actions/base';
+import connect from 'store/connect';
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    marginTop: 62,
+  },
+  header: {
+    width: '100%',
+    height: 100,
+    display: 'flex',
+    flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    marginTop: 60,
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  logos: {
+    width: 60,
+    height: 60,
+    padding: 2,
+    marginLeft: 23,
+    marginRight: 13,
+    borderRadius: 30,
+    borderWidth: 2,
+    borderColor: 'rgba(255,255,255,0.2)',
+
   },
-  box: {
-    width: '90%',
-    margin: 10,
+  headerRight: {
+    width: '65%',
   },
+  titles: {
+    fontSize: 17,
+    fontWeight: '500',
+    color: '#FFFFFF',
+    lineHeight: 24,
+    marginBottom: 4,
+  },
+  names: {
+    fontSize: 13,
+    fontWeight: '500',
+    color: 'green',
+  },
+  listContainer: {
+    paddingHorizontal: 10,
+  },
+  listiTem: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 44,
+    borderColor: '#EBEBEB',
+    borderBottomWidth: 1,
+  },
+  listiTemLeft: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginRight: 'auto',
+  },
+  icons: {
+    width: 16,
+    height: 16,
+  },
+  listiTemName: {
+    fontSize: 14,
+    fontWeight: '400',
+    color: '#353535',
+    marginLeft: 2,
+  },
+  borderTops: {
+    borderColor: '#EBEBEB',
+    borderTopWidth: 1,
+  },
+
+
 });
 
-export default class Cheng extends Component {
-  static navigationOptions = {
-    headerTitle: '城',
+@connect(BaseSelector, BaseActions)
+export default class Mine extends Component {
+  static navigationOptions = ({ navigation, params, }) => {
+    return {
+      headerTitle: <ImageBackground style={styles.header} source={require('assets/logo.png')}>
+        <Image style={styles.logos} source={require('assets/logo.png')} />
+        <View style={styles.headerRight}>
+          <Text style={styles.titles} onPress={_ => { params.goBusi(); }}>{ !!params && params.name }</Text>
+          <Text style={styles.names}>用户名：{ !!params && params.bdName }</Text>
+        </View>
+      </ImageBackground>,
+      headerTitleContainerStyle: {
+        left: 0,
+        right: 0,
+      },
+    };
   };
   constructor(...args) {
     super(...args);
-
     this.state = {
-      isReady: false,
+      menus: [
+        {
+          id: 'A001',
+          name: '账号管理',
+          icon: require('assets/logo.png'),
+        },
+        {
+          id: 'A002',
+          name: '联系BD',
+          icon: require('assets/logo.png'),
+        },
+        {
+          id: 'A003',
+          name: '在线客服',
+          icon: require('assets/logo.png'),
+        },
+        {
+          id: 'A004',
+          name: '检查更新',
+          icon: require('assets/logo.png'),
+        },
+        {
+          id: 'A005',
+          name: '切换商家',
+          icon: require('assets/logo.png'),
+        },
+      ],
     };
   }
+
+  componentDidMount() {
+    this.props.navigation.setParams({
+      goBusi: this._goBusi,
+      name: '个人中心',
+      bdName: '墨子攻城',
+    });
+  }
+
+  _goBusi = () => {
+    this.props.navigation.navigate('ChoiceBusi');
+  }
+
+  renderItems() {
+    const { menus, } = this.state;
+    return (<View style={styles.listContainer}>
+
+      {
+        menus.map(item => {
+          const __style = [ styles.listiTem, ];
+          if (item.id == 'A005') {
+            __style.push({ marginTop: 40, }, styles.borderTops);
+          }
+          console.log('__style---', __style);
+          return (<TouchableOpacity key={item.id} onPress={_ => this.tapMenu(item.id)}>
+            <View style={__style}>
+              <View style={styles.listiTemLeft}>
+                <Image style={styles.icons} source={item.icon} />
+                <Text style={styles.listiTemName}>{item.name}</Text>
+              </View>
+              <Icon name="ios-arrow-forward" size={20} color={'#BEBEBE'} />
+            </View>
+          </TouchableOpacity>);
+        })
+      }
+
+    </View>);
+  }
+
+  tapMenu = (id) => {
+    console.log('id------', id);
+    if (id == 'A001') {
+      this.props.navigation.navigate('Account');
+    } else if (id == 'A002') {
+      this.alertCall();
+    } else if (id == 'A003') {
+
+    } else if (id == 'A004') {
+      ImmediateCheckCodePush();
+    } else if (id == 'A005') {
+      console.log('*******', this.props);
+      this.props.navigation.navigate('ChoiceBusi');
+    }
+  }
+
+  alertCall = () => {
+    Alert.alert(
+      '对接BD: duheng',
+      '联系电话: 18310098822',
+      [
+        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel', },
+        { text: 'OK', onPress: () => this.call(), },
+      ],
+      { cancelable: false, }
+    );
+  }
+
+  call = () => {
+    const url = 'tel: 18310097722';
+    // let url = "mqqwpa://im/chat?chat_type=wpa&uin=QQ号";//调用QQ
+    Linking.canOpenURL(url).then(supported => {
+      if (!supported) {
+        console.log(`Can't handle url: ${url}`);
+      } else {
+        Linking.openURL(url);
+      }
+    }).catch(err => console.error('An error occurred', err));
+  }
+
   render() {
+    console.log('main----', this.props);
     return (
       <View style={styles.container}>
-        <View style={styles.box}>
-          <Text style={styles.box}>左边图右内容布局</Text>
-          <Placeholder.ImageContent
-            size={60}
-            animate="fade"
-            lineNumber={4}
-            lineSpacing={5}
-            lastLineWidth="70%"
-            onReady={this.state.isReady}
-          >
-            <Text>左边图右内容布局</Text>
-          </Placeholder.ImageContent>
-        </View>
-        <View style={styles.box}>
-          <Text style={styles.box}>一行直线的布局</Text>
-          <Placeholder.Line
-            size={60}
-            animate="fade"
-            lineNumber={4}
-            lineSpacing={5}
-            lastLineWidth="30%"
-            onReady={this.state.isReady}
-          >
-            <Text>一行直线的布局</Text>
-          </Placeholder.Line>
-        </View>
-        <View style={styles.box}>
-          <Text style={styles.box}>只有图片的布局</Text>
-          <Placeholder.Media
-            size={60}
-            animate="fade"
-            lineNumber={4}
-            lineSpacing={5}
-            lastLineWidth="30%"
-            onReady={this.state.isReady}
-          >
-            <Text>只有图片的布局</Text>
-          </Placeholder.Media>
-        </View>
-        <View style={styles.box}>
-          <Text style={styles.box}>段落布局</Text>
-          <Placeholder.Paragraph
-            size={60}
-            animate="fade"
-            lineNumber={4}
-            lineSpacing={5}
-            lastLineWidth="30%"
-            onReady={this.state.isReady}
-          >
-            <Text>段落布局</Text>
-          </Placeholder.Paragraph>
-        </View>
-        <View style={styles.box}>
-          <Text style={styles.box}>这是自定义demo</Text>
-          <CustomPlaceholder animate="fade" bgColor="yellow" />
-        </View>
+
+        {
+          this.renderItems()
+        }
+
       </View>
     );
   }

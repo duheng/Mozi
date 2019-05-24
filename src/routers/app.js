@@ -1,9 +1,9 @@
 import { createBottomTabNavigator, createStackNavigator, createAppContainer, createSwitchNavigator, } from 'react-navigation';
 import { mergeJSON, } from 'utils/util';
-
 import { BottomTabNavigatorConfig, StackNavigatorConfig, } from '../config';
 import * as pages from './index';
 
+const { AuthLoading, LogIn, } = pages;
 
 const TabNav = createBottomTabNavigator(
   {
@@ -22,7 +22,6 @@ TabNav.navigationOptions = ({ navigation, }) => {
   const { routes, index, } = navigation.state;
   const { routeName, params, } = routes[index];
   const __defaultNavigationOptions = StackNavigatorConfig({ initialRouteName: routeName, }).defaultNavigationOptions;
-  console.log('efaultNavigationOptions######', routes[index]);
   const __navigationOptions = pages[routeName].navigationOptions;
   let targetNavigationOptions = {};
   if (typeof (__navigationOptions) === 'function') {
@@ -47,4 +46,24 @@ const AppStack = createStackNavigator(
   }),
 );
 
-export default createAppContainer(AppStack);
+// 权限验证路由
+const AuthStack = createStackNavigator(
+  { LogIn, },
+  StackNavigatorConfig({
+    initialRouteName: 'LogIn',
+  })
+);
+
+const App = createSwitchNavigator(
+  {
+    AuthLoading,
+    App: AppStack,
+    Auth: AuthStack,
+  },
+  {
+    initialRouteName: 'AuthLoading',
+  }
+);
+
+
+export default createAppContainer(App);

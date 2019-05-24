@@ -1,0 +1,27 @@
+{
+  "name": "react-native-code-push-dialog",
+  "version": "1.0.2",
+  "description": "codepush custom dialog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strawferry/CodePushDialog.git"
+  },
+  "keywords": [
+    "codepush",
+    "React",
+    "ReactNative",
+    "hotupdate",
+    "dialog",
+    "ui"
+  ],
+  "author": "ferryvip",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/strawferry/CodePushDialog/issues"
+  },
+  "homepage": "https://github.com/strawferry/CodePushDialog#readme"
+}

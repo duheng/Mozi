@@ -1,13 +1,13 @@
 import { createSelector, } from 'reselect';
 
 const getBase = state => {
-  const { logged, } = { ...state.base, };
-  return logged;
+  const { isLogIn, } = { ...state.base, };
+  return isLogIn;
 };
 
-export default createSelector(getBase, logged => {
-  console.log('logged-----------', logged);
+export default createSelector(getBase, isLogIn => {
+  console.log('logged-----------', isLogIn);
   return {
-    logged,
+    isLogIn,
   };
 });

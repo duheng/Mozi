@@ -1,3 +1,4 @@
+import CodepushUpdate from './CodepushUpdate';
 import Toast from './Toast';
 import Loading from './Loading';
 import Icon from './Icon';
@@ -6,6 +7,7 @@ import NavigationButton from './NavigationButton';
 import ListParagraph from './ListParagraph';
 
 module.exports = {
+  CodepushUpdate,
   Toast,
   Loading,
   Icon,
