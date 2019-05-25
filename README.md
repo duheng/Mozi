@@ -70,7 +70,7 @@ windows用户请用 react-native run-android 命令启动
 <img height="470" src="https://github.com/duheng/Mozi/blob/master/SectionList.gif" />
 <img height="470" src="https://github.com/duheng/Mozi/blob/master/HeaderImageScrollView.gif" />
 <img height="470" src="https://github.com/duheng/Mozi/blob/master/back.gif" />
-
+<img height="470" src="https://github.com/duheng/Mozi/blob/master/mine.jpg" />
 </p>
 
 ---
