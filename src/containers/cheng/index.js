@@ -12,7 +12,7 @@ import {
   Alert,
 } from "react-native";
 
-import { ImmediateCheckCodePush, } from "components/CodepushUpdate";
+import HotUpdate, { ImmediateCheckCodePush, } from "components/CodepushUpdate";
 import { Icon, } from "components";
 import BaseSelector from "selectors/base";
 import * as BaseActions from "actions/base";
@@ -134,22 +134,17 @@ export default class Mine extends Component {
         },
         {
           id: "A002",
-          name: "联系BD",
+          name: "联系墨子",
           icon: require("assets/logo.png"),
         },
         {
           id: "A003",
-          name: "在线客服",
+          name: "调用QQ",
           icon: require("assets/logo.png"),
         },
         {
           id: "A004",
           name: "检查更新",
-          icon: require("assets/logo.png"),
-        },
-        {
-          id: "A005",
-          name: "切换商家",
           icon: require("assets/logo.png"),
         },
       ],
@@ -204,6 +199,7 @@ export default class Mine extends Component {
     } else if (id == "A002") {
       this.alertCall();
     } else if (id == "A003") {
+      this.linkQQ();
     } else if (id == "A004") {
       ImmediateCheckCodePush();
     } else if (id == "A005") {
@@ -212,25 +208,29 @@ export default class Mine extends Component {
     }
   };
 
+  linkQQ = () => {
+    const qq = "12345678";
+    const url = `mqqwpa://im/chat?chat_type=wpa&uin=${qq}`;
+    this.call(url);
+  };
+
   alertCall = () => {
     Alert.alert(
-      "对接BD: duheng",
-      "联系电话: 18310098822",
+      "打给: 墨子",
+      "联系电话: 12345678",
       [
         {
           text: "Cancel",
           onPress: () => console.log("Cancel Pressed"),
           style: "cancel",
         },
-        { text: "OK", onPress: () => this.call(), },
+        { text: "OK", onPress: () => this.call("tel: 18310097722"), },
       ],
       { cancelable: false, }
     );
   };
 
-  call = () => {
-    const url = "tel: 18310097722";
-    // let url = "mqqwpa://im/chat?chat_type=wpa&uin=QQ号";//调用QQ
+  call = url => {
     Linking.canOpenURL(url)
       .then(supported => {
         if (!supported) {
@@ -243,6 +243,11 @@ export default class Mine extends Component {
   };
 
   render() {
-    return <View style={styles.container}>{this.renderItems()}</View>;
+    return (
+      <View style={styles.container}>
+        <HotUpdate />
+        {this.renderItems()}
+      </View>
+    );
   }
 }
