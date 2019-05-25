@@ -1,29 +1,29 @@
-import React, { Component, } from 'react';
-import { StyleSheet, Text, View, } from 'react-native';
-import Placeholder from 'rn-placeholder';
-import CustomPlaceholder from './CustomPlaceholder';
+import React, { Component, } from "react";
+import { StyleSheet, Text, View, } from "react-native";
+import Placeholder from "rn-placeholder";
+import CustomPlaceholder from "./CustomPlaceholder";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF",
   },
   welcome: {
     fontSize: 20,
-    textAlign: 'center',
+    textAlign: "center",
     margin: 10,
   },
   box: {
-    width: '90%',
+    width: "90%",
     margin: 10,
   },
 });
 
 export default class Cheng extends Component {
   static navigationOptions = {
-    headerTitle: '攻',
+    headerTitle: "攻",
   };
   constructor(...args) {
     super(...args);
@@ -32,10 +32,22 @@ export default class Cheng extends Component {
       isReady: false,
     };
   }
+  goHearderImage = () => {
+    const { navigation, } = this.props;
+    navigation.navigate("HeaderImageScrollView");
+  };
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.box}>
+          <Text
+            style={styles.box}
+            onPress={() => {
+              this.goHearderImage();
+            }}
+          >
+            头部伸缩图片demo!
+          </Text>
           <Text style={styles.box}>左边图右内容布局</Text>
           <Placeholder.ImageContent
             size={60}
@@ -86,10 +98,6 @@ export default class Cheng extends Component {
           >
             <Text>段落布局</Text>
           </Placeholder.Paragraph>
-        </View>
-        <View style={styles.box}>
-          <Text style={styles.box}>这是自定义demo</Text>
-          <CustomPlaceholder animate="fade" bgColor="yellow" />
         </View>
       </View>
     );
