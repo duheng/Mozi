@@ -5,6 +5,7 @@
       [
          "module-resolver",
          {
+           "root": ["./"],
            "extensions": [".js"],
            "alias": {
              "actions": "./src/app/actions",
