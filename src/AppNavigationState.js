@@ -4,6 +4,27 @@ import { connect, } from 'react-redux';
 import { NavigationActions, } from 'react-navigation';
 import JPushModule from 'jpush-react-native';
 import Routers from './routers/app';
+// state持久化
+const persistenceKey = 'persistenceKey';
+const persistNavigationState = async navState => {
+  try {
+    console.log('navState_______', navState);
+    await AsyncStorage.setItem(persistenceKey, JSON.stringify(navState));
+  } catch (err) {
+    // handle the error according to your needs
+  }
+};
+const loadNavigationState = async () => {
+  const jsonString = await AsyncStorage.getItem(persistenceKey);
+  return JSON.parse(jsonString);
+};
+
+const getPersistenceFunctions = __DEV__
+  ? {
+    persistNavigationState,
+    loadNavigationState,
+  }
+  : undefined;
 
 @connect(state => ({ nav: state.nav, }))
 export default class AppNavigationState extends Component {
@@ -57,6 +78,7 @@ export default class AppNavigationState extends Component {
         ref={ref => {
           this.root = ref;
         }}
+        {...getPersistenceFunctions}
         onNavigationStateChange={(prevState, currentState) => {
           const appState = currentState.routes;
           if ((appState && appState.length > 1) || appState[0].index > 0) {

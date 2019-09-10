@@ -1,7 +1,7 @@
 import React from 'react';
 import { Platform, Image, } from 'react-native';
-import StackViewStyleInterpolator from
-  'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
+import StackViewStyleInterpolator
+  from 'react-navigation-stack/src/views/StackView/StackViewStyleInterpolator';
 import NavigationButton from './components/NavigationButton';
 import { window, } from '../app';
 import { tabBar, } from '../tab';
@@ -24,7 +24,7 @@ const BottomTabNavigatorConfig = options => {
         height: 49,
         margin: 0,
         padding: 0,
-        borderTopColor: "#F0F0F0",
+        borderTopColor: '#F0F0F0',
         borderTopWidth: 1,
       },
       labelStyle: {
@@ -81,8 +81,7 @@ const StackNavigatorConfig = options => {
       fontSize: 18,
       color: '#9c9c9c',
     },
-  } =
-    window || {};
+  } = window || {};
   return {
     initialRouteName,
     mode: 'card', // 页面跳转方式 card - 原生系统默认的的跳转;modal - 只针对iOS平台，模态跳转
