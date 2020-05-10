@@ -11,12 +11,10 @@ export default class MovieItem extends PureComponent {
       nm,
       showInfo,
       sc,
-      star,
+      comingTitle,
       wish,
     } = this.props.data;
     const image = img.replace(/http:/g, 'https:').replace(/w.h/g, '128.180');
-    console.log(image);
-
     return (
       <TouchableOpacity style={styles.item} onPress={this.props.gopage}>
         <Image source={{ uri: image, }} style={styles.image} />
@@ -31,9 +29,9 @@ export default class MovieItem extends PureComponent {
             </View>
           </View>
           <View style={styles.rightInfo}>
-            <Text style={styles.colorGray}>观众评分{sc}</Text>
+            <Text style={styles.colorGray} />
             <Text style={[ styles.colorGray, { paddingTop: 3, }, ]} numberOfLines={1}>
-              主演:{star}
+              {comingTitle}
             </Text>
             <Text style={[ styles.colorGray, { paddingTop: 3, }, ]} >
               {showInfo}

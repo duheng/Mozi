@@ -10,10 +10,9 @@ const listData = item => {
 };
 
 const getHome = state => {
-  const { movies, movieid, } = { ...state.home, };
+  const { movies, } = { ...state.home, };
   const filterMovies = movies.map(listData);
   return {
-    movieid,
     movies: filterMovies,
   };
 };

@@ -33,7 +33,13 @@ export default class Gong extends Component {
 
   componentWillMount() {
     InteractionManager.runAfterInteractions(() => {
-      this.props.actions.fetchMovies();
+      this.props.actions.fetchMovies({
+        ci: 1,
+        limit: 100,
+        offset: 0,
+        token: 'mozi',
+        optimus_uuid: 'mozi',
+      });
     });
   }
 
@@ -44,10 +50,16 @@ export default class Gong extends Component {
 
   flatList = () => {
     const { home, } = this.props;
+
     return (
       <FlatList
-        initialNumToRender={8}
+        ref={view => { this.flist = view; }}
         style={styles.container}
+        initialNumToRender={8}
+        scrollEventThrottle={16}
+        onEndReachedThreshold={0.01}
+        removeClippedSubviews
+        windowSize={350} // 如果你的列表的2-3行占一屏的话，这个值应该设置450-600之前，如果四五行占一屏应该设置300-350之间
         keyExtractor={item => `gong_${item.data[0].id}`}
         ListHeaderComponent={() => {
           return this.renderHeader();
@@ -79,6 +91,9 @@ export default class Gong extends Component {
     if (!!home.movies && home.movies.length > 0) {
       loading = false;
     }
-    return <ListParagraph ParagraphLength={8} isLoading={loading} list={this.flatList} />;
+    setTimeout(() => {
+      this.flist && this.flist.recordInteraction();
+    }, 50);
+    return <ListParagraph style={{ flex: 1, }} ParagraphLength={8} isLoading={loading} list={this.flatList} />;
   }
 }

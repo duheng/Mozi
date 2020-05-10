@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component, } from 'react';
+import { StyleSheet, Text, View, } from 'react-native';
 import Placeholder from 'rn-placeholder';
 import CustomPlaceholder from './CustomPlaceholder';
 
@@ -8,28 +8,28 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#F5FCFF',
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10
+    margin: 10,
   },
   box: {
     width: '90%',
-    margin: 10
-  }
+    margin: 10,
+  },
 });
 
 export default class Cheng extends Component {
   static navigationOptions = {
-    headerTitle: '城'
+    headerTitle: '城',
   };
   constructor(...args) {
     super(...args);
 
     this.state = {
-      isReady: false
+      isReady: false,
     };
   }
   render() {

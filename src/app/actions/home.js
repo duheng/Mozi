@@ -12,11 +12,10 @@ const receiveMovies = data => {
 const fetchMovies = params => {
   return dispatch => {
     return GET(movieList, params).then(resp => {
-      const { movieIds, movieList, } = resp;
+      const { coming, } = resp;
       dispatch(
         receiveMovies({
-          movieid: movieIds,
-          movies: movieList,
+          movies: coming,
         }),
       );
     });

@@ -3,16 +3,14 @@ import * as types from '../constants/actionTypes';
 
 const initialState = {
   movies: [],
-  movieid: [],
 };
 
 const handler = {};
 
 handler[types.RECEIVE_MOVIES] = (state, action) => {
-  const { movieid, movies, } = action;
+  const { movies, } = action;
   return {
     ...state,
-    movieid,
     movies,
   };
 };

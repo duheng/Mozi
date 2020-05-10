@@ -17,6 +17,7 @@ import connect from '../../app/store/connect';
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     overflow: 'hidden',
     backgroundColor: '#FFFFFF',
   },
@@ -77,23 +78,20 @@ export default class Zi extends Component {
       title: '墨子',
     });
     InteractionManager.runAfterInteractions(() => {
-      this.props.actions.fetchMovies();
+      this.props.actions.fetchMovies({
+        ci: 1,
+        limit: 100,
+        offset: 0,
+        token: 'mozi',
+        optimus_uuid: 'mozi',
+      });
     });
   }
 
   componentDidMount() {
     this.props.navigation.setParams({ headerName: '自定义头部', });
   }
-  componentWillReceiveProps(nextProps) {
-    const { home, } = nextProps;
-    if (home.movieid.length > 0) {
-      // const PARAM = {
-      //   movieIds: home.movieid,
-      // };
-      //  this.props.actions.fetchMovieAll(PARAM)
-      console.log('nextProps---', nextProps);
-    }
-  }
+
 
   onRefresh = () => {
     this.setState({ isRefreshing: true, });
@@ -111,11 +109,17 @@ export default class Zi extends Component {
 
   sectionList = () => {
     const { home, } = this.props;
+
     return (
       <SectionList
+        ref={view => { this.flist = view; }}
         style={styles.container}
         stickySectionHeadersEnabled // 安卓粘性头部需要开启这个，ios默认开启
         initialNumToRender={6}
+        scrollEventThrottle={16}
+        onEndReachedThreshold={0.01}
+        removeClippedSubviews
+        windowSize={350} // 如果你的列表的2-3行占一屏的话，这个值应该设置450-600之前，如果四五行占一屏应该设置300-350之间
         sections={home.movies}
         renderItem={item => {
           return this.renderItem(item);
@@ -162,14 +166,17 @@ export default class Zi extends Component {
   };
 
   render() {
-    console.log('js---', this.props);
     const { home, } = this.props;
     let loading = true;
     if (!!home.movies && home.movies.length > 0) {
       loading = false;
     }
+
+    setTimeout(() => {
+      this.flist && this.flist.recordInteraction();
+    }, 50);
     return (
-      <ListParagraph ParagraphLength={6} isLoading={loading} hasTitle list={this.sectionList} />
+      <ListParagraph style={{ flex: 1, }} ParagraphLength={6} isLoading={loading} hasTitle list={this.sectionList} />
     );
   }
 }
