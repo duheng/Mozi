@@ -4,7 +4,7 @@
 [![CircleCI](https://img.shields.io/circleci/project/github/RedSparr0w/node-csgo-parser.svg)](https://github.com/duheng/Mozi)
 [![Codecov branch](https://img.shields.io/codecov/c/github/codecov/example-python/master.svg)](https://github.com/duheng/Mozi)
 
-此项目致力于构建一套可最基础，最精简，可维护的 react-native 项目，适用于团队合作开发 React Native 项目，我们知道 react-native init 出来的项目只是一个最简单的 demo，距离开发企业级项目还差很远，所以这套框架是我在我们团队开发中总结优化而来的，会提供群里关注度高的问题的解决方案以及 demo，此项目虽然还不够完善，但是以此为基础足可以搭建一个大型项目：
+此项目致力于构建一套可最基础，最精简，可维护的 react-native 项目，适用于团队合作开发 React Native 项目，我们知道 react-native init 出来的项目只是一个最简单的 demo，距离开发企业级项目还差很远，所以这套框架是我在开发中总结优化而来的，会提供群里关注度高的问题的解决方案以及 demo，此项目虽然还不够完善，但是以此为基础足可以搭建一个大型项目：
 
 ##升级 2.1-beta 说明：
 
